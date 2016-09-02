@@ -1,0 +1,102 @@
+" vimrc - vim configuration
+
+set nocompatible
+
+execute pathogen#infect()
+execute pathogen#helptags()
+
+if has('autocmd')
+  filetype plugin indent on
+endif
+
+if has('syntax')
+  syntax on
+endif
+
+" Default Options
+set nobackup
+set noerrorbells
+set nojoinspaces
+set noswapfile
+set nowrap
+
+set autowrite
+set backspace=indent,eol,start
+set hidden
+set ignorecase
+set laststatus=2
+set modeline
+set number
+set ruler
+set showmatch
+set showmode
+set smartcase
+set splitright
+set timeoutlen=2000
+set ttimeoutlen=0
+set wildmode=longest:list
+
+" Feature Options
+if has('clipboard')
+  set clipboard=unnamed
+  if has('unnamedplus')
+    set clipboard+=unnamedplus
+  endif
+endif
+
+if has('diff')
+  set diffopt=filler,context:3
+endif
+
+if has('folding')
+  set nofoldenable
+endif
+
+if has('mouse')
+  set mouse=a
+  if has('mouse_sgr')
+    set ttymouse=sgr
+  endif
+endif
+
+if has('syntax')
+  set cursorline
+endif
+
+if has('windows')
+  set showtabline=2
+  set winminheight=0
+endif
+
+" Default Indentation
+set autoindent
+set expandtab
+set shiftround
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+set textwidth=72
+
+" Key Mappings
+noremap <C-J> <PageDown>
+noremap <C-K> <PageUp>
+
+noremap <silent> <Leader>n :set hlsearch!<CR>
+noremap <silent> <Leader>p :set paste!<CR>
+noremap <silent> <Leader>r :set relativenumber!<CR>
+noremap <silent> <Leader>s :set spell!<CR>
+
+noremap <silent> [t :tabprev<CR>
+noremap <silent> ]t :tabnext<CR>
+
+" Remote terminals don't cope particularly well with arrow keys in
+" insert mode. The key mappings proposed in Solution 15 works around the
+" issue without having to modify the 'term' option;
+" see: http://vim.wikia.com/wiki/Fix_arrow_keys_that_display_A_B_C_D_on_remote_shell.
+inoremap <Esc>oA <Esc>ki
+inoremap <Esc>oB <Esc>ji
+inoremap <Esc>oC <Esc>li
+inoremap <Esc>oD <Esc>hi
+
+" Color Scheme
+colorscheme wtf

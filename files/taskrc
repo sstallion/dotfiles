@@ -1,0 +1,36 @@
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# Files
+data.location=~/Dropbox/Taskwarrior
+
+# Color theme
+include /usr/local/share/doc/task/rc/dark-gray-256.theme
+
+# Confirmation and verbosity
+confirmation=off
+verbose=no
+
+# Search
+search.case.sensitive=no
+
+# Priority
+uda.priority.values=H,M,,L
+
+# Urgency
+urgency.blocked.coefficient=0.0
+urgency.blocking.coefficient=0.0
+urgency.tags.coefficient=0.0
+
+# Contexts
+context.home=project:Home
+context.work=project:Work
+context=work

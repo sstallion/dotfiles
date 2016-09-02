@@ -1,0 +1,22 @@
+# paths - path configuration
+
+# By default, path_helper(8) does not modify MANPATH unless it is
+# defined in the environment. Darwin helpfully calls path_helper from
+# /etc/zprofile, which forces us to call it once again to update paths.
+if [ -x /usr/libexec/path_helper ]; then
+    export MANPATH
+    eval $(/usr/libexec/path_helper -s)
+fi
+
+function collect_paths {
+    for arg; do
+        while read line; do
+            echo $(eval echo $line)
+        done < $arg
+    done
+}
+
+path=($(collect_paths $HOME/.paths $HOME/.paths.d/*) $path)
+manpath=($(collect_paths $HOME/.manpaths $HOME/.manpaths.d/*) $manpath)
+
+# vim: ft=zsh

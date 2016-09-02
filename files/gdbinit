@@ -1,0 +1,9 @@
+# gdbinit - GDB user initialization
+
+# Disable confirmation messages:
+set confirm off
+
+# Print Python stack dumps on error:
+set python print-stack full
+
+# vim: ft=gdb

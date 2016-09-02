@@ -1,0 +1,32 @@
+# tcshrc - tcsh configuration
+
+alias ls "ls-F -h"
+
+bindkey -v
+bindkey -k up history-search-backward
+bindkey -k down history-search-forward
+
+limit coredumpsize unlimited
+
+set nobeep
+set noclobber
+
+set autolist = ambiguous
+set autorehash
+set color
+set complete = enhance
+set ellipsis
+set notify
+set path = (. $path)
+set prompt = "%n@%m:%~%# "
+
+setenv EDITOR vim
+setenv PAGER less
+
+# Rather than clutter .tcshrc, we source configuration from .tcshrc.d
+# to further customize the shell:
+foreach name ($home/.tcshrc.d/*)
+    source $name
+end
+
+# vim: ft=tcsh

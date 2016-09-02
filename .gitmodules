@@ -1,0 +1,54 @@
+# [submodule "files/vim/bundle/command-t"]
+# 	path = files/vim/bundle/command-t
+# 	url = git://github.com/wincent/command-t.git
+[submodule "files/vim/bundle/command-t"]
+	path = files/vim/bundle/command-t
+	url = git://github.com/sstallion/command-t.git
+[submodule "files/vim/bundle/hexmode"]
+	path = files/vim/bundle/hexmode
+	url = git://github.com/fidian/hexmode.git
+[submodule "files/vim/bundle/lightline"]
+	path = files/vim/bundle/lightline
+	url = git://github.com/itchyny/lightline.vim
+[submodule "files/vim/bundle/lightline-wtf"]
+	path = files/vim/bundle/lightline-wtf
+	url = git://github.com/sstallion/lightline-wtf.git
+[submodule "files/vim/bundle/vim-bookmarks"]
+	path = files/vim/bundle/vim-bookmarks
+	url = git://github.com/MattesGroeger/vim-bookmarks.git
+[submodule "files/vim/bundle/vim-commentary"]
+	path = files/vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "files/vim/bundle/vim-eunuch"]
+	path = files/vim/bundle/vim-eunuch
+	url = git://github.com/tpope/vim-eunuch.git
+[submodule "files/vim/bundle/vim-fugitive"]
+	path = files/vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "files/vim/bundle/vim-git"]
+	path = files/vim/bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "files/vim/bundle/vim-gitgutter"]
+	path = files/vim/bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "files/vim/bundle/vim-localvimrc"]
+	path = files/vim/bundle/vim-localvimrc
+	url = git://github.com/embear/vim-localvimrc.git
+[submodule "files/vim/bundle/vim-markdown"]
+	path = files/vim/bundle/vim-markdown
+	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "files/vim/bundle/vim-pathogen"]
+	path = files/vim/bundle/vim-pathogen
+	url = git://github.com/tpope/vim-pathogen.git
+[submodule "files/vim/bundle/vim-togglelist"]
+	path = files/vim/bundle/vim-togglelist
+	url = git://github.com/milkypostman/vim-togglelist.git
+[submodule "files/vim/bundle/vim-whitespace"]
+	path = files/vim/bundle/vim-whitespace
+	url = git://github.com/sstallion/vim-whitespace.git
+[submodule "files/vim/bundle/vim-wildignore"]
+	path = files/vim/bundle/vim-wildignore
+	url = git://github.com/sstallion/vim-wildignore.git
+[submodule "files/vim/bundle/vim-wtf"]
+	path = files/vim/bundle/vim-wtf
+	url = git://github.com/sstallion/vim-wtf.git

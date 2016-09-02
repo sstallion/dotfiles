@@ -1,0 +1,15 @@
+*/.git
+*/.hg
+*/.svn
+*.a
+*.bin
+*.dylib
+*.elf
+*.l[ao]
+*.o
+*.obj
+*.py[co]
+*.so
+*.sw[op]
+*.un~
+a.out

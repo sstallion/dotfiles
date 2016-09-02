@@ -1,0 +1,19 @@
+# prompt - zsh prompt configuration
+
+autoload -U promptinit
+promptinit
+
+KEYTIMEOUT=1 # 10ms
+PROMPT="%n@%m:%~%# "
+
+# Indicate vim command mode on right-hand side;
+# see: http://dougblack.io/words/zsh-vi-mode.html.
+function zle-line-init zle-keymap-select {
+    RPS1="${${KEYMAP/vicmd/Command}/(main|viins)/} $EPS1"
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# vim: ft=zsh

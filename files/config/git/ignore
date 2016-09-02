@@ -1,0 +1,4 @@
+*.sw[op]
+*.un~
+.DS_Store
+.lvimrc

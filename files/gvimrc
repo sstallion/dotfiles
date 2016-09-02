@@ -1,0 +1,11 @@
+" gvimrc - GUI-specific vim configuration
+
+" Default Options
+set guicursor=a:block-blinkon0
+set guioptions=eimg
+set guitablabel^=%N\ 
+
+" Fonts
+if has('gui_macvim')
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
+endif
