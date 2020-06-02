@@ -1,0 +1,9 @@
+session_name: dev
+windows:
+  - window_name: main
+    layout: ae3b,335x92,0,0{234x92,0,0,1,100x92,235,0[100x30,235,0,2,100x30,235,31,8,100x30,235,62,3]}
+    panes:
+      - vim -c vsplit
+      - pane
+      - pane
+      - pane
