@@ -1,6 +1,12 @@
 # gitconfig - git configuration
 
 [alias]
+	# Show changes for a given commit:
+	commitdiff = "!git diff $1^!"
+
+	# Generate a diffstat for a given commit:
+	diffstat = "!git diff --stat $1^!"
+
 	# Pull forced commits by fetching changes and resetting the
 	# current local branch to match the remote;
 	# see: https://stackoverflow.com/a/9813888
