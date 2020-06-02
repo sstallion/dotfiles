@@ -4,6 +4,7 @@ let g:whitespace_ignore = [
       \ 'diff',
       \ 'git',
       \ 'man',
+      \ 'taskedit',
       \ ]
 
 " Ignore whitespace errors in split windows so Command-T behaves:
