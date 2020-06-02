@@ -19,7 +19,7 @@ set noshowmode
 function! s:bufnamemodify(bufnr, mods, bufname)
   let fname = expand(printf('#%d:p', a:bufnr))
   if empty(glob(fname))
-    return a:bufname
+    return a:bufname  " return bufname if not a file
   endif
   let bufname = fnamemodify(fname, printf(':s?%s$??%s', expand('/'), a:mods))
   if bufexists(a:bufnr)
