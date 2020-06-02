@@ -1,13 +1,11 @@
 # gnupg - GNU Privacy Guard
 
-GNUPGHOME=$HOME/.gnupg
-
 export GPG_TTY=$(tty)
 
 # Configure SSH if gpg-agent(1) was started:
-if [[ -S $GNUPGHOME/S.gpg-agent.ssh ]]; then
+if [[ -S $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh ]]; then
 	unset SSH_AGENT_PID
-	export SSH_AUTH_SOCK=$GNUPGHOME/S.gpg-agent.ssh
+	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 fi
 
 # vim: ft=zsh
