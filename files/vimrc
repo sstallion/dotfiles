@@ -74,7 +74,11 @@ if has('mouse')
 endif
 
 if has('syntax')
-  set cursorline
+  " Leave cursorline disabled as performance on macOS is abysmal with
+  " this enabled. This is why we can't have nice things.
+  if !has('osx')
+    set cursorline
+  endif
 endif
 
 if has('windows')
