@@ -20,6 +20,9 @@ let g:CommandTCancelMap = ['<C-C>', '<Esc>']
 let g:CommandTCursorColor    = 'Cursor'
 let g:CommandTHighlightColor = 'Wildmenu'
 
+" Show matches in buffer window in MRU order:
+nnoremap <silent> <Leader>b :CommandTMRU<CR>
+
 " Prior to version 5.0, the following is needed to work with tabs;
 " see: https://github.com/wincent/command-t/issues/237.
 function! s:BufHidden(buffer)
