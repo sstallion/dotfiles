@@ -12,5 +12,8 @@ let g:grepper.tools = ['rg', 'grep', 'git']
 " Mimic command-line in prompt;
 let g:grepper.prompt_text = '$c '
 
+" Update search history after query:
+let g:grepper.searchreg = 1
+
 " Key Mappings
 nnoremap <Leader>g :Grepper<CR>
