@@ -22,6 +22,9 @@
 [submodule "files/vim/bundle/vim-cursorline"]
 	path = files/vim/bundle/vim-cursorline
 	url = git://github.com/sstallion/vim-cursorline.git
+[submodule "files/vim/bundle/vim-dispatch"]
+	path = files/vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
 [submodule "files/vim/bundle/vim-eunuch"]
 	path = files/vim/bundle/vim-eunuch
 	url = git://github.com/tpope/vim-eunuch.git
