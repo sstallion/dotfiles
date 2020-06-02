@@ -2,6 +2,7 @@
 
 export VIM_SERVERNAME=${VIM_SERVERNAME:-VIM}
 
+# Old habits die hard...
 alias vi=vim
 
 # Client-Server Aliases

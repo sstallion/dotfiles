@@ -11,3 +11,8 @@ if has('gui_gtk')
 elseif has('gui_macvim')
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
 endif
+
+" Enable pedantic colors when not using macOS:
+if !has('gui_macvim')
+  let g:wtf_pedantic_guicolors = 1
+endif

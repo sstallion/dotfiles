@@ -6,7 +6,7 @@ promptinit
 KEYTIMEOUT=1 # 10ms
 PROMPT="%n@%m:%~%# "
 
-# Disable command not found handler if defined:
+# Disable command not found handler if installed:
 if whence -f command_not_found_handler &>/dev/null; then
 	unfunction command_not_found_handler
 fi
