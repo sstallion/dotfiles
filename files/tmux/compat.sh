@@ -32,7 +32,7 @@ Darwin)
 	fi
 	tmux bind-key ] run-shell "pbpaste | tmux load-buffer - && tmux paste-buffer"
 	;;
-Linux)
+*)
 	# Disable terminal clipboard when using gnome-terminal;
 	# see: http://askubuntu.com/a/507215.
 	tmux set-option -g set-clipboard off
