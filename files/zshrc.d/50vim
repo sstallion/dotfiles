@@ -1,0 +1,12 @@
+# vim - vim configuration
+
+export VIM_SERVERNAME=${VIM_SERVERNAME:-VIM}
+
+# Client-Server Aliases
+alias vimb="vim --servername $VIM_SERVERNAME --remote-silent"
+alias vimbw="vim --servername $VIM_SERVERNAME --remote-wait-silent"
+
+alias vimt="vim --servername $VIM_SERVERNAME --remote-tab-silent"
+alias vimtw="vim --servername $VIM_SERVERNAME --remote-tab-wait-silent"
+
+# vim: ft=zsh
