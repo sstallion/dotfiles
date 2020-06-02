@@ -10,5 +10,5 @@ autocmd FileType * setlocal formatoptions-=l formatoptions-=o formatoptions-=r f
 
 " 'formatoptions' are usually applied to related file types. Rather than
 " add duplicate ftplugin entries, we apply them here instead:
-autocmd FileType c,cpp,header       setlocal formatoptions+=o formatoptions+=r
-autocmd FileType help,markdown,text setlocal formatoptions+=t
+autocmd FileType c,cpp,header               setlocal formatoptions+=o formatoptions+=r
+autocmd FileType help,markdown,text,vimwiki setlocal formatoptions+=t
