@@ -9,15 +9,15 @@ export HOMEBREW_NO_EMOJI=1
 
 # If available, inform brew(1) that we have a GitHub API personal access
 # token; see: https://developer.github.com/v3/#rate-limiting
-if [ -r ~/.brew-api-token ]; then
+if [[ -r ~/.brew-api-token ]]; then
 	export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.brew-api-token)
 fi
 
 # Append additional completion paths to the function path:
-if [ -d $HOMEBREW_HOME/share/zsh/site-functions ]; then
+if [[ -d $HOMEBREW_HOME/share/zsh/site-functions ]]; then
 	fpath=($fpath $HOMEBREW_HOME/share/zsh/site-functions)
 fi
-if [ -d $HOMEBREW_HOME/share/zsh-completions ]; then
+if [[ -d $HOMEBREW_HOME/share/zsh-completions ]]; then
 	fpath=($fpath $HOMEBREW_HOME/share/zsh-completions)
 fi
 

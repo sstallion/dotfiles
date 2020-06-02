@@ -11,7 +11,7 @@ fi
 function collect_paths {
 	local arg
 	for arg; do
-		if [ -r $arg ]; then
+		if [[ -r $arg ]]; then
 			while read line; do
 				eval echo $line
 			done <$arg

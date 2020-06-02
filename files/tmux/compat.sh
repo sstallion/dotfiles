@@ -8,10 +8,15 @@
 # to bridge this divide so a common tmux.conf can be used on different
 # systems running different versions without issue.
 
+has_version() {
+	[ -z "$version" ] && version=`tmux -V | cut -c 6-`
+	return `echo $@ | awk "{print (($version >= \$1) == 0)}"`
+}
+
 case `uname -s` in
 Darwin)
 	# Reattach to the per-user namespace to access the pasteboard.
-	# For macOS Sierra, specify  `--with-wrap-pbcopy-and-pbpaste`
+	# For macOS Sierra, specify `--with-wrap-pbcopy-and-pbpaste`
 	# when installing reattach-to-user-namespace via brew(1);
 	# see: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard,
 	#      http://superuser.com/a/413233.
@@ -34,17 +39,11 @@ Linux)
 	;;
 esac
 
-version=`tmux -V | cut -c 6-`
-has_version() {
-	return `echo $@ | awk "{print (($version >= \$1) == 0)}"`
-}
-
+# Enable mouse support:
 if has_version 2.1; then
-	# Enable mouse support:
 	tmux set-option -g mouse on
 
 elif has_version 1.6; then
-	# Enable mouse support:
 	tmux set-option -g mouse-mode on
 	tmux set-option -g mouse-resize-pane on
 	tmux set-option -g mouse-select-pane on
