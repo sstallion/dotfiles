@@ -42,12 +42,12 @@ set updatetime=100
 set wildmode=longest:list
 
 " Feature Options
-" if has('clipboard')
-"   set clipboard=unnamed
-"   if has('unnamedplus')
-"     set clipboard+=unnamedplus
-"   endif
-" endif
+if has('clipboard')
+  set clipboard=unnamed
+  if has('unnamedplus')
+    set clipboard+=unnamedplus
+  endif
+endif
 
 if has('diff')
   set diffopt=filler,context:3
