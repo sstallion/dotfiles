@@ -1,8 +1,16 @@
 syntax: glob
 
+*.bin
+*.dylib
+*.elf
+*.l?[ao]
+*.obj
 *.orig
+*.py[co]
 *.rej
+*.so
 *.sw[op]
 .DS_Store
 .lvimrc
+a.out
 tags
