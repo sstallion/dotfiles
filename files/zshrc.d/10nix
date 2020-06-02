@@ -5,8 +5,8 @@ if [ -r $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
 
 	# The default nix profile will update PATH, however MANPATH is
 	# left untouched. This can cause the `--help' option to fail if
-	# MANPATH is non-empty.
-	export MANPATH=$NIX_LINK/share/man:$MANPATH
+	# MANPATH is non-empty when using nix.
+	manpath=($NIX_LINK/share/man $manpath)
 fi
 
 # vim: ft=zsh
