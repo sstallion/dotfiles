@@ -17,7 +17,11 @@ set noshowmode
 " Returns a modified {bufname} according to {mods}, normalizing
 " directory names. Long paths are shortened to prevent collapsing.
 function! s:bufnamemodify(bufnr, mods, bufname)
-  let bufname = fnamemodify(a:bufname, printf('%s:s?%s$??', a:mods, expand('/')))
+  let fname = expand(printf('#%d:p', a:bufnr))
+  if empty(glob(fname))
+    return a:bufname
+  endif
+  let bufname = fnamemodify(fname, printf(':s?%s$??%s', expand('/'), a:mods))
   if bufexists(a:bufnr)
     let winwidth = winwidth(bufwinnr(a:bufnr)) / 2
     if winwidth > 0 && winwidth < len(bufname)
@@ -25,7 +29,7 @@ function! s:bufnamemodify(bufnr, mods, bufname)
       let bufname = printf('…%s%s', expand('/'), fnamemodify(bufname, ':t'))
     endif
   endif
-  return printf('%s%s', bufname, isdirectory(a:bufname) ? expand('/') : '')
+  return printf('%s%s', bufname, isdirectory(fname) ? expand('/') : '')
 endfunction
 
 " Returns name of buffer identified by {bufnr} modified according to
@@ -47,8 +51,7 @@ endfunction
 " Returns filename for buffer identified by {bufnr} suitable for display
 " in the statusline or tabline.
 function! s:getfilename(bufnr, mods, readonly, modifiable, modified)
-  return  (a:readonly ? ' ' : '').
-        \  s:getbufname(a:bufnr, a:mods).
+  return  (a:readonly ? ' ' : '') . s:getbufname(a:bufnr, a:mods) .
         \ (!a:modifiable ? ' [-]' : (a:modified ? ' [+]' : ''))
 endfunction
 
