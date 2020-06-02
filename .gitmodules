@@ -58,6 +58,9 @@
 [submodule "files/vim/bundle/vim-qf"]
 	path = files/vim/bundle/vim-qf
 	url = git://github.com/romainl/vim-qf.git
+[submodule "files/vim/bundle/vim-scriptease"]
+	path = files/vim/bundle/vim-scriptease
+	url = git://github.com/tpope/vim-scriptease.git
 [submodule "files/vim/bundle/vim-session"]
 	path = files/vim/bundle/vim-session
 	url = git://github.com/xolox/vim-session.git
