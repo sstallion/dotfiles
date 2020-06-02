@@ -70,10 +70,6 @@ if has('mouse')
   endif
 endif
 
-if has('syntax')
-  set cursorline
-endif
-
 if has('windows')
   set showtabline=2
   set winminheight=0
