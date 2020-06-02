@@ -7,8 +7,8 @@ set-option -g status-style bg=colour234
 
 set-window-option -g mode-style bg=colour12,fg=colour234
 
-set-window-option -g pane-active-border-style bg=colour234,fg=colour234
-set-window-option -g pane-border-style bg=colour234,fg=colour234
+set-window-option -g pane-active-border-style bg=default,fg=default
+set-window-option -g pane-border-style bg=default,fg=default
 
 # Emulate lightline statusline style:
 set-window-option -g window-status-current-format "#[fg=colour234,bg=colour4]#[fg=colour15,bold,bg=colour4] #I #W #[fg=colour4,nobold,bg=colour234]"

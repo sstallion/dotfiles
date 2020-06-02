@@ -1,7 +1,7 @@
 # profile - plan9port rc(1) profile for acme(1)
 
 GIT_EDITOR=E
-font=$ACME/font/DroidSansMono/14a/font
+font=/mnt/font/Droid\ Sans\ Mono/12a/font
 sysname=`{u hostname -s}
 prompt=($sysname'% ' '	')
 tabstop=8
