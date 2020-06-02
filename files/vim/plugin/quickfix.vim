@@ -22,17 +22,3 @@ command -nargs=* -bang Make :call <SID>Command('make<bang> <args>')
 " Key Mappings
 noremap <silent> <F5> :Make<CR>
 noremap <silent> <F6> :Make!<CR>
-
-noremap <silent> [q :cprev!<CR>
-noremap <silent> ]q :cnext!<CR>
-
-noremap <silent> [l :lprev!<CR>
-noremap <silent> ]l :lnext!<CR>
-
-" Automatically open and close the QuickFix window after :make;
-" see: http://vim.wikia.com/wiki/Automatically_open_the_quickfix_window_on_:make.
-augroup QuickFix
-  autocmd!
-  autocmd QuickFixCmdPost [^l]* nested cwindow
-  autocmd QuickFixCmdPost    l* nested lwindow
-augroup END

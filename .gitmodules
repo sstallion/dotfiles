@@ -46,15 +46,15 @@
 [submodule "files/vim/bundle/vim-polyglot"]
 	path = files/vim/bundle/vim-polyglot
 	url = git://github.com/sheerun/vim-polyglot.git
+[submodule "files/vim/bundle/vim-qf"]
+	path = files/vim/bundle/vim-qf
+	url = git://github.com/romainl/vim-qf.git
 [submodule "files/vim/bundle/vim-session"]
 	path = files/vim/bundle/vim-session
 	url = git://github.com/xolox/vim-session.git
 [submodule "files/vim/bundle/vim-tmux-navigator"]
 	path = files/vim/bundle/vim-tmux-navigator
 	url = git://github.com/christoomey/vim-tmux-navigator.git
-[submodule "files/vim/bundle/vim-togglelist"]
-	path = files/vim/bundle/vim-togglelist
-	url = git://github.com/milkypostman/vim-togglelist.git
 [submodule "files/vim/bundle/vim-vinegar"]
 	path = files/vim/bundle/vim-vinegar
 	url = git://github.com/tpope/vim-vinegar.git
