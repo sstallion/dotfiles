@@ -17,3 +17,6 @@ let g:grepper.searchreg = 1
 
 " Key Mappings
 nnoremap <Leader>g :Grepper<CR>
+
+nmap gs <Plug>(GrepperOperator)
+xmap gs <Plug>(GrepperOperator)
