@@ -111,6 +111,10 @@ inoremap <Esc>oB <Esc>ji
 inoremap <Esc>oC <Esc>li
 inoremap <Esc>oD <Esc>hi
 
+" Stop insert mode when leaving a buffer. This avoids accidental
+" insertions when navigating with a mouse.
+autocmd BufLeave * stopinsert
+
 " Color Scheme
 colorscheme wtf
 
