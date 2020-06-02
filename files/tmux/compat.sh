@@ -15,6 +15,11 @@ Darwin)
 	tmux bind-key -t vi-copy y     copy-pipe pbcopy
 	tmux bind-key ] run-shell "pbpaste | tmux load-buffer - && tmux paste-buffer"
 	;;
+Linux)
+	tmux bind-key -t vi-copy Enter copy-pipe "xclip -i -selection clipboard"
+	tmux bind-key -t vi-copy y     copy-pipe "xclip -i -selection clipboard"
+	tmux bind-key ] run-shell "xclip -o | tmux load-buffer - && tmux paste-buffer"
+	;;
 esac
 
 version=`tmux -V | cut -c 6-`

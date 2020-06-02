@@ -1,0 +1,19 @@
+# thinkpad.yaml - tmux session configuration
+
+session_name: default
+environment:
+  VIM_SERVERNAME: DEFAULT
+windows:
+  - window_name: main
+    focus: true
+    layout: 8343,177x55,0,0{96x55,0,0,0,80x55,97,0[80x27,97,0,1,80x27,97,28,2]}
+    panes:
+    - shell_command: vim --servername $VIM_SERVERNAME
+      focus: true
+    - pane
+    - pane
+  - window_name: aux
+    layout: even-horizontal
+    panes:
+      - pane
+      - pane
