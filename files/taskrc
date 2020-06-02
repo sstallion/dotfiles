@@ -9,11 +9,8 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
-# Files
-data.location=~/Dropbox/Apps/Taskwarrior
-
 # Color theme
-include ~/Dropbox/Apps/Taskwarrior/rc/dark-gray-256.theme
+include ~/.task/rc/dark-gray-256.theme
 
 # Confirmation and verbosity
 confirmation=off
@@ -31,3 +28,6 @@ urgency.tags.coefficient=0.0
 context.home=project:Home
 context.work=project:Work
 context=home
+
+# Include local configuration
+include ~/.taskrc.local

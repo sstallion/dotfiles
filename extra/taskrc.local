@@ -1,0 +1,13 @@
+# Hostname and port of the Taskserver
+taskd.server=<host>:<port>
+
+# User identification for the Taskserver
+taskd.credentials=<organization>/<user>/<key>
+
+# Client certificate and key
+taskd.certificate=~/.task/certs/<certificate>
+taskd.key=~/.task/private/<key>
+taskd.ca=~/.task/cacerts.pem
+
+# Enforce strict server verification
+taskd.trust=strict
