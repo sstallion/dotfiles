@@ -10,3 +10,6 @@ let g:hexmode_patterns = '*.bin'
 " Never prompt or source local vimrc files in a sandbox:
 let g:localvimrc_ask     = 0
 let g:localvimrc_sandbox = 0
+
+" Install command aliases for better completion:
+let g:session_command_aliases = 1

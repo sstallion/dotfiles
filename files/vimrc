@@ -57,6 +57,10 @@ if has('folding')
   set nofoldenable
 endif
 
+if has('mksession')
+  set sessionoptions-=buffers
+endif
+
 if has('mouse')
   set mouse=a
   if has('mouse_sgr')
