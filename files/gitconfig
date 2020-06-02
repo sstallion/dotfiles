@@ -1,24 +1,31 @@
 # gitconfig - global Git configuration
 
 [alias]
-    # Alias to reset the previous commit (safe for use with branches);
-    # see: http://megakemp.com/2016/08/25/git-undo/.
-    undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+	# Alias to reset the previous commit (safe for use with branches);
+	# see: http://megakemp.com/2016/08/25/git-undo/.
+	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 
 [core]
-    editor = vim -f
+	editor = vim -f
+
+[github]
+	user = sstallion
 
 [merge]
-    tool = vim -df
-    conflictstyle = diff3
+	tool = vim -df
+	conflictstyle = diff3
 
 [mergetool]
-    prompt = false
+	prompt = false
 
 [push]
-    default = current
+	default = current
+
+[user]
+	name = Steven Stallion
+	email = sstallion@gmail.com
 
 [include]
-    path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
 
 # vim: ft=gitconfig
