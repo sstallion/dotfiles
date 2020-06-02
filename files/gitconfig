@@ -8,6 +8,11 @@
 [color]
 	ui = auto
 
+[core]
+	# Look for exclude patterns under $HOME rather than the default.
+	# This prevents having to track $HOME/.config.
+	excludesFile = ~/.gitignore
+
 [diff]
 	tool = vimdiff
 
@@ -34,7 +39,8 @@
 	user = sstallion
 
 [include]
-	# Include local configuration:
+	# Support a third user-specific configuration file to overwrite
+	# variables defined in the global configuration:
 	path = ~/.gitconfig.local
 
 # vim: ft=gitconfig
