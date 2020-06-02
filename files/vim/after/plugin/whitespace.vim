@@ -3,6 +3,7 @@
 let g:whitespace_ignore = [
       \ 'diff',
       \ 'git',
+      \ 'man',
       \ ]
 
 " Ignore tabs for other git file types. This prevents unnecessary
