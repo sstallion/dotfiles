@@ -25,6 +25,7 @@ set backspace=indent,eol,start
 set hidden
 set ignorecase
 set laststatus=2
+set lazyredraw
 set modeline
 set number
 set ruler
@@ -35,6 +36,7 @@ set splitright
 set switchbuf=usetab
 set timeoutlen=2000
 set ttimeoutlen=0
+set ttyfast
 set wildmode=longest:list
 
 " Feature Options
