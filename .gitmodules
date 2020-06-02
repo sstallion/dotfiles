@@ -55,6 +55,9 @@
 [submodule "files/vim/bundle/vim-wtf"]
 	path = files/vim/bundle/vim-wtf
 	url = git://github.com/sstallion/vim-wtf.git
+[submodule "files/vim/bundle/vim-yankstack"]
+	path = files/vim/bundle/vim-yankstack
+	url = git://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "files/vim/bundle/webapi-vim"]
 	path = files/vim/bundle/webapi-vim
 	url = git://github.com/mattn/webapi-vim.git
