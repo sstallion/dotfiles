@@ -4,10 +4,6 @@
 echo "Updating submodules..."
 git submodule update --init --recursive
 
-echo "Updating permissions..."
-chmod 0700 files/ssh
-chmod 0600 files/ssh/config
-
 # Link each file to the home directory iff the file does not exist or is
 # already a symbolic link. This will probably annoy someone, eventually.
 for target in files/*; do

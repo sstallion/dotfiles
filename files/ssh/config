@@ -1,5 +1,0 @@
-# config - ssh configuration
-
-ForwardAgent yes
-ForwardX11 yes
-ServerAliveInterval 300
