@@ -13,3 +13,4 @@
 *.sw[op]
 *.un~
 a.out
+tags
