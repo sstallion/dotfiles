@@ -31,6 +31,9 @@
 [submodule "files/vim/bundle/vim-gitgutter"]
 	path = files/vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "files/vim/bundle/vim-gutentags"]
+	path = files/vim/bundle/vim-gutentags
+	url = git://github.com/ludovicchabant/vim-gutentags.git
 [submodule "files/vim/bundle/vim-localvimrc"]
 	path = files/vim/bundle/vim-localvimrc
 	url = git://github.com/embear/vim-localvimrc.git
