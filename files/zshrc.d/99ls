@@ -13,6 +13,4 @@ fi
 
 alias ls="ls -Fh $args"
 
-unset args
-
 # vim: ft=zsh

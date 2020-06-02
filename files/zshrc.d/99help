@@ -1,0 +1,11 @@
+# help - zsh help configuration
+
+autoload -U run-help
+autoload -U run-help-git
+autoload -U run-help-svn
+
+unalias run-help
+
+alias help=run-help
+
+# vim: ft=zsh

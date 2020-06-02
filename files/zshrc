@@ -33,6 +33,4 @@ for file in $HOME/.zshrc.d/*; do
     source $file
 done
 
-unset file
-
 # vim: ft=zsh
