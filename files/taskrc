@@ -13,7 +13,7 @@
 data.location=~/Dropbox/Taskwarrior
 
 # Color theme
-include /usr/local/share/doc/task/rc/dark-gray-256.theme
+include ~/Dropbox/Taskwarrior/rc/dark-gray-256.theme
 
 # Confirmation and verbosity
 confirmation=off
