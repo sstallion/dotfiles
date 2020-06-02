@@ -27,6 +27,10 @@ setopt RM_STAR_SILENT
 export EDITOR=vim
 export PAGER=less
 
+if [[ -f ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+fi
+
 # Rather than clutter zshrc, we source configuration from zshrc.d to
 # further customize the shell:
 for file in ~/.zshrc.d/*; do
