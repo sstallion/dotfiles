@@ -10,10 +10,10 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/Dropbox/Taskwarrior
+data.location=~/Dropbox/Apps/Taskwarrior
 
 # Color theme
-include ~/Dropbox/Taskwarrior/rc/dark-gray-256.theme
+include ~/Dropbox/Apps/Taskwarrior/rc/dark-gray-256.theme
 
 # Confirmation and verbosity
 confirmation=off
