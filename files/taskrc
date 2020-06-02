@@ -22,9 +22,6 @@ verbose=no
 # Search
 search.case.sensitive=no
 
-# Priority
-uda.priority.values=H,M,,L
-
 # Urgency
 urgency.blocked.coefficient=0.0
 urgency.blocking.coefficient=0.0
