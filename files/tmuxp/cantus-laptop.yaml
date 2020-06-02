@@ -1,0 +1,10 @@
+# cantus-laptop.yaml - tmux session configuration
+
+session_name: default
+windows:
+  - window_name: main
+    layout: 4887,204x59,0,0{107x59,0,0,6,96x59,108,0[96x29,108,0,7,96x29,108,30,8]}
+    panes:
+      - vim
+      - pane
+      - pane
