@@ -14,5 +14,6 @@ let g:localvimrc_sandbox = 0
 " Install command aliases for better completion:
 let g:session_command_aliases = 1
 
-" Disable default vim-tmux-navigator key mappings:
-let g:tmux_navigator_no_mappings = 1
+" Disable default vim-tmux-navigator key mappings and save buffers:
+let g:tmux_navigator_no_mappings    = 1
+let g:tmux_navigator_save_on_switch = 2

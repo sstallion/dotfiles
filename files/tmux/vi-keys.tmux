@@ -43,7 +43,7 @@ bind-key _   resize-pane -Z
 
 # Detect if pane is running vim(1), based on vim-tmux-navigator;
 # see: https://github.com/christoomey/vim-tmux-navigator.
-is_vim="basename `ps -o comm= -t #{pane_tty}` | grep -E -i -q '^(vi|vim(diff)?)$'"
+is_vim="ps -o comm= -t #{pane_tty} | grep -E -i -q '(vi|vim(diff)?)$'"
 
 # Rather than bind to a series of control sequences, we instead use a
 # key table to emulate vim's default cursor movement key mappings;

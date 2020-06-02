@@ -6,6 +6,8 @@ set guioptions=eimg
 set guitablabel^=%N\ 
 
 " Fonts
-if has('gui_macvim')
+if has('gui_gtk2')
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
+elseif has('gui_macvim')
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
 endif
