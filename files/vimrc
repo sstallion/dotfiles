@@ -73,6 +73,10 @@ if has('mouse')
   endif
 endif
 
+if has('multi_byte')
+  set encoding=utf-8
+endif
+
 if has('syntax')
   " Leave cursorline disabled as performance on macOS is abysmal with
   " this enabled. This is why we can't have nice things.
