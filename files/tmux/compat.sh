@@ -10,6 +10,7 @@
 
 case `uname -s` in
 Darwin)
+	tmux set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 	tmux bind-key -t vi-copy Enter copy-pipe pbcopy
 	tmux bind-key -t vi-copy y     copy-pipe pbcopy
 	tmux bind-key ] run-shell "pbpaste | tmux load-buffer - && tmux paste-buffer"
