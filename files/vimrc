@@ -39,6 +39,7 @@ set switchbuf=usetab
 set timeoutlen=2000
 set ttimeoutlen=0
 set ttyfast
+set updatetime=100
 set wildmode=longest:list
 
 " Feature Options
