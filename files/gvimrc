@@ -3,11 +3,11 @@
 " Default Options
 set guicursor=a:block-blinkon0
 set guioptions=eimg
-set guitablabel^=%N\ 
+set guitablabel=%N\ %t\ %m
 
 " Fonts
 if has('gui_gtk2')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
 elseif has('gui_macvim')
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
 endif
