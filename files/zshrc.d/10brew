@@ -1,6 +1,6 @@
 # brew - homebrew configuration
 
-if [ ! -x "$(whence brew)" ]; then
+if ! whence brew &>/dev/null; then
 	return
 fi
 
