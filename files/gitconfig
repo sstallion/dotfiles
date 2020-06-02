@@ -1,7 +1,10 @@
 # gitconfig - git configuration
 
 [alias]
-	# Alias to reset the previous commit (safe for use with branches);
+	# Remove local branches that have been merged to master:
+	purge = "!git branch --merged master | grep -v ' master$' | xargs -n 1 git branch -d"
+
+	# Reset the previous commit (safe for use with branches);
 	# see: http://megakemp.com/2016/08/25/git-undo/.
 	undo = "!f() { git reset --soft $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 
