@@ -1,6 +1,3 @@
-# [submodule "files/vim/bundle/command-t"]
-# 	path = files/vim/bundle/command-t
-# 	url = git://github.com/wincent/command-t.git
 [submodule "files/vim/bundle/command-t"]
 	path = files/vim/bundle/command-t
 	url = git://github.com/sstallion/command-t.git
@@ -28,9 +25,6 @@
 [submodule "files/vim/bundle/vim-fugitive"]
 	path = files/vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "files/vim/bundle/vim-git"]
-	path = files/vim/bundle/vim-git
-	url = git://github.com/tpope/vim-git.git
 [submodule "files/vim/bundle/vim-gitgutter"]
 	path = files/vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
@@ -43,6 +37,9 @@
 [submodule "files/vim/bundle/vim-pathogen"]
 	path = files/vim/bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+[submodule "files/vim/bundle/vim-polyglot"]
+	path = files/vim/bundle/vim-polyglot
+	url = git://github.com/sheerun/vim-polyglot.git
 [submodule "files/vim/bundle/vim-togglelist"]
 	path = files/vim/bundle/vim-togglelist
 	url = git://github.com/milkypostman/vim-togglelist.git
