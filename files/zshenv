@@ -1,0 +1,5 @@
+# zshenv - zsh configuration
+
+setopt NO_GLOBAL_RCS
+
+# vim: ft=zsh
