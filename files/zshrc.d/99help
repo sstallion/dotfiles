@@ -1,10 +1,10 @@
 # help - zsh help configuration
 
+unalias run-help &>/dev/null
+
 autoload -U run-help
 autoload -U run-help-git
 autoload -U run-help-svn
-
-unalias run-help
 
 alias help=run-help
 
