@@ -1,0 +1,14 @@
+cmake
+colordiff
+coreutils
+ctags
+gdb
+git
+less
+mercurial
+subversion
+taskwarrior
+the_silver_searcher
+tmux
+vim
+zsh
