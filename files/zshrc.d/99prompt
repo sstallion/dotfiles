@@ -6,6 +6,11 @@ promptinit
 KEYTIMEOUT=1 # 10ms
 PROMPT="%n@%m:%~%# "
 
+# Disable command not found handler:
+if [ whence -f command_not_found_handler &>/dev/null ]; then
+	unfunction command_not_found_handler
+fi
+
 # Indicate vi command mode on right-hand side;
 # see: http://dougblack.io/words/zsh-vi-mode.html.
 function zle-line-init zle-keymap-select {

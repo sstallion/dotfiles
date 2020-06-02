@@ -2,6 +2,8 @@
 
 export VIM_SERVERNAME=${VIM_SERVERNAME:-VIM}
 
+alias vi=vim
+
 # Client-Server Aliases
 alias vimb="vim --servername $VIM_SERVERNAME --remote-silent"
 alias vimbw="vim --servername $VIM_SERVERNAME --remote-wait-silent"

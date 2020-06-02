@@ -1,4 +1,4 @@
-# gnupg - GNU Privacy Guard
+# gnupg - GNU Privacy Guard configuration
 
 export GPG_TTY=$(tty)
 
