@@ -37,6 +37,9 @@
 [submodule "files/vim/bundle/vim-go"]
 	path = files/vim/bundle/vim-go
 	url = git://github.com/fatih/vim-go.git
+[submodule "files/vim/bundle/vim-grepper"]
+	path = files/vim/bundle/vim-grepper
+	url = git://github.com/sstallion/vim-grepper.git
 [submodule "files/vim/bundle/vim-gutentags"]
 	path = files/vim/bundle/vim-gutentags
 	url = git://github.com/ludovicchabant/vim-gutentags.git
