@@ -1,10 +1,5 @@
 # vi-keys.tmux - vi key bindings for tmux
 
-bind-key -t vi-copy Escape cancel
-bind-key -t vi-copy v      begin-selection
-
-bind-key -t vi-edit Escape cancel
-
 # Cursor Movement
 bind-key C-j select-pane -D
 bind-key j   select-pane -D
