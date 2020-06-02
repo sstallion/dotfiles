@@ -33,7 +33,7 @@ esac
 
 version=`tmux -V | cut -c 6-`
 has_version() {
-	return `echo $@ | awk "{print ($version >= \$1) == 0}"`
+	return `echo $@ | awk "{print (($version >= \$1) == 0)}"`
 }
 
 if has_version 2.1; then
