@@ -6,7 +6,7 @@ environment:
 windows:
   - window_name: main
     focus: true
-    layout: 5059,211x55,0,0{110x55,0,0,9,100x55,111,0[100x27,111,0,10,100x27,111,28,11]}
+    layout: 093c,213x55,0,0{112x55,0,0,1,100x55,113,0[100x27,113,0,2,100x27,113,28,3]}
     panes:
     - shell_command: vim --servername $VIM_SERVERNAME
       focus: true
