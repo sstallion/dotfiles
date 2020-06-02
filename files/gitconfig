@@ -1,6 +1,11 @@
 # gitconfig - git configuration
 
 [alias]
+	# Pull forced commits by fetching changes and resetting the
+	# local branch to match the remote;
+	# see: https://stackoverflow.com/a/9813888
+	forcepull = "!git fetch && git reset origin --hard"
+
 	# Delete local branches that have been merged to master:
 	purge = "!git branch --merged master | grep -v ' master$' | xargs -n 1 git branch -d"
 
