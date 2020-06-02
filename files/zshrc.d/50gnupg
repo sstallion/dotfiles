@@ -8,7 +8,7 @@ if [[ -S $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh ]]; then
 	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
 fi
 
-# Provide an alias to avoid calling GnuPG-1.x by accident:
+# Provide an alias to avoid calling GnuPG v1 by accident:
 if whence gpg2 &>/dev/null; then
 	alias gpg=gpg2
 fi
