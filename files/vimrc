@@ -17,6 +17,7 @@ endif
 set nobackup
 set noerrorbells
 set nojoinspaces
+set nolazyredraw
 set noswapfile
 set nowrap
 
@@ -26,7 +27,6 @@ set autowriteall
 set backspace=indent,eol,start
 set hidden
 set laststatus=2
-set lazyredraw
 set modeline
 set number
 set ruler
