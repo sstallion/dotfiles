@@ -1,0 +1,10 @@
+# pbcopy - pbcopy/pbpaste aliases
+
+if whence pbcopy &>/dev/null; then
+	return
+fi
+
+alias pbcopy="xsel --clipboard --input"
+alias pbpaste="xsel --clipboard --output"
+
+# vim: ft=zsh
