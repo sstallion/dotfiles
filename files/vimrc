@@ -99,7 +99,7 @@ noremap <silent> <Leader>s :set spell!<CR>
 noremap <silent> [b :bprevious<CR>
 noremap <silent> ]b :bnext<CR>
 
-noremap <silent> [t :tabprev<CR>
+noremap <silent> [t :tabprevious<CR>
 noremap <silent> ]t :tabnext<CR>
 
 " Remote terminals don't cope particularly well with arrow keys in

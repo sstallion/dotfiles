@@ -63,7 +63,6 @@ else
 	bind-key -t vi-copy Escape cancel
 	bind-key -t vi-copy v      begin-selection
 fi
-exit 0
 
 # Mouse Support
 if has_version 2.1; then
@@ -74,3 +73,4 @@ elif has_version 1.6; then
 	tmux set-option -g mouse-select-pane on
 	tmux set-option -g mouse-select-window on
 fi
+exit 0
