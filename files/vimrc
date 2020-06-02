@@ -20,7 +20,9 @@ set nojoinspaces
 set noswapfile
 set nowrap
 
+set autoread
 set autowrite
+set autowriteall
 set backspace=indent,eol,start
 set hidden
 set ignorecase
