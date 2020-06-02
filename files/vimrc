@@ -120,5 +120,3 @@ colorscheme wtf
 
 " Source local configuration:
 silent! source ~/.vimrc.local
-
-"let g:dispatch_handlers = [ 'headless' ]
