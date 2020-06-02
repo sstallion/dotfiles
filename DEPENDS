@@ -1,6 +1,7 @@
 cmake (https://cmake.org/)
 colordiff (http://www.colordiff.org/)
 coreutils (https://www.gnu.org/s/coreutils/)
+curl (https://curl.haxx.se/)
 git (https://git-scm.com/)
 less (https://www.gnu.org/software/less/)
 mercurial (https://www.mercurial-scm.org/)
