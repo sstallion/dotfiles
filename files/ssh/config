@@ -1,0 +1,6 @@
+# ssh_config - ssh configuration
+
+AddKeysToAgent yes
+ForwardAgent yes
+ForwardX11 yes
+ServerAliveInterval 300
