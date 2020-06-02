@@ -42,7 +42,6 @@ esac
 # Enable mouse support:
 if has_version 2.1; then
 	tmux set-option -g mouse on
-
 elif has_version 1.6; then
 	tmux set-option -g mouse-mode on
 	tmux set-option -g mouse-resize-pane on
