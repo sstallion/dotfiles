@@ -1,5 +1,9 @@
 " gutentags.vim - plugin configuration
 
+if !exists('g:gutentags_enabled')
+  finish
+endif
+
 " Manage all tags under a cache directory, creating it as needed:
 let g:gutentags_cache_dir = $HOME . '/.cache/gutentags'
 

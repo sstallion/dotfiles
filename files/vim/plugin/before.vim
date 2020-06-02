@@ -4,6 +4,11 @@
 " file serves as a replacement for cluttering vimrc with configuration
 " for these plugins.
 
+" Disable gutentags if ctags not installed:
+if !executable('ctags')
+  let g:gutentags_dont_load = 1
+endif
+
 " Automatically open .bin files in hex mode:
 let g:hexmode_patterns = '*.bin'
 
