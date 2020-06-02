@@ -134,8 +134,6 @@ function! LightLineFugitive()
 endfunction
 
 " lightline incorrectly calculates the width of the window when a
-" vertical split is present, which results in improper highlighting.
-" To work around this issue, the following function call should be
-" added to .vimrc after lightline is configured;
+" vertical split is present, which results in improper highlighting;
 " see: https://github.com/itchyny/lightline.vim/issues/179.
 call lightline#colorscheme#wtf#highlight()
