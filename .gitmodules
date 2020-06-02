@@ -31,9 +31,6 @@
 [submodule "files/vim/bundle/vim-localvimrc"]
 	path = files/vim/bundle/vim-localvimrc
 	url = git://github.com/embear/vim-localvimrc.git
-[submodule "files/vim/bundle/vim-markdown"]
-	path = files/vim/bundle/vim-markdown
-	url = git://github.com/plasticboy/vim-markdown.git
 [submodule "files/vim/bundle/vim-misc"]
 	path = files/vim/bundle/vim-misc
 	url = git://github.com/xolox/vim-misc.git
