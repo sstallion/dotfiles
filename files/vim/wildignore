@@ -1,10 +1,12 @@
-*/.git
-*/.hg
-*/.svn
+.git/
+.hg/
+.svn/
+*.a
 *.bin
 *.dylib
 *.elf
-*.l?[ao]
+*.l[ao]
+*.o
 *.obj
 *.py[co]
 *.so
