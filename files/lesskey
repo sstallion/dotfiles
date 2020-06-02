@@ -7,5 +7,5 @@ h	left-scroll
 l	right-scroll
 
 #env
-LESS = -FgimqrX
+LESS = -FgiqrX
 LESSCHARSET = utf-8
