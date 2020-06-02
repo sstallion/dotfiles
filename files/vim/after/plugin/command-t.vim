@@ -13,12 +13,12 @@ let g:CommandTTraverseSCM = 'dir'
 let g:CommandTMaxHeight = 0
 let g:CommandTMinHeight = 0
 
-" Key Mappings
-let g:CommandTCancelMap = ['<C-C>', '<Esc>']
-
 " Highlight Groups
 let g:CommandTCursorColor    = 'Cursor'
 let g:CommandTHighlightColor = 'Wildmenu'
+
+" Key Mappings
+let g:CommandTCancelMap = ['<C-C>', '<Esc>']
 
 " Show matches in buffer window in MRU order:
 nnoremap <silent> <Leader>b :CommandTMRU<CR>
