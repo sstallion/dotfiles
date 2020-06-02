@@ -1,7 +1,7 @@
-" newsprint.vim - A (pleasant) monochromatic color scheme for Vim
-" Maintainer: Steven Stallion <sstallion@gmail.com>
-" Contributors:
-" Last Change: 2010/10/21
+" newsprint.vim - a (pleasant) monochromatic color scheme for Vim
+" Last Change:  2010 Oct 21
+" Maintainer:   Steven Stallion <sstallion@gmail.com>
+" License:      Simplified BSD License
 
 set background=light
 highlight clear
