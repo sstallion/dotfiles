@@ -1,0 +1,9 @@
+# ssh_config - SSH client configuration
+
+AddKeysToAgent yes
+HashKnownHosts yes
+
+Host trusted.example.com
+	ForwardAgent yes
+	ForwardX11 yes
+	RemoteForward /path/to/.gnupg/S.gpg-agent /path/to/.gnupg/S.gpg-agent.extra
