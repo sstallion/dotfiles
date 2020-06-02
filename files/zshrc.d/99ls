@@ -3,7 +3,7 @@
 # Detecting if GNU coreutils are installed requires executing the `ls'
 # command with a long option and checking the exit status:
 if ls --version >/dev/null 2>&1; then
-	args="-N --color"
+	args="-N --color --group-directories-first"
 
 	# Match list-colors to those used by the GNU `ls' command;
 	# see: list-colors in zshcompsys(1).
