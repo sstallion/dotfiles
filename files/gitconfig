@@ -2,7 +2,7 @@
 
 [alias]
 	# Show changes for a given commit:
-	commitdiff = "!git diff $1^!"
+	diffcommit = "!git diff $1^!"
 
 	# Generate a diffstat for a given commit:
 	diffstat = "!git diff --stat $1^!"
