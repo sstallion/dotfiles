@@ -46,6 +46,9 @@
 [submodule "files/vim/bundle/vim-togglelist"]
 	path = files/vim/bundle/vim-togglelist
 	url = git://github.com/milkypostman/vim-togglelist.git
+[submodule "files/vim/bundle/vim-vinegar"]
+	path = files/vim/bundle/vim-vinegar
+	url = git://github.com/tpope/vim-vinegar.git
 [submodule "files/vim/bundle/vim-whitespace"]
 	path = files/vim/bundle/vim-whitespace
 	url = git://github.com/sstallion/vim-whitespace.git
