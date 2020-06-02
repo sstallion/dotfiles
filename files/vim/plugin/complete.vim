@@ -13,26 +13,15 @@ endif
 
 " Unify completion behavior under a single key mapping;
 " see: complete_CTRL-Y.
-function! s:Complete(type)
+function! s:Complete()
   if !pumvisible()
-    if a:type ==# 'spell' && &spell
-      return "\<C-X>s"
-    elseif a:type ==# 'omni' && &omnifunc
-      return "\<C-X>\<C-O>"
-    elseif a:type ==# 'keyword'
-      return "\<C-X>\<C-I>"
-    elseif a:type ==# 'next'
-      return "\<C-N>"
-    endif
+	return &spell ? "\<C-X>s" : "\<C-X>\<C-O>"
   endif
   return ''
 endfunction
 
 imap <C-@> <C-Space>
-inoremap <C-Space> <C-R>=<SID>Complete('spell')<CR>
-                  \<C-R>=<SID>Complete('omni')<CR>
-                  \<C-R>=<SID>Complete('keyword')<CR>
-                  \<C-R>=<SID>Complete('next')<CR>
+inoremap <silent> <C-Space> <C-R>=<SID>Complete()<CR>
 
 " Convenience mappings for the popup menu in insert mode:
 inoremap <expr> <Esc> pumvisible() ? '<C-E>' : '<Esc>'
