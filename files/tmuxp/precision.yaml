@@ -1,4 +1,4 @@
-# thinkpad.yaml - tmux session configuration
+# precision.yaml - tmux session configuration
 
 session_name: default
 environment:
@@ -6,7 +6,7 @@ environment:
 windows:
   - window_name: main
     focus: true
-    layout: e889,179x55,0,0{98x55,0,0,1,80x55,99,0[80x27,99,0,2,80x27,99,28,3]}
+    layout: c19c,206x57,0,0{105x57,0,0,0,100x57,106,0[100x28,106,0,1,100x28,106,29,2]}
     panes:
     - shell_command: vim --servername $VIM_SERVERNAME
       focus: true
