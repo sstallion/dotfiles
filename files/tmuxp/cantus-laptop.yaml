@@ -12,3 +12,9 @@ windows:
         focus: true
       - pane
       - pane
+  - window_name: aux
+    layout: 4887,204x59,0,0{107x59,0,0,6,96x59,108,0[96x29,108,0,7,96x29,108,30,8]}
+    panes:
+      - pane
+      - pane
+      - pane

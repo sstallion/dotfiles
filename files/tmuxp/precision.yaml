@@ -8,7 +8,13 @@ windows:
     focus: true
     layout: 093c,213x55,0,0{112x55,0,0,1,100x55,113,0[100x27,113,0,2,100x27,113,28,3]}
     panes:
-    - shell_command: vim --servername $VIM_SERVERNAME
-      focus: true
-    - pane
-    - pane
+      - shell_command: vim --servername $VIM_SERVERNAME
+        focus: true
+      - pane
+      - pane
+  - window_name: aux
+    layout: 093c,213x55,0,0{112x55,0,0,1,100x55,113,0[100x27,113,0,2,100x27,113,28,3]}
+    panes:
+      - pane
+      - pane
+      - pane

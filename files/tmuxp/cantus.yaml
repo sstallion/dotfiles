@@ -13,3 +13,10 @@ windows:
       - pane
       - pane
       - pane
+  - window_name: aux
+    layout: ae3a,335x92,0,0{234x92,0,0,1,100x92,235,0[100x30,235,0,2,100x30,235,31,3,100x30,235,62,4]}
+    panes:
+      - pane
+      - pane
+      - pane
+      - pane
