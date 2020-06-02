@@ -5,6 +5,9 @@
 	# see: http://megakemp.com/2016/08/25/git-undo/.
 	undo = "!f() { git reset --soft $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 
+[color]
+	ui = auto
+
 [diff]
 	tool = vimdiff
 
