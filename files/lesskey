@@ -1,0 +1,11 @@
+# lesskey - key bindings for less
+
+#command
+^J	forw-screen
+^K	back-screen
+h	left-scroll
+l	right-scroll
+
+#env
+LESS = -FgimqrX
+LESSCHARSET = utf-8

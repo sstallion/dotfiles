@@ -27,6 +27,9 @@ setopt NULL_GLOB
 setopt PUSHD_IGNORE_DUPS
 setopt RM_STAR_SILENT
 
+export EDITOR=vim
+export PAGER=less
+
 # Rather than clutter .zshrc, we source configuration from .zshrc.d to
 # further customize the shell:
 for file in $HOME/.zshrc.d/*; do
