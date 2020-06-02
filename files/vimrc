@@ -34,7 +34,7 @@ set showmatch
 set showmode
 set splitbelow
 set splitright
-set switchbuf=usetab
+set switchbuf=useopen,usetab
 set timeoutlen=2000
 set ttimeoutlen=0
 set ttyfast
