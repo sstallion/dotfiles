@@ -25,9 +25,9 @@ Linux)
 	tmux set-option -g set-clipboard off
 
 	# Key Bindings
-	tmux bind-key -t vi-copy Enter copy-pipe "xsel -i"
-	tmux bind-key -t vi-copy y     copy-pipe "xsel -i"
-	tmux bind-key ] run-shell "xsel -o | tmux load-buffer - && tmux paste-buffer"
+	tmux bind-key -t vi-copy Enter copy-pipe "xsel -i -b"
+	tmux bind-key -t vi-copy y     copy-pipe "xsel -i -b"
+	tmux bind-key ] run-shell "xsel -o -b | tmux load-buffer - && tmux paste-buffer"
 	;;
 esac
 
