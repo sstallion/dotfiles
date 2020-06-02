@@ -1,4 +1,4 @@
-# gitconfig - global Git configuration
+# gitconfig - git configuration
 
 [alias]
 	# Alias to reset the previous commit (safe for use with branches);
@@ -31,6 +31,7 @@
 	user = sstallion
 
 [include]
+	# Include local configuration:
 	path = ~/.gitconfig.local
 
 # vim: ft=gitconfig

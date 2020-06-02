@@ -1,0 +1,29 @@
+# hgrc - mercurial configuration
+
+[extensions]
+color =
+extdiff =
+mq =
+pager =
+purge =
+rebase =
+transplant =
+
+[extdiff]
+vimdiff =
+
+# 3-way merge using vimdiff(1);
+# see: https://www.mercurial-scm.org/wiki/MergingWithVim.
+[merge-tools]
+vimdiff.executable = vimdiff
+vimdiff.args = $output -M $local $base $other -c "wincmd J" -c "set modifiable" -c "set write"
+vimdiff.premerge = keep
+
+[ui]
+ignore = ~/.hgignore
+merge = vimdiff
+portablefilenames = ignore
+username = Steven Stallion <sstallion@gmail.com>
+
+# Include local configuration:
+%include ~/.hgrc.local
