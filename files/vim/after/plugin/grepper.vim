@@ -9,9 +9,8 @@ let g:grepper.dir = 'repo,filecwd'
 " Configure tools to search; prefer greplikes over git:
 let g:grepper.tools = ['rg', 'grep', 'git']
 
-" Mimic tool command-line in prompt;
-" see: https://github.com/mhinz/vim-grepper/pull/194
-let g:grepper.prompt_suffix = ''
+" Mimic command-line in prompt;
+let g:grepper.prompt_text = '$c '
 
 " Key Mappings
 nnoremap <Leader>g :Grepper<CR>
