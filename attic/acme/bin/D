@@ -1,0 +1,8 @@
+#!/bin/sh
+# D - launch acme(1) using dump file
+
+file=default
+if [ $# != 0 ]; then
+	file=$1
+fi
+exec $ACME/bin/acme -l $ACME/dump/$file

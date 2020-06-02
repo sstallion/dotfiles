@@ -1,0 +1,4 @@
+#!/bin/sh
+# ind - indent selected text
+
+sed 's/^/	/' $*

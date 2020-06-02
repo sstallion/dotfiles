@@ -1,0 +1,16 @@
+#!/bin/sh
+# acme - launch acme(1)
+
+PLAN9=${PLAN9:-/usr/local/plan9}
+ACME=${ACME:-$HOME/.acme}
+export ACME PLAN9
+
+case "$PATH" in
+$ACME/bin:$PLAN9/bin:*)
+	;;
+*)
+	PATH=$ACME/bin:$PLAN9/bin:$PATH
+	export PATH
+	;;
+esac
+exec env SHELL=rc rc $ACME/profile $* &

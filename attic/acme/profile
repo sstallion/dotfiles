@@ -1,0 +1,24 @@
+# profile - plan9port rc(1) profile for acme(1)
+
+GIT_EDITOR=E
+font=$ACME/font/DroidSansMono/14a/font
+sysname=`{u hostname -s}
+prompt=($sysname'% ' '	')
+tabstop=8
+fn cd { builtin cd $*; awd }
+fn $sysname% { $* }
+fn f { g 'func (\(.*\) )?'$1'\(' |sed 's/{$//' }
+fn F { plumb `{f $1 |awk -F': ' '{print $1}'} }
+fn git {
+	flags=(--no-pager)
+	if(! ~ $#* 0){
+		switch($1){
+		case clone pull push
+			flags=($flags $1 --no-progress)
+			shift
+		}
+	}
+	builtin git $flags $*
+}
+plumber >[2]/dev/null
+exec $PLAN9/bin/acme -f $font -F $font $*

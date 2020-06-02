@@ -1,0 +1,7 @@
+#!/usr/bin/env rc
+# Clear - remove contents of current window
+
+echo -n 1,'$' | 9p write acme/$winid/addr
+echo -n '' | 9p write acme/$winid/data
+echo -n 0 | 9p write acme/$winid/addr
+echo -n 'dot=addr' | 9p write acme/$winid/ctl

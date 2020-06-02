@@ -1,0 +1,14 @@
+#!/usr/bin/env rc
+# sub - substitue output from command
+
+if(~ $#* 0){
+	echo >[1=2] usage: $0 arg ...
+	exit usage
+}
+echo -n , |9p write acme/$winid/addr
+echo -n nomark |9p write acme/$winid/ctl
+9p read acme/$winid/body |$* |9p write acme/$winid/data
+{	echo mark
+	echo put
+	echo show
+} |9p write -l acme/$winid/ctl

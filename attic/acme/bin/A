@@ -1,0 +1,4 @@
+#!/bin/sh
+# A - launch acme(1) with one column
+
+exec $ACME/bin/acme -c 1 $*

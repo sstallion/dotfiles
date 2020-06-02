@@ -1,0 +1,4 @@
+#!/bin/sh
+# unind - unindent selected text
+
+sed 's/^	//' $*

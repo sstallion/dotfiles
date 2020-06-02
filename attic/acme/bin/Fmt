@@ -1,0 +1,4 @@
+#!/usr/bin/env rc
+# Fmt - format current window with gofmt
+
+exec sub gofmt

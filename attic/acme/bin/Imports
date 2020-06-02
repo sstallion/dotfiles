@@ -1,0 +1,4 @@
+#!/usr/bin/env rc
+# Imports - update current window with goimports
+
+exec sub goimports
