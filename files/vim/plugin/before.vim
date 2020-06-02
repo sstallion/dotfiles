@@ -12,6 +12,11 @@ endif
 " Automatically open .bin files in hex mode:
 let g:hexmode_patterns = '*.bin'
 
+" Disable gitgutter if git not installed:
+if !executable('git')
+  let g:gitgutter_enabled = 0
+endif
+
 " Never prompt or source local vimrc files in a sandbox:
 let g:localvimrc_ask     = 0
 let g:localvimrc_sandbox = 0
