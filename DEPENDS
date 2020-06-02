@@ -1,0 +1,21 @@
+cmake (https://cmake.org/)
+colordiff (http://www.colordiff.org/)
+git (https://git-scm.com/)
+less (https://www.gnu.org/software/less/)
+mercurial (https://www.mercurial-scm.org/)
+python (https://www.python.org)
+ruby (https://www.ruby-lang.org)
+the_silver_searcher (https://github.com/ggreer/the_silver_searcher)
+subversion (https://subversion.apache.org/)
+taskwarrior (http://taskwarrior.org/)
+tmux (https://tmux.github.io/)
+tmuxp (https://github.com/tony/tmuxp)
+universal-ctags (https://github.com/universal-ctags/ctags)
+vim (http://www.vim.org/)
+zsh (https://www.zsh.org/)
+
+Linux:
+xsel (http://www.vergenet.net/~conrad/software/xsel/)
+
+macOS:
+reattach-to-user-namespace (https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)
