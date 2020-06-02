@@ -48,6 +48,10 @@ if has('diff')
   set diffopt=filler,context:3
 endif
 
+if has('extra_search')
+  set nohlsearch
+endif
+
 if has('folding')
   set nofoldenable
 endif
