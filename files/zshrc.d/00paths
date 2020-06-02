@@ -10,9 +10,11 @@ fi
 
 function collect_paths {
     for arg; do
-        while read line; do
-            echo $(eval echo $line)
-        done < $arg
+        if [ -r $arg ]; then
+            while read line; do
+                echo $(eval echo $line)
+            done < $arg
+        fi
     done
 }
 
