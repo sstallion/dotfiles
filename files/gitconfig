@@ -3,10 +3,14 @@
 [alias]
 	# Alias to reset the previous commit (safe for use with branches);
 	# see: http://megakemp.com/2016/08/25/git-undo/.
-	undo = "!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
+	undo = "!f() { git reset --soft $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f"
 
-[github]
-	user = sstallion
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = false
+	trustExitCode = true
 
 [merge]
 	tool = vimdiff
@@ -14,6 +18,7 @@
 
 [mergetool]
 	prompt = false
+	trustExitCode = true
 
 [push]
 	default = current
@@ -21,6 +26,9 @@
 [user]
 	name = Steven Stallion
 	email = sstallion@gmail.com
+
+[github]
+	user = sstallion
 
 [include]
 	path = ~/.gitconfig.local
