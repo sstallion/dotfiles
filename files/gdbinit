@@ -12,4 +12,8 @@ set python print-stack full
 # Enable remote protocol debugging:
 #set debug remote 1
 
+# Disable using shell with exec on macOS 10.12+ due to SIP;
+# see: https://stackoverflow.com/a/40437725.
+set startup-with-shell off
+
 # vim: ft=gdb

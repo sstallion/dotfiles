@@ -18,7 +18,7 @@ done
 
 echo "Updating Command-T..."
 extdir=files/vim/bundle/command-t/ruby/command-t/ext/command-t
-(cd $extdir && /usr/bin/ruby extconf.rb && make all)
+(cd $extdir && ruby extconf.rb && make all)
 
 echo "Updating lesskey file..."
 lesskey
