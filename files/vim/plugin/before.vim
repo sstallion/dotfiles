@@ -30,8 +30,10 @@ if !exists('g:vimwiki_list')
 endif
 if !empty(glob('~/.vimwiki'))
   let g:vimwiki_list = [{'path': '~/.vimwiki', 'syntax': 'markdown', 'ext': '.md',
-                     \   'auto_diary_index': 1, 'auto_tags': 1, 'list_margin': 0},
-                     \ ] + g:vimwiki_list
+                     \   'auto_diary_index': 1, 'auto_tags': 1, 'auto_toc': 1,
+                     \   'auto_generate_links': 1, 'auto_generate_tags': 1,
+                     \   'list_margin': 0,
+                     \ }] + g:vimwiki_list
 endif
 
 let g:vimwiki_conceallevel = 0
