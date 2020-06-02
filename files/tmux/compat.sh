@@ -10,8 +10,11 @@
 
 case `uname -s` in
 Darwin)
-	# Reattach to the per-user namespace to access the pasteboard;
-	# see: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.
+	# Reattach to the per-user namespace to access the pasteboard.
+	# For macOS Sierra, specify  `--with-wrap-pbcopy-and-pbpaste`
+	# when installing reattach-to-user-namespace via brew(1);
+	# see: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard,
+	#      http://superuser.com/a/413233.
 	tmux set-option -g default-command "reattach-to-user-namespace -l $SHELL"
 
 	# Key Bindings
