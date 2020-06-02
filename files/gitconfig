@@ -12,6 +12,9 @@
 	# see: https://stackoverflow.com/a/9813888
 	forcepull = "!git fetch && git reset origin/$(git symbolic-ref --short -q HEAD) --hard"
 
+	# Generate historical diffs in chronological order:
+	history = "log --reverse --patch"
+
 	# Delete local branches that have been merged to master:
 	purge = "!git branch --merged master | grep -v ' master$' | xargs -n 1 git branch -d"
 
