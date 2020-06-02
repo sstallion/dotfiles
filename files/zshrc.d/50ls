@@ -1,9 +1,12 @@
 # ls - list directory contents
 
+# Override default character collation for globbing and sorting:
+export LC_COLLATE=C
+
 # Detecting if GNU coreutils are installed requires executing the `ls'
 # command with a long option and checking the exit status:
 if ls --version &>/dev/null; then
-	args="-N --color --group-directories-first"
+	args="-HN --color --group-directories-first"
 
 	# Match list-colors to those used by the GNU `ls' command;
 	# see: list-colors in zshcompsys(1).
