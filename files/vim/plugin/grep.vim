@@ -1,5 +1,5 @@
 " grep.vim - external grep
 
-if executable('ag')
-  set grepprg=ag\ --vimgrep
+if executable('rg')
+  set grepprg=rg\ --vimgrep
 endif
