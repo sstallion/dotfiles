@@ -8,8 +8,7 @@
 # to bridge the divide so a common tmux.conf can be used on different
 # systems running different versions without issue.
 
-system=`uname -s`
-case $system in
+case `uname -s` in
 	Darwin)
 		tmux bind-key -t vi-copy Enter copy-pipe pbcopy
 		tmux bind-key -t vi-copy y     copy-pipe pbcopy
