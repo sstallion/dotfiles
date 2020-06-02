@@ -38,6 +38,7 @@ let g:vimwiki_conceallevel = 0
 let g:vimwiki_create_link = 0
 let g:vimwiki_global_ext = 0
 let g:vimwiki_markdown_link_ext = 1
+let g:vimwiki_toc_header_level = 2
 
 " Suffix and wildignore patterns must be read before loading
 " vim-vinegar, otherwise g:netrw_list_hide will be incomplete:
