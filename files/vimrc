@@ -57,6 +57,10 @@ if has('extra_search')
   set nohlsearch
 endif
 
+if has('reltime')
+  set noincsearch
+endif
+
 if has('folding')
   set nofoldenable
 endif
