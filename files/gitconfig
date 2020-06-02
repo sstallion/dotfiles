@@ -1,7 +1,7 @@
 # gitconfig - git configuration
 
 [alias]
-	# Remove local branches that have been merged to master:
+	# Delete local branches that have been merged to master:
 	purge = "!git branch --merged master | grep -v ' master$' | xargs -n 1 git branch -d"
 
 	# Reset the previous commit (safe for use with branches);
