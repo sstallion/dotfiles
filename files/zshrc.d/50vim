@@ -1,15 +1,33 @@
 # vim - vim configuration
 
-export VIM_SERVERNAME=${VIM_SERVERNAME:-VIM}
-
 # Old habits die hard...
 alias vi=vim
 
-# Client-Server Aliases
-alias vimb="vim --servername $VIM_SERVERNAME --remote-silent"
-alias vimbw="vim --servername $VIM_SERVERNAME --remote-wait-silent"
+# Client-Server
+export VIM_SERVERNAME=${VIM_SERVERNAME:-VIM}
 
-alias vimt="vim --servername $VIM_SERVERNAME --remote-tab-silent"
-alias vimtw="vim --servername $VIM_SERVERNAME --remote-tab-wait-silent"
+function vim-remote {
+	vim --servername $VIM_SERVERNAME $@
+}
+
+alias vimr="vim-remote --remote-silent"
+alias vimrw="vim-remote --remote-wait-silent"
+
+alias vimt="vim-remote --remote-tab-silent"
+alias vimtw="vim-remote --remote-tab-wait-silent"
+
+# Search for patterns on the command line using vim-grepper. This
+# requires saving the working directory prior to invoking :Grepper
+# to avoid surprises after the search completes.
+function vimgrep {
+	local pwd
+
+	pwd=$(vim-remote --remote-expr "call('getcwd', [])")
+	vim-remote --remote-expr --remote-expr \
+		"execute('cd $(pwd) | Grepper -noprompt -dir cwd -query ${(q)@}')" &>/dev/null
+	vim-remote --remote-expr "execute('cd $pwd')" &>/dev/null
+}
+
+alias vg=vimgrep
 
 # vim: ft=zsh
