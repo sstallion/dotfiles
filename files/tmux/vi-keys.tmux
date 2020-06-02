@@ -48,10 +48,11 @@ is_vim="basename `ps -o comm= -t #{pane_tty}` | grep -E -i -q '^(vi|vim(diff)?)$
 # Rather than bind to a series of control sequences, we instead use a
 # key table to emulate vim's default cursor movement key mappings;
 # see: https://github.com/tmux/tmux/issues/591.
-bind-key -T vi-select j select-pane -D
-bind-key -T vi-select k select-pane -U
-bind-key -T vi-select h select-pane -L
-bind-key -T vi-select l select-pane -R
+bind-key -T vi-select C-w send-keys C-w
+bind-key -T vi-select j   select-pane -D
+bind-key -T vi-select k   select-pane -U
+bind-key -T vi-select h   select-pane -L
+bind-key -T vi-select l   select-pane -R
 
 bind-key -n C-w if-shell "$is_vim" "send-keys C-w" "switch-client -T vi-select"
 
