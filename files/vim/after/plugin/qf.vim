@@ -4,7 +4,7 @@
 let g:qf_mapping_ack_style = 1
 
 " Disable auto-opening location/quickfix, which conflicts with
-" vim-dispatch behavior:
+" vim-dispatch commands:
 let g:qf_auto_open_loclist = 0
 let g:qf_auto_open_quickfix = 0
 

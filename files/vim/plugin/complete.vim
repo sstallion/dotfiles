@@ -15,7 +15,7 @@ endif
 " see: complete_CTRL-Y.
 function! s:Complete()
   if !pumvisible()
-	return &spell ? "\<C-X>s" : "\<C-X>\<C-O>"
+    return &spell ? "\<C-X>s" : "\<C-X>\<C-O>"
   endif
   return ''
 endfunction
