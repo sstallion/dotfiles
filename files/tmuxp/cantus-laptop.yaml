@@ -12,8 +12,3 @@ windows:
         focus: true
       - pane
       - pane
-  - window_name: aux
-    layout: even-horizontal
-    panes:
-      - pane
-      - pane

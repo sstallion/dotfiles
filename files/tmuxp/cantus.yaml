@@ -13,9 +13,3 @@ windows:
       - pane
       - pane
       - pane
-  - window_name: aux
-    layout: even-horizontal
-    panes:
-      - pane
-      - pane
-      - pane
