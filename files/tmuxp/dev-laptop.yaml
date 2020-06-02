@@ -1,8 +1,0 @@
-session_name: dev-laptop
-windows:
-  - window_name: main
-    layout: 87e3,204x59,0,0{107x59,0,0,1,96x59,108,0[96x29,108,0,2,96x29,108,30,3]}
-    panes:
-      - vim
-      - pane
-      - pane
