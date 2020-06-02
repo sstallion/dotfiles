@@ -1,0 +1,7 @@
+# cvsrc - cvs configuration
+
+cvs -z9
+checkout -P
+diff -p -u
+rdiff -u
+update -P
