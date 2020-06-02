@@ -12,8 +12,8 @@ function collect_paths {
 	for arg; do
 		if [ -r $arg ]; then
 			while read line; do
-				echo $(eval echo $line)
-			done < $arg
+				eval echo $line
+			done <$arg
 		fi
 	done
 }
