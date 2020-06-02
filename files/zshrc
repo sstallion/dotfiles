@@ -10,6 +10,9 @@ limit coredumpsize unlimited
 stty -ixon
 ttyctl -f
 
+# Ensure umask is set to something reasonable:
+umask 022
+
 setopt NO_ALWAYS_LAST_PROMPT
 setopt NO_AUTO_REMOVE_SLASH
 setopt NO_HIST_BEEP
