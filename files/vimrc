@@ -25,7 +25,6 @@ set autowrite
 set autowriteall
 set backspace=indent,eol,start
 set hidden
-set ignorecase
 set laststatus=2
 set lazyredraw
 set modeline
@@ -33,7 +32,7 @@ set number
 set ruler
 set showmatch
 set showmode
-set smartcase
+set splitbelow
 set splitright
 set switchbuf=usetab
 set timeoutlen=2000
@@ -109,9 +108,23 @@ noremap <silent> <Leader>s :set spell!<CR>
 
 noremap <silent> [b :bprevious<CR>
 noremap <silent> ]b :bnext<CR>
+noremap <silent> [B :bfirst<CR>
+noremap <silent> ]B :blast<CR>
+
+noremap <silent> [l :lprevious<CR>
+noremap <silent> ]l :lnext<CR>
+noremap <silent> [L :lfirst<CR>
+noremap <silent> ]L :llast<CR>
+
+noremap <silent> [q :cprevious<CR>
+noremap <silent> ]q :cnext<CR>
+noremap <silent> [Q :cfirst<CR>
+noremap <silent> ]Q :clast<CR>
 
 noremap <silent> [t :tabprevious<CR>
 noremap <silent> ]t :tabnext<CR>
+noremap <silent> [T :tabfirst<CR>
+noremap <silent> ]T :tablast<CR>
 
 " Remote terminals don't cope particularly well with arrow keys in
 " insert mode. The key mappings proposed in Solution 15 works around the
