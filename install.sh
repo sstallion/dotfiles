@@ -16,6 +16,9 @@ for target in `pwd`/files/*; do
 	fi
 done
 
+echo "Updating permissions..."
+chmod 0700 $HOME/.ssh/
+
 echo "Updating lesskey file..."
 lesskey
 
