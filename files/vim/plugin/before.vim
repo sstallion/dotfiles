@@ -18,14 +18,20 @@ let g:session_command_aliases = 1
 let g:tmux_navigator_no_mappings    = 1
 let g:tmux_navigator_save_on_switch = 2
 
-" Configure default vimwiki instance (requires symlink to actual) and
-" disable automatic behavior for other Markdown sources:
-if !exists("g:vimwiki_list")
-  let g:vimwiki_list = [{'path': '~/.vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+" Configure default Vimwiki instance (if it exists) and update global
+" behavior for Markdown sources:
+if !exists('g:vimwiki_list')
+  let g:vimwiki_list = []
+endif
+if !empty(glob('~/.vimwiki'))
+  let g:vimwiki_list = [{'path': '~/.vimwiki', 'syntax': 'markdown', 'ext': '.md',
+                     \   'auto_diary_index': 1, 'list_margin': 0}] + g:vimwiki_list
 endif
 
 let g:vimwiki_conceallevel = 0
+let g:vimwiki_create_link = 0
 let g:vimwiki_global_ext = 0
+let g:vimwiki_markdown_link_ext = 1
 
 " Suffix and wildignore patterns must be read before loading
 " vim-vinegar, otherwise g:netrw_list_hide will be incomplete:

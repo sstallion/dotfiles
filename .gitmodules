@@ -75,7 +75,7 @@
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "files/vim/bundle/vimwiki"]
 	path = files/vim/bundle/vimwiki
-	url = git://github.com/vimwiki/vimwiki.git
+	url = git://github.com/sstallion/vimwiki.git
 [submodule "files/vim/bundle/webapi-vim"]
 	path = files/vim/bundle/webapi-vim
 	url = git://github.com/mattn/webapi-vim.git
