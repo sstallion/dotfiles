@@ -52,6 +52,9 @@
 [submodule "files/vim/bundle/vim-session"]
 	path = files/vim/bundle/vim-session
 	url = git://github.com/xolox/vim-session.git
+[submodule "files/vim/bundle/vim-tmux-navigator"]
+	path = files/vim/bundle/vim-tmux-navigator
+	url = git://github.com/christoomey/vim-tmux-navigator.git
 [submodule "files/vim/bundle/vim-whitespace"]
 	path = files/vim/bundle/vim-whitespace
 	url = git://github.com/sstallion/vim-whitespace.git
