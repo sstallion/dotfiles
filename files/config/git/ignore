@@ -1,6 +1,7 @@
 *.bin
 *.dylib
 *.elf
+*.gdb_history
 *.l?[ao]
 *.obj
 *.orig
