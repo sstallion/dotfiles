@@ -1,6 +1,6 @@
 [submodule "files/vim/bundle/command-t"]
 	path = files/vim/bundle/command-t
-	url = git://github.com/sstallion/command-t.git
+	url = git://github.com/wincent/command-t.git
 [submodule "files/vim/bundle/gist-vim"]
 	path = files/vim/bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
