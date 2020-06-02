@@ -4,18 +4,18 @@
 # defined in the environment. Darwin helpfully calls path_helper from
 # /etc/zprofile, which forces us to call it once again to update paths.
 if [ -x /usr/libexec/path_helper ]; then
-    export MANPATH
-    eval $(/usr/libexec/path_helper -s)
+	export MANPATH
+	eval $(/usr/libexec/path_helper -s)
 fi
 
 function collect_paths {
-    for arg; do
-        if [ -r $arg ]; then
-            while read line; do
-                echo $(eval echo $line)
-            done < $arg
-        fi
-    done
+	for arg; do
+		if [ -r $arg ]; then
+			while read line; do
+				echo $(eval echo $line)
+			done < $arg
+		fi
+	done
 }
 
 path=($(collect_paths $HOME/.paths $HOME/.paths.d/*) $path)

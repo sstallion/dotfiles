@@ -33,7 +33,7 @@ export PAGER=less
 # Rather than clutter zshrc, we source configuration from zshrc.d to
 # further customize the shell:
 for file in $HOME/.zshrc.d/*; do
-    source $file
+	source $file
 done
 
 # vim: ft=zsh
