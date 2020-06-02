@@ -7,7 +7,7 @@ set guitablabel=%N\ %t\ %m
 
 " Fonts
 if has('gui_gtk2')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 12
 elseif has('gui_macvim')
   set guifont=Droid\ Sans\ Mono\ for\ Powerline:h12
 endif

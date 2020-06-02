@@ -113,3 +113,6 @@ inoremap <Esc>oD <Esc>hi
 
 " Color Scheme
 colorscheme wtf
+
+" Source local configuration:
+silent! source ~/.vimrc.local

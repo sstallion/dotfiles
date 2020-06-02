@@ -39,7 +39,7 @@
 	user = sstallion
 
 [include]
-	# Support a third user-specific configuration file to overwrite
+	# Include a third user-specific configuration file to overwrite
 	# variables defined in the global configuration:
 	path = ~/.gitconfig.local
 

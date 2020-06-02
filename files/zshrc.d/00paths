@@ -9,6 +9,7 @@ if [ -x /usr/libexec/path_helper ]; then
 fi
 
 function collect_paths {
+	local arg
 	for arg; do
 		if [ -r $arg ]; then
 			while read line; do
@@ -20,7 +21,7 @@ function collect_paths {
 
 # Avoid the NULL_GLOB option as it also affects interactive sessions;
 # see: http://unix.stackexchange.com/a/26825.
-path=($(collect_paths $HOME/.paths $HOME/.paths.d/*(N)) $path)
-manpath=($(collect_paths $HOME/.manpaths $HOME/.manpaths.d/*(N)) $manpath)
+path=($(collect_paths ~/.paths ~/.paths.d/*(N)) $path)
+manpath=($(collect_paths ~/.manpaths ~/.manpaths.d/*(N)) $manpath)
 
 # vim: ft=zsh

@@ -66,7 +66,7 @@ function! s:CMakeHelp(...)
   echomsg printf("'%s' is not a valid CMake help entry.", entry)
 endfunction
 
-command -nargs=? CMakeHelp :call s:CMakeHelp(<f-args>)
+command -nargs=? CMakeHelp :call <SID>CMakeHelp(<f-args>)
 
 augroup CMakeHelp
   autocmd!

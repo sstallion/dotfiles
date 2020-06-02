@@ -29,8 +29,9 @@ export PAGER=less
 
 # Rather than clutter zshrc, we source configuration from zshrc.d to
 # further customize the shell:
-for file in $HOME/.zshrc.d/*; do
+for file in ~/.zshrc.d/*; do
 	source $file
 done
+unset file
 
 # vim: ft=zsh

@@ -16,11 +16,11 @@ for target in files/*; do
 	fi
 done
 
-echo "Installing Command-T..."
+echo "Updating Command-T..."
 extdir=files/vim/bundle/command-t/ruby/command-t/ext/command-t
 (cd $extdir && ruby extconf.rb && make all)
 
-echo "Installing lesskey file..."
+echo "Updating lesskey file..."
 lesskey
 
 echo "Done."

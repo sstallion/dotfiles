@@ -6,7 +6,7 @@ endif
 
 " Executes command {cmd}, automatically adjusting 'cmdheight' to avoid
 " extraneous prompting.
-function! s:command(cmd)
+function! s:Command(cmd)
   let  cmdheight = &cmdheight
   let &cmdheight = 2
   execute a:cmd
@@ -17,7 +17,7 @@ function! s:command(cmd)
 endfunction
 
 " Commands
-command -nargs=* -bang Make :call s:command('make<bang> <args>')
+command -nargs=* -bang Make :call <SID>Command('make<bang> <args>')
 
 " Key Mappings
 noremap <silent> <F5> :Make<CR>

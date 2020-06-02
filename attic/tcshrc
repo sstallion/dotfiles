@@ -25,7 +25,7 @@ setenv PAGER less
 
 # Rather than clutter tcshrc, we source configuration from tcshrc.d
 # to further customize the shell:
-foreach name ($home/.tcshrc.d/*)
+foreach name (~/.tcshrc.d/*)
 	source $name
 end
 
