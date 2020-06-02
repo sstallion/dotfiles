@@ -1,0 +1,4 @@
+" bvirc - bvi configuration
+
+set columns=16
+set unixstyle

@@ -2,6 +2,7 @@
 
 ## Platform-Independent
 
+- bvi (http://bvi.sourceforge.net/)
 - cmake (https://cmake.org/)
 - colordiff (http://www.colordiff.org/)
 - coreutils (https://www.gnu.org/s/coreutils/)
