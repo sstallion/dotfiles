@@ -32,6 +32,7 @@ set showmatch
 set showmode
 set smartcase
 set splitright
+set switchbuf=usetab,newtab
 set timeoutlen=2000
 set ttimeoutlen=0
 set wildmode=longest:list

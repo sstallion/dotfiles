@@ -4,6 +4,9 @@
 [submodule "files/vim/bundle/command-t"]
 	path = files/vim/bundle/command-t
 	url = git://github.com/sstallion/command-t.git
+[submodule "files/vim/bundle/gist-vim"]
+	path = files/vim/bundle/gist-vim
+	url = git://github.com/mattn/gist-vim.git
 [submodule "files/vim/bundle/hexmode"]
 	path = files/vim/bundle/hexmode
 	url = git://github.com/fidian/hexmode.git
@@ -52,3 +55,6 @@
 [submodule "files/vim/bundle/vim-wtf"]
 	path = files/vim/bundle/vim-wtf
 	url = git://github.com/sstallion/vim-wtf.git
+[submodule "files/vim/bundle/webapi-vim"]
+	path = files/vim/bundle/webapi-vim
+	url = git://github.com/mattn/webapi-vim.git
