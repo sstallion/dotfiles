@@ -48,6 +48,9 @@
 	prompt = false
 	trustExitCode = true
 
+[pull]
+	ff = only
+
 [push]
 	default = current
 
