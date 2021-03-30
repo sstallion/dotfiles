@@ -58,6 +58,7 @@
 [submodule "files/vim/bundle/vim-qf"]
 	path = files/vim/bundle/vim-qf
 	url = git://github.com/romainl/vim-qf.git
+	ignore = dirty
 [submodule "files/vim/bundle/vim-scriptease"]
 	path = files/vim/bundle/vim-scriptease
 	url = git://github.com/tpope/vim-scriptease.git
