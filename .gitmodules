@@ -92,3 +92,6 @@
 [submodule "files/vim/bundle/vim-gnupg"]
 	path = files/vim/bundle/vim-gnupg
 	url = git://github.com/jamessan/vim-gnupg.git
+[submodule "files/vim/bundle/terminus"]
+	path = files/vim/bundle/terminus
+	url = git://github.com/wincent/terminus.git

@@ -64,6 +64,11 @@ else
 	bind-key -t vi-copy v      begin-selection
 fi
 
+# Focus Support
+if has_version 1.9; then
+	tmux set-option -g focus-events on
+fi
+
 # Mouse Support
 if has_version 2.1; then
 	tmux set-option -g mouse on
