@@ -20,6 +20,7 @@
 - tmuxp (https://github.com/tony/tmuxp/)
 - universal-ctags (https://github.com/universal-ctags/ctags/)
 - vim (http://www.vim.org/)
+- vimwiki (https://github.com/sstallion/vimwiki-cli/)
 - zsh (https://www.zsh.org/)
 
 ## Platform-Specific

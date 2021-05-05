@@ -1,0 +1,10 @@
+# vimwiki - vimwiki configuration
+
+# Global options:
+export VIMWIKI_OPEN_MATCHES=1
+
+# Provide aliases for secondary and tertiary wiki instances:
+alias vimwiki2="vimwiki --count 2"
+alias vimwiki3="vimwiki --count 3"
+
+# vim: ft=zsh

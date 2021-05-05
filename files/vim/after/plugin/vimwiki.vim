@@ -11,6 +11,7 @@ if !empty(glob('~/.vimwiki'))
         \ 'links.md',
         \ 'navigation.md',
         \ 'tags.md',
+        \ 'diary/diary.md',
         \ ]
 
   let g:vimwiki_list = [
