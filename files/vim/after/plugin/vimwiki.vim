@@ -15,10 +15,10 @@ if !empty(glob('~/.vimwiki'))
         \ ]
 
   let g:vimwiki_list = [
-        \ {'path': '~/.vimwiki', 'syntax': 'markdown', 'ext': '.md',
-        \  'auto_diary_index': 1, 'auto_generate_links': 1,
-        \  'auto_generate_tags': 1, 'auto_tags': 1, 'auto_toc': 1,
-        \  'exclude_files': s:vimwiki_exclude_files, 'list_margin': 0,
+        \ {'path': '~/.vimwiki', 'name': 'default', 'auto_toc': 1, 'ext': '.md',
+        \  'syntax': 'markdown', 'diary_caption_level': 0, 'list_margin': 0, 'auto_tags': 1,
+        \  'auto_diary_index': 1, 'auto_generate_links': 1, 'auto_generate_tags': 1,
+        \  'exclude_files': s:vimwiki_exclude_files
         \ }] + g:vimwiki_list
 endif
 
