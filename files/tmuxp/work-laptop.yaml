@@ -1,4 +1,4 @@
-# cantus.yaml - tmux session configuration
+# work-laptop.yaml - tmux session configuration
 
 session_name: default
 environment:
@@ -6,16 +6,15 @@ environment:
 windows:
   - window_name: main
     focus: true
-    layout: 2769,358x92,0,0{257x92,0,0,1,100x92,258,0[100x61,258,0,3,100x30,258,62,4]}
+    layout: f97e,254x75,0,0{153x75,0,0,1,100x75,154,0[100x50,154,0,2,100x24,154,51,3]}
     panes:
       - shell_command: vim --servername $VIM_SERVERNAME
         focus: true
       - pane
       - pane
   - window_name: aux
-    layout: 564b,358x92,0,0{257x92,0,0,5,100x92,258,0[100x30,258,0,6,100x30,258,31,7,100x30,258,62,8]}
+    layout: f97e,254x75,0,0{153x75,0,0,1,100x75,154,0[100x50,154,0,2,100x24,154,51,3]}
     panes:
-      - pane
       - pane
       - pane
       - pane
