@@ -29,6 +29,8 @@
 	ui = auto
 
 [core]
+	editor = vim
+
 	# Look for exclude patterns under $HOME rather than the default.
 	# This avoids having to track $HOME/.config.
 	excludesFile = ~/.gitignore
@@ -39,6 +41,12 @@
 [difftool]
 	prompt = false
 	trustExitCode = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 
 [merge]
 	tool = vimdiff
