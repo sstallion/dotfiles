@@ -13,6 +13,9 @@
 [submodule "files/vim/bundle/lightline-wtf"]
 	path = files/vim/bundle/lightline-wtf
 	url = git://github.com/sstallion/lightline-wtf.git
+[submodule "files/vim/bundle/terminus"]
+	path = files/vim/bundle/terminus
+	url = git://github.com/wincent/terminus.git
 [submodule "files/vim/bundle/vim-bookmarks"]
 	path = files/vim/bundle/vim-bookmarks
 	url = git://github.com/MattesGroeger/vim-bookmarks.git
@@ -83,15 +86,12 @@
 [submodule "files/vim/bundle/vim-yankstack"]
 	path = files/vim/bundle/vim-yankstack
 	url = git://github.com/maxbrunsfeld/vim-yankstack.git
+[submodule "files/vim/bundle/vim-gnupg"]
+	path = files/vim/bundle/vim-gnupg
+	url = git://github.com/jamessan/vim-gnupg.git
 [submodule "files/vim/bundle/vimwiki"]
 	path = files/vim/bundle/vimwiki
 	url = git://github.com/vimwiki/vimwiki.git
 [submodule "files/vim/bundle/webapi-vim"]
 	path = files/vim/bundle/webapi-vim
 	url = git://github.com/mattn/webapi-vim.git
-[submodule "files/vim/bundle/vim-gnupg"]
-	path = files/vim/bundle/vim-gnupg
-	url = git://github.com/jamessan/vim-gnupg.git
-[submodule "files/vim/bundle/terminus"]
-	path = files/vim/bundle/terminus
-	url = git://github.com/wincent/terminus.git

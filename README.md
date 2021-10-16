@@ -1,16 +1,31 @@
 # Configuration Files
 
-This repository contains various configuration files that are shared between
-multiple systems.
+This repository contains various configuration files (aka dotfiles) that are
+shared between multiple systems.
+
+![Emacs](emacs.jpg)
+
+## Installation
 
 Installation is straightforward; symbolic links are created in the current
 user's home directory for each file tracked. Existing symbolic links will be
 overwritten; however, if a normal file or directory exists a warning will be
 issued and no action will be taken.
 
-    % git clone git://github.com/sstallion/dotfiles.git && cd dotfiles
-    % sh install.sh
+    $ git clone git://github.com/sstallion/dotfiles.git
+    $ cd dotfiles
+    $ ./install.sh
 
-<p align="center">
-    <img src="https://raw.githubusercontent.com/sstallion/dotfiles/master/emacs.jpg"/>
-</p>
+## Contributing
+
+Pull requests are welcome! If a problem is encountered using this repository,
+please file an issue on [GitHub][1].
+
+## License
+
+Source code in this repository is licensed under a Simplified BSD License. See
+[LICENSE] for more details.
+
+[1]: https://github.com/sstallion/dotfiles/issues
+
+[LICENSE]: LICENSE
