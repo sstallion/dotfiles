@@ -1,6 +1,5 @@
-#!/usr/bin/env python2.7
-# Copyright (c) 2019 Steven Stallion
-# All rights reserved.
+#!/usr/bin/env python3
+# Copyright (C) 2019 Steven Stallion <sstallion@gmail.com>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -25,33 +24,37 @@
 
 import json
 import sys
-
 from datetime import datetime, time
+
 from pytz import utc
 from tzlocal import get_localzone
+
+TIME_FORMAT = '%Y%m%dT%H%M%SZ'
 
 DEFAULT_TIME = time(0, 0, 0)    # sod
 REPLACE_TIME = time(23, 59, 59) # eod
 
-TIME_FORMAT = '%Y%m%dT%H%M%SZ'
 
 def get_due_date(task):
     dt = datetime.strptime(task['due'], TIME_FORMAT)
     return utc.localize(dt).astimezone(get_localzone())
 
-def replace_due_date(dt):
+
+def replace_due_date(task, dt):
     dt = dt.replace(hour=REPLACE_TIME.hour,
                     minute=REPLACE_TIME.minute,
                     second=REPLACE_TIME.second)
     dt = dt.astimezone(utc)
     task['due'] = dt.strftime(TIME_FORMAT)
 
-task = json.load(sys.stdin)
 
-if 'due' in task:
-    dt = get_due_date(task)
-    if dt.time() == DEFAULT_TIME:
-        replace_due_date(dt)
+if __name__ == '__main__':
+    task = json.load(sys.stdin)
 
-json.dump(task, sys.stdout)
-sys.exit(0)
+    if 'due' in task:
+        dt = get_due_date(task)
+        if dt.time() == DEFAULT_TIME:
+            replace_due_date(task, dt)
+
+    json.dump(task, sys.stdout)
+    sys.exit(0)

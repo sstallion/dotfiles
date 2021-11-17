@@ -1,6 +1,5 @@
-#!/usr/bin/env python2.7
-# Copyright (c) 2016 Steven Stallion
-# All rights reserved.
+#!/usr/bin/env python3
+# Copyright (C) 2021 Steven Stallion <sstallion@gmail.com>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -28,33 +27,39 @@ import shlex
 import subprocess
 import sys
 
-def call_task(args):
-    args = ['task'] + args.split(' ')
-    output = subprocess.check_output(args)
-    return output.strip()
+
+def run_task(args):
+    process = subprocess.run(['task'] + shlex.split(args),
+                             capture_output=True, check=True, text=True)
+    return process.stdout.strip()
+
 
 def get_context():
-    return call_task('_get rc.context')
+    return run_task('_get rc.context')
+
 
 def get_context_filter(context):
-    return call_task('_get rc.context.%s' % context)
+    return run_task('_get rc.context.%s' % context)
 
-def get_context_project(context):
+
+def get_project(context):
     context_filter = get_context_filter(context)
     if not context_filter:
         return None
     for s in shlex.split(context_filter):
         if s.startswith('project:'):
-            return s.split(':')[1]
+            return s.split(':')[-1]
     return None
 
-task = json.load(sys.stdin)
 
-context = get_context()
-if context:
-    project = get_context_project(context)
-    if project and 'project' not in task:
-        task['project'] = project
+if __name__ == '__main__':
+    task = json.load(sys.stdin)
 
-json.dump(task, sys.stdout)
-sys.exit(0)
+    context = get_context()
+    if context:
+        project = get_project(context)
+        if project and 'project' not in task:
+            task['project'] = project
+
+    json.dump(task, sys.stdout)
+    sys.exit(0)

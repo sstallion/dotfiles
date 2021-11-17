@@ -26,8 +26,9 @@ urgency.tags.coefficient=0.0
 
 # Contexts
 context.home=project:Home
+context.projects=project:Projects
 context.work=project:Work
-context=home
 
 # Include local configuration
 include ~/.taskrc.local
+context=home
