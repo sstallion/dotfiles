@@ -1,0 +1,11 @@
+# latexmkrc - latexmk configuration
+
+use File::Which;
+
+$clean_ext = 'xdv';
+
+# Preview PDFs using Zathura if installed:
+my $path = which 'zathura';
+if (defined $path) {
+  $pdf_previewer = "$path %O %S";
+}
