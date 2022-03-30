@@ -1,97 +1,97 @@
 [submodule "files/vim/bundle/command-t"]
 	path = files/vim/bundle/command-t
-	url = git://github.com/wincent/command-t.git
+	url = https://github.com/wincent/command-t.git
 [submodule "files/vim/bundle/gist-vim"]
 	path = files/vim/bundle/gist-vim
-	url = git://github.com/mattn/gist-vim.git
+	url = https://github.com/mattn/gist-vim.git
 [submodule "files/vim/bundle/hexmode"]
 	path = files/vim/bundle/hexmode
-	url = git://github.com/fidian/hexmode.git
+	url = https://github.com/fidian/hexmode.git
 [submodule "files/vim/bundle/lightline"]
 	path = files/vim/bundle/lightline
-	url = git://github.com/itchyny/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
 [submodule "files/vim/bundle/lightline-wtf"]
 	path = files/vim/bundle/lightline-wtf
-	url = git://github.com/sstallion/lightline-wtf.git
+	url = https://github.com/sstallion/lightline-wtf.git
 [submodule "files/vim/bundle/terminus"]
 	path = files/vim/bundle/terminus
-	url = git://github.com/wincent/terminus.git
+	url = https://github.com/wincent/terminus.git
 [submodule "files/vim/bundle/vim-bookmarks"]
 	path = files/vim/bundle/vim-bookmarks
-	url = git://github.com/MattesGroeger/vim-bookmarks.git
+	url = https://github.com/MattesGroeger/vim-bookmarks.git
 [submodule "files/vim/bundle/vim-commentary"]
 	path = files/vim/bundle/vim-commentary
-	url = git://github.com/tpope/vim-commentary.git
+	url = https://github.com/tpope/vim-commentary.git
 [submodule "files/vim/bundle/vim-cursorline"]
 	path = files/vim/bundle/vim-cursorline
-	url = git://github.com/sstallion/vim-cursorline.git
+	url = https://github.com/sstallion/vim-cursorline.git
 [submodule "files/vim/bundle/vim-dispatch"]
 	path = files/vim/bundle/vim-dispatch
-	url = git://github.com/tpope/vim-dispatch.git
+	url = https://github.com/tpope/vim-dispatch.git
 [submodule "files/vim/bundle/vim-eunuch"]
 	path = files/vim/bundle/vim-eunuch
-	url = git://github.com/tpope/vim-eunuch.git
+	url = https://github.com/tpope/vim-eunuch.git
 [submodule "files/vim/bundle/vim-fugitive"]
 	path = files/vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "files/vim/bundle/vim-gitgutter"]
 	path = files/vim/bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
+	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "files/vim/bundle/vim-go"]
 	path = files/vim/bundle/vim-go
-	url = git://github.com/fatih/vim-go.git
+	url = https://github.com/fatih/vim-go.git
 [submodule "files/vim/bundle/vim-grepper"]
 	path = files/vim/bundle/vim-grepper
-	url = git://github.com/mhinz/vim-grepper.git
+	url = https://github.com/mhinz/vim-grepper.git
 [submodule "files/vim/bundle/vim-gutentags"]
 	path = files/vim/bundle/vim-gutentags
-	url = git://github.com/ludovicchabant/vim-gutentags.git
+	url = https://github.com/ludovicchabant/vim-gutentags.git
 [submodule "files/vim/bundle/vim-localvimrc"]
 	path = files/vim/bundle/vim-localvimrc
-	url = git://github.com/embear/vim-localvimrc.git
+	url = https://github.com/embear/vim-localvimrc.git
 [submodule "files/vim/bundle/vim-misc"]
 	path = files/vim/bundle/vim-misc
-	url = git://github.com/xolox/vim-misc.git
+	url = https://github.com/xolox/vim-misc.git
 [submodule "files/vim/bundle/vim-pathogen"]
 	path = files/vim/bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
+	url = https://github.com/tpope/vim-pathogen.git
 [submodule "files/vim/bundle/vim-polyglot"]
 	path = files/vim/bundle/vim-polyglot
-	url = git://github.com/sheerun/vim-polyglot.git
+	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "files/vim/bundle/vim-qf"]
 	path = files/vim/bundle/vim-qf
-	url = git://github.com/romainl/vim-qf.git
+	url = https://github.com/romainl/vim-qf.git
 	ignore = dirty
 [submodule "files/vim/bundle/vim-scriptease"]
 	path = files/vim/bundle/vim-scriptease
-	url = git://github.com/tpope/vim-scriptease.git
+	url = https://github.com/tpope/vim-scriptease.git
 [submodule "files/vim/bundle/vim-session"]
 	path = files/vim/bundle/vim-session
-	url = git://github.com/xolox/vim-session.git
+	url = https://github.com/xolox/vim-session.git
 [submodule "files/vim/bundle/vim-tmux-navigator"]
 	path = files/vim/bundle/vim-tmux-navigator
-	url = git://github.com/christoomey/vim-tmux-navigator.git
+	url = https://github.com/christoomey/vim-tmux-navigator.git
 [submodule "files/vim/bundle/vim-vinegar"]
 	path = files/vim/bundle/vim-vinegar
-	url = git://github.com/tpope/vim-vinegar.git
+	url = https://github.com/tpope/vim-vinegar.git
 [submodule "files/vim/bundle/vim-whitespace"]
 	path = files/vim/bundle/vim-whitespace
-	url = git://github.com/sstallion/vim-whitespace.git
+	url = https://github.com/sstallion/vim-whitespace.git
 [submodule "files/vim/bundle/vim-wildignore"]
 	path = files/vim/bundle/vim-wildignore
-	url = git://github.com/sstallion/vim-wildignore.git
+	url = https://github.com/sstallion/vim-wildignore.git
 [submodule "files/vim/bundle/vim-wtf"]
 	path = files/vim/bundle/vim-wtf
-	url = git://github.com/sstallion/vim-wtf.git
+	url = https://github.com/sstallion/vim-wtf.git
 [submodule "files/vim/bundle/vim-yankstack"]
 	path = files/vim/bundle/vim-yankstack
-	url = git://github.com/maxbrunsfeld/vim-yankstack.git
+	url = https://github.com/maxbrunsfeld/vim-yankstack.git
 [submodule "files/vim/bundle/vim-gnupg"]
 	path = files/vim/bundle/vim-gnupg
-	url = git://github.com/jamessan/vim-gnupg.git
+	url = https://github.com/jamessan/vim-gnupg.git
 [submodule "files/vim/bundle/vimwiki"]
 	path = files/vim/bundle/vimwiki
-	url = git://github.com/vimwiki/vimwiki.git
+	url = https://github.com/vimwiki/vimwiki.git
 [submodule "files/vim/bundle/webapi-vim"]
 	path = files/vim/bundle/webapi-vim
-	url = git://github.com/mattn/webapi-vim.git
+	url = https://github.com/mattn/webapi-vim.git
