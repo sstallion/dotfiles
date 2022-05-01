@@ -6,4 +6,4 @@ HashKnownHosts yes
 Host trusted.example.com
 	ForwardAgent yes
 	ForwardX11 yes
-	RemoteForward /path/to/.gnupg/S.gpg-agent /path/to/.gnupg/S.gpg-agent.extra
+	RemoteForward "/home/%r/.gnupg/S.gpg-agent" "/run/user/%i/gnupg/S.gpg-agent.extra"
