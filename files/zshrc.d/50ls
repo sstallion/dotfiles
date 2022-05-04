@@ -3,10 +3,16 @@
 # Override default character collation for globbing and sorting:
 export LC_COLLATE=C
 
+# Prefer GNU coreutils over BSD if installed:
+if whence gls &>/dev/null; then
+	alias ls=gls
+	alias dircolors=gdircolors
+fi
+
 # Detecting if GNU coreutils are installed requires executing the `ls'
 # command with a long option and checking the exit status:
 if ls --version &>/dev/null; then
-	args="-HN --color --group-directories-first"
+	args="-N --color --group-directories-first"
 
 	# Match list-colors to those used by the GNU `ls' command;
 	# see: list-colors in zshcompsys(1).
@@ -14,7 +20,7 @@ if ls --version &>/dev/null; then
 	zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
 fi
 
-alias ls="ls -Fh $args"
+alias ls="$(whence ls) -FHh $args"
 unset args
 
 # vim: ft=zsh
