@@ -12,7 +12,7 @@ for target in files/*; do
 		echo "Skipping $link_name; not a symbolic link"
 	else
 		echo "Installing $link_name..."
-		ln -fs -T $PWD/$target $link_name
+		ln -fns $PWD/$target $link_name
 	fi
 done
 
