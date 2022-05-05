@@ -32,3 +32,4 @@ context.work=project:Work
 # Include local configuration
 include ~/.taskrc.local
 context=home
+news.version=2.6.0
