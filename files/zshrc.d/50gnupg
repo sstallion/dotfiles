@@ -3,10 +3,13 @@
 export GPG_TTY=$(tty)
 
 # Configure SSH if gpg-agent(1) was started locally:
-if [[ -z $SSH_CLIENT && -S $XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh ]]; then
-	unset SSH_AGENT_PID
-	export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gnupg/S.gpg-agent.ssh
-fi
+for dir in $XDG_RUNTIME_DIR/gnupg $HOME/.gnupg; do
+	if [[ -z $SSH_CLIENT && -S $dir/S.gpg-agent.ssh ]]; then
+		unset SSH_AGENT_PID
+		export SSH_AUTH_SOCK=$dir/S.gpg-agent.ssh
+		break
+	fi
+done
 
 # Provide an alias to avoid calling GnuPG v1 by accident:
 if whence gpg2 &>/dev/null; then
