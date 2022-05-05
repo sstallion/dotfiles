@@ -4,7 +4,7 @@
 alias vi=vim
 
 # Client-Server
-export VIM_SERVERNAME=${VIM_SERVERNAME:-VIM}
+: ${VIM_SERVERNAME:=VIM}
 
 function vim-remote {
 	vim --servername $VIM_SERVERNAME $@
