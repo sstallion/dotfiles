@@ -23,6 +23,7 @@ function collect_paths {
 # Avoid the NULL_GLOB option as it also affects interactive sessions;
 # see: http://unix.stackexchange.com/a/26825.
 path=($(collect_paths ~/.paths ~/.paths.d/*(N)) $path)
+fpath=($(collect_paths ~/.fpaths ~/.fpaths.d/*(N)) $fpath)
 manpath=($(collect_paths ~/.manpaths ~/.manpaths.d/*(N)) $manpath)
 
 # vim: ft=zsh
