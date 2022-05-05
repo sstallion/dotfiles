@@ -10,11 +10,11 @@ function vim-remote {
 	vim --servername $VIM_SERVERNAME $@
 }
 
-alias vimr="vim-remote --remote-silent"
-alias vimrw="vim-remote --remote-wait-silent"
+alias vimbuf="vim-remote --remote-silent"
+alias vimbufw="vim-remote --remote-wait-silent"
 
-alias vimt="vim-remote --remote-tab-silent"
-alias vimtw="vim-remote --remote-tab-wait-silent"
+alias vimtab="vim-remote --remote-tab-silent"
+alias vimtabw="vim-remote --remote-tab-wait-silent"
 
 # Search for patterns on the command line using vim-grepper. This
 # requires saving the working directory prior to invoking :Grepper
