@@ -22,6 +22,7 @@
 - [tmuxp](https://github.com/tony/tmuxp/)
 - [Universal Ctags](https://github.com/universal-ctags/ctags/)
 - [Vim](http://www.vim.org/)
+- [Vimpager](https://github.com/rkitover/vimpager)
 - [Vimwiki](https://github.com/sstallion/vimwiki-cli/)
 - [Zsh](https://www.zsh.org/)
 
