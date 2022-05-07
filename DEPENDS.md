@@ -24,6 +24,7 @@
 - [Vim](http://www.vim.org/)
 - [Vimpager](https://github.com/rkitover/vimpager)
 - [Vimwiki](https://github.com/sstallion/vimwiki-cli/)
+- [Zathura](https://https://pwmt.org/projects/zathura/)
 - [Zsh](https://www.zsh.org/)
 
 ## Platform-Specific
