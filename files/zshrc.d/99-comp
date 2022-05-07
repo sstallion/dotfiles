@@ -12,9 +12,9 @@ ZLE_REMOVE_SUFFIX_CHARS=$'\t\n;)'
 function expand-or-complete-or-list-files {
 	if [[ $#BUFFER == 0 ]]; then
 		BUFFER="ls "
-		CURSOR=3
+		CURSOR=$#BUFFER
 		zle list-choices
-		zle backward-kill-word
+		zle backward-kill-line
 	else
 		zle expand-or-complete
 	fi
