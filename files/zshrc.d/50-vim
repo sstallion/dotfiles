@@ -18,10 +18,10 @@ function vimcd {
 		case "$arg" in
 		n)
 			edit=0
-			shift
 			;;
 		esac
 	done
+	shift $((OPTIND-1))
 
 	[[ $edit != 0 ]] && _vimremote --remote-silent "$1"
 	_vimremote --remote-expr "execute('cd ${(q)1}')" &>/dev/null

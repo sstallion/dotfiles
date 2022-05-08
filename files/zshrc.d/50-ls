@@ -9,8 +9,8 @@ if whence gls &>/dev/null; then
 	alias dircolors=gdircolors
 fi
 
-# Detecting if GNU coreutils are installed requires executing the `ls'
-# command with a long option and checking the exit status:
+# Detecting if GNU coreutils are installed requires executing the `ls' command
+# with a long option and checking the exit status:
 if ls --version &>/dev/null; then
 	args="-N --color --group-directories-first"
 
