@@ -6,28 +6,43 @@ alias vi=vim
 # Client-Server
 : ${VIM_SERVERNAME:=VIM}
 
-function vim-remote {
+function _vimremote {
 	vim --servername $VIM_SERVERNAME $@
 }
 
-alias vimbuf="vim-remote --remote-silent"
-alias vimbufw="vim-remote --remote-wait-silent"
+# Change current directory, optionally opening the directory in the current
+# buffer for browsing with netrw.
+function vimcd {
+	local edit=1
+	while getopts "n" arg; do
+		case "$arg" in
+		n)
+			edit=0
+			shift
+			;;
+		esac
+	done
 
-alias vimtab="vim-remote --remote-tab-silent"
-alias vimtabw="vim-remote --remote-tab-wait-silent"
-
-# Search for patterns on the command line using vim-grepper. This
-# requires saving the working directory prior to invoking :Grepper
-# to avoid surprises after the search completes.
-function vimgrep {
-	local pwd
-
-	pwd=$(vim-remote --remote-expr "call('getcwd', [])")
-	vim-remote --remote-expr --remote-expr \
-		"execute('cd $(pwd) | Grepper -noprompt -dir cwd -query ${(q)@}')" &>/dev/null
-	vim-remote --remote-expr "execute('cd $pwd')" &>/dev/null
+	[[ $edit != 0 ]] && _vimremote --remote-silent "$1"
+	_vimremote --remote-expr "execute('cd ${(q)1}')" &>/dev/null
 }
 
-alias vg=vimgrep
+# Search for patterns on the command line using vim-grepper. This requires
+# saving the working directory prior to invoking :Grepper to avoid surprises
+# after the search completes.
+function vimgrep {
+	local pwd=$(_vimremote --remote-expr "call('getcwd', [])")
+	(
+		_vimremote --remote-expr \
+			"execute('cd ${(q)$(pwd)} | Grepper -noprompt -dir cwd -query ${(q)@}')"
+		_vimremote --remote-expr "execute('cd ${(q)pwd}')"
+	) &>/dev/null
+}
+
+alias vimbuf="_vimremote --remote-silent"
+alias vimbufw="_vimremote --remote-wait-silent"
+
+alias vimtab="_vimremote --remote-tab-silent"
+alias vimtabw="_vimremote --remote-tab-wait-silent"
 
 # vim: ft=zsh
