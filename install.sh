@@ -18,7 +18,7 @@ done
 
 echo "Updating Command-T..."
 extdir=files/vim/bundle/command-t/ruby/command-t/ext/command-t
-(cd $extdir && ruby extconf.rb && make all)
+(cd $extdir && ruby extconf.rb && make clean all)
 
 if command lesskey >/dev/null 2>&1; then
 	echo "Updating lesskey file..."
