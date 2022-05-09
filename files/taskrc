@@ -16,6 +16,9 @@ include ~/.task/rc/dark-gray-256.theme
 confirmation=off
 verbose=no
 
+# Quiesce new release nag
+news.version=2.6.0
+
 # Search
 search.case.sensitive=no
 
@@ -25,11 +28,13 @@ urgency.blocking.coefficient=0.0
 urgency.tags.coefficient=0.0
 
 # Contexts
-context.home=project:Home
-context.projects=project:Projects
-context.work=project:Work
+context=home
+context.home.read=project:Home
+context.home.write=project:Home
+context.projects.read=project:Projects
+context.projects.write=project:Projects
+context.work.read=project:Work
+context.work.write=project:Work
 
 # Include local configuration
 include ~/.taskrc.local
-context=home
-news.version=2.6.0
