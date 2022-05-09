@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Terminal (tmux)
+Comment=Use the command line with tmux
+Icon=org.gnome.Terminal
+TryExec=gnome-terminal
+Exec=gnome-terminal --window --maximize -- sh -c "tmuxp load $(hostname -s)"
+Categories=GNOME;GTK;System;TerminalEmulator;
