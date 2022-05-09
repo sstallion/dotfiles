@@ -4,17 +4,19 @@
 alias vi=vim
 
 # Client-Server
-: ${VIM_SERVERNAME:=VIM}
+function _vimquote {
+	printf '"%q"\n' "$*"
+}
 
 function _vimremote {
-	vim --servername $VIM_SERVERNAME $@
+	vim --servername ${VIM_SERVERNAME:-VIM} $@
 }
 
 # Change current directory, optionally opening the directory in the current
 # window for browsing with netrw.
 function vimcd {
 	local edit=1
-	while getopts "n" arg; do
+	while getopts 'n' arg; do
 		case "$arg" in
 		n)
 			edit=0
@@ -23,26 +25,26 @@ function vimcd {
 	done
 	shift $((OPTIND-1))
 
-	cd $1 && _vimremote --remote-expr "execute('cd ${(q)$(pwd)}')" &&
+	cd $1 && _vimremote --remote-expr "execute($(_vimquote cd $(pwd)))" &>/dev/null &&
 	[[ $edit != 0 ]] && _vimremote --remote .
 }
 
 # Search for patterns on the command line using vim-grepper. This requires
 # saving the working directory prior to invoking :Grepper to avoid surprises
-# after the search completes.
+# after the search completes. Vim quoting rules must be obvserved when
+# specifying the search pattern; see eval.txt.
 function vimgrep {
-	local oldpwd=$(_vimremote --remote-expr "call('getcwd', [])")
-	(
-		_vimremote --remote-expr "execute('cd ${(q)$(pwd)}')" &&
-		_vimremote --remote-expr "Grepper -noprompt -dir cwd -query ${(q)@}')" &&
-		_vimremote --remote-expr "execute('cd ${(q)oldpwd}')"
-	) &>/dev/null
+	local winnr=$(_vimremote --remote-expr 'winnr()')
+	local oldpwd=$(_vimremote --remote-expr "chdir($(_vimquote $(pwd)))")
+	_vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query \"$1\" ${@:2}')"
+	_vimremote --remote-expr "execute('${winnr}wincmd w')"
+	_vimremote --remote-expr "chdir($(_vimquote $oldpwd))" &>/dev/null
 }
 
-alias vimbuf="_vimremote --remote"
-alias vimbufw="_vimremote --remote-wait"
+alias vimbuf='_vimremote --remote'
+alias vimbufw='_vimremote --remote-wait'
 
-alias vimtab="_vimremote --remote-tab"
-alias vimtabw="_vimremote --remote-tab-wait"
+alias vimtab='_vimremote --remote-tab'
+alias vimtabw='_vimremote --remote-tab-wait'
 
 # vim: ft=zsh
