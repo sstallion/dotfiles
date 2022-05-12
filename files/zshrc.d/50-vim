@@ -5,7 +5,8 @@ alias vi=vim
 
 # Client-Server
 function _vimquote {
-	printf '"%q"\n' "$*"
+	printf '"%s" ' $@
+	printf '\n'
 }
 
 function _vimremote {
@@ -25,8 +26,10 @@ function vimcd {
 	done
 	shift $((OPTIND-1))
 
-	cd $1 && _vimremote --remote-expr "execute($(_vimquote cd $(pwd)))" &>/dev/null &&
+	set -x
+	cd $1 && _vimremote --remote-expr "execute('cd ${(q)$(pwd)}')" &&
 	[[ $edit != 0 ]] && _vimremote --remote .
+	set +x
 }
 
 # Search for patterns on the command line using vim-grepper. This requires
@@ -35,10 +38,10 @@ function vimcd {
 # specifying the search pattern; see eval.txt.
 function vimgrep {
 	local winnr=$(_vimremote --remote-expr 'winnr()')
-	local oldpwd=$(_vimremote --remote-expr "chdir($(_vimquote $(pwd)))")
-	_vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query ${(q)@}')"
+	local oldpwd=$(_vimremote --remote-expr "chdir('${(q)$(pwd)}')")
+	_vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query $(_vimquote $@)')"
 	_vimremote --remote-expr "execute('${winnr}wincmd w')"
-	_vimremote --remote-expr "chdir($(_vimquote $oldpwd))" &>/dev/null
+	_vimremote --remote-expr "chdir('${(q)oldpwd}')" &>/dev/null
 }
 
 alias vimbuf='_vimremote --remote'

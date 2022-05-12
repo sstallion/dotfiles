@@ -3,7 +3,7 @@
 # There does not appear to be an official means of detecting whether or not
 # the shell is executing in WSL 2. The following checks for the presence of
 # $WSL_INTEROP; see: https://github.com/microsoft/WSL/issues/4555.
-if [[ ! -v WSL_INTEROP ]]; then
+if [[ -z $WSL_INTEROP ]]; then
 	return
 fi
 
