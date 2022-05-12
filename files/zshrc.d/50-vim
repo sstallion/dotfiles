@@ -36,7 +36,7 @@ function vimcd {
 function vimgrep {
 	local winnr=$(_vimremote --remote-expr 'winnr()')
 	local oldpwd=$(_vimremote --remote-expr "chdir($(_vimquote $(pwd)))")
-	_vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query \"$1\" ${@:2}')"
+	_vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query ${(q)@}')"
 	_vimremote --remote-expr "execute('${winnr}wincmd w')"
 	_vimremote --remote-expr "chdir($(_vimquote $oldpwd))" &>/dev/null
 }
