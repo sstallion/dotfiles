@@ -12,9 +12,11 @@ user's home directory for each file tracked. Existing symbolic links will be
 overwritten; however, if a normal file or directory exists a warning will be
 issued and no action will be taken.
 
-    $ git clone git://github.com/sstallion/dotfiles.git
-    $ cd dotfiles
+    $ git clone git@github.com:sstallion/dotfiles.git <directory> && cd $_
     $ ./install.sh
+
+> **Note**: The suggested installation directory for macOS is `$HOME/Library/dotfiles`
+> and `$XDG_CONFIG_HOME/dotfiles` for [everything else][2].
 
 ## Contributing
 
@@ -27,5 +29,6 @@ Source code in this repository is licensed under a Simplified BSD License. See
 [LICENSE] for more details.
 
 [1]: https://github.com/sstallion/dotfiles/issues
+[2]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
 [LICENSE]: LICENSE

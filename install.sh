@@ -1,26 +1,37 @@
-#!/bin/sh -e
+#!/usr/bin/env bash
 # install.sh - install dotfiles to $HOME
+
+set -e
 
 echo "Updating submodules..."
 git submodule update --init --recursive
 
+# Ensure files are installed relative to $HOME if possible; the following
+# makes use of parameter expansion rather than relying on GNU coreutils:
+prefix="${PWD#*${HOME}/}"
+
+# Provide a link to the install directory for convenience:
+echo "Installing ${HOME}/.dotfiles..."
+ln -fns "${prefix}" "${HOME}/.dotfiles"
+
 # Link each file to the home directory iff the file does not exist or is
 # already a symbolic link. This will probably annoy someone, eventually.
-for target in files/*; do
-	link_name=$HOME/.`basename $target`
-	if [ -e $link_name -a ! -h $link_name ]; then
-		echo "Skipping $link_name; not a symbolic link"
+for target_file in files/*; do
+	target_file="${prefix}/${target_file}"
+	source_file="${HOME}/.${target_file##*/}"
+	if [[ -e "${source_file}" && ! -h "${source_file}" ]]; then
+		echo "Skipping ${source_file}; not a symbolic link"
 	else
-		echo "Installing $link_name..."
-		ln -fns $PWD/$target $link_name
+		echo "Installing ${source_file}..."
+		ln -fns "${target_file}" "${source_file}"
 	fi
 done
 
 echo "Updating Command-T..."
-extdir=files/vim/bundle/command-t/ruby/command-t/ext/command-t
-(cd $extdir && ruby extconf.rb && make clean all)
+ext_dir="files/vim/bundle/command-t/ruby/command-t/ext/command-t"
+(cd "${ext_dir}" && ruby extconf.rb && make clean all)
 
-if command lesskey >/dev/null 2>&1; then
+if command lesskey &>/dev/null; then
 	echo "Updating lesskey file..."
 	lesskey
 fi

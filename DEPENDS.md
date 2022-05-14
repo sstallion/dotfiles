@@ -29,7 +29,7 @@
 
 ## Platform-Specific
 
-### Unix & Linux
+### BSD & Linux
 
 - [libinput-gestures](https://github.com/bulletmark/libinput-gestures)
 - [xsel](http://www.vergenet.net/~conrad/software/xsel/)
