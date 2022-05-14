@@ -5,8 +5,10 @@ alias vi=vim
 
 # Client-Server
 function _vimquote {
-	printf '"%s" ' $@
-	printf '\n'
+	for arg; do shift
+		printf '"%s"' $arg
+		[[ $# == 0 ]] && printf '\n' || printf ' '
+	done
 }
 
 function _vimremote {
@@ -26,10 +28,8 @@ function vimcd {
 	done
 	shift $((OPTIND-1))
 
-	set -x
 	cd $1 && _vimremote --remote-expr "execute('cd ${(q)$(pwd)}')" &&
 	[[ $edit != 0 ]] && _vimremote --remote .
-	set +x
 }
 
 # Search for patterns on the command line using vim-grepper. This requires
