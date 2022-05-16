@@ -8,7 +8,8 @@ git submodule update --init --recursive
 
 # Ensure files are installed relative to $HOME if possible; the following
 # makes use of parameter expansion rather than relying on GNU coreutils:
-prefix="${PWD#*${HOME}/}"
+prefix=$(readlink -f "${PWD}")
+prefix="${prefix#*${HOME}/}"
 
 # Provide a link to the install directory for convenience:
 echo "Installing ${HOME}/.dotfiles..."
