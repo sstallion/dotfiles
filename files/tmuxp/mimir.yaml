@@ -1,4 +1,4 @@
-# work.yaml - tmux session configuration
+# mimir.yaml - tmux session configuration
 
 session_name: default
 environment:
