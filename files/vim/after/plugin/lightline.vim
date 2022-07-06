@@ -127,11 +127,9 @@ function! LightLineFileformat()
 endfunction
 
 function! LightLineFugitive()
-  if exists('*fugitive#head')
-    let branch = fugitive#head()
-    if !empty(branch)
-      return printf(' %s', branch)
-    endif
+  let branch = FugitiveHead(7)
+  if !empty(branch)
+    return printf(' %s', branch)
   endif
   return ''
 endfunction
