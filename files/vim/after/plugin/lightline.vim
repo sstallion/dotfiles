@@ -138,3 +138,10 @@ endfunction
 " vertical split is present, which results in improper highlighting;
 " see: https://github.com/itchyny/lightline.vim/issues/179.
 call lightline#colorscheme#wtf#highlight()
+
+" Work around nested event issues when opening directories in netrw;
+" see: https://github.com/itchyny/lightline.vim/issues/390.
+augroup netrw_init
+  autocmd!
+  autocmd filetype netrw call lightline#enable()
+augroup END
