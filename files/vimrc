@@ -39,6 +39,7 @@ set timeoutlen=2000
 set ttimeoutlen=0
 set ttyfast
 set updatetime=100
+set visualbell t_vb=
 set wildmode=longest:list
 
 " Feature Options
