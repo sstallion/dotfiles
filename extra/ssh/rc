@@ -1,0 +1,2 @@
+#!/bin/sh
+[ -S "$SSH_AUTH_SOCK" ] && ln -fs "$SSH_AUTH_SOCK" ~/.ssh/auth.socket

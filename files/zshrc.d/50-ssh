@@ -1,0 +1,6 @@
+# ssh - Secure shell configuration
+
+# ...
+[[ -S ~/.ssh/auth.socket ]] && export SSH_AUTH_SOCK=~/.ssh/auth.socket
+
+# vim: ft=zsh
