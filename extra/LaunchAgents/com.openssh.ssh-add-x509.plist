@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.openssh.ssh-add-x509</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/sh</string>
+		<string>-c</string>
+		<string>
+			SSH_AUTH_SOCK=/private/var/run/ssh-agent-x509
+			/opt/local/bin/ssh-add $HOME/.ssh/id_crt
+		</string>
+	</array>
+	<key>KeepAlive</key>
+	<dict>
+		<key>PathState</key>
+		<dict>
+			<key>/private/var/run/ssh-agent-x509</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
