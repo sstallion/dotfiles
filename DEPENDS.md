@@ -6,6 +6,7 @@
 - [CMake](https://cmake.org/)
 - [colordiff](http://www.colordiff.org/)
 - [GNU Coreutils](https://www.gnu.org/s/coreutils/)
+- [GNU Netcat](http://netcat.sourceforge.net/)
 - [curl](https://curl.haxx.se/)
 - [Git](https://git-scm.com/)
 - [GnuPG](https://www.gnupg.org/)

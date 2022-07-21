@@ -13,6 +13,10 @@ has_version() {
 	return `echo $@ | awk "{print (($version >= \$1) == 0)}"`
 }
 
+is_remote() {
+	test -n "$SSH_CONNECTION"
+}
+
 case `uname -s` in
 Darwin)
 	# Reattach to the per-user namespace to access the pasteboard.
@@ -37,15 +41,27 @@ Darwin)
 	# see: http://askubuntu.com/a/507215.
 	tmux set-option -g set-clipboard off
 
+	# Experimental support for (unidirectional) clipboard sharing;
+	# requires a forwarded TCP port on the remote machine:
+	if is_remote; then
+		copy_command="nc -N localhost 5555"
+		paste_command=
+	else
+		copy_command="xsel -i -b"
+		paste_command="xsel -o -b"
+	fi
+
 	# Key Bindings
 	if has_version 2.4; then
-		tmux bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xsel -i -b"
-		tmux bind-key -T copy-mode-vi y     send-keys -X copy-pipe-and-cancel "xsel -i -b"
+		tmux bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "$copy_command"
+		tmux bind-key -T copy-mode-vi y     send-keys -X copy-pipe-and-cancel "$copy_command"
 	else
-		tmux bind-key -t vi-copy Enter copy-pipe "xsel -i -b"
-		tmux bind-key -t vi-copy y     copy-pipe "xsel -i -b"
+		tmux bind-key -t vi-copy Enter copy-pipe "$copy_command"
+		tmux bind-key -t vi-copy y     copy-pipe "$copy_command"
 	fi
-	tmux bind-key ] run-shell "xsel -o -b | tmux load-buffer - && tmux paste-buffer"
+
+	[ -n "$paste_command" ] &&
+		tmux bind-key ] run-shell "$paste_command | tmux load-buffer - && tmux paste-buffer"
 	;;
 esac
 
