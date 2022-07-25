@@ -1,5 +1,8 @@
 " netrw.vim - plugin configuration
 
+" Use initial cursorline & cursorcolumn:
+let g:netrw_cursor = 6
+
 " Display human-readable file sizes:
 let g:netrw_sizestyle = 'H'
 
