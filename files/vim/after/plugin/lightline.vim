@@ -143,5 +143,5 @@ call lightline#colorscheme#wtf#highlight()
 " see: https://github.com/itchyny/lightline.vim/issues/390.
 augroup netrw_init
   autocmd!
-  autocmd filetype netrw call lightline#enable()
+  autocmd FileType netrw call lightline#enable()
 augroup END
