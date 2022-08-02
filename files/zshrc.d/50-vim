@@ -44,8 +44,8 @@ function vimgrep {
 	_vimremote --remote-expr "chdir('${(q)oldpwd}')" &>/dev/null
 }
 
-alias vimbuf='_vimremote --remote'
-alias vimbufw='_vimremote --remote-wait'
+alias vimopen='_vimremote --remote'
+alias vimopenw='_vimremote --remote-wait'
 
 alias vimtab='_vimremote --remote-tab'
 alias vimtabw='_vimremote --remote-tab-wait'
