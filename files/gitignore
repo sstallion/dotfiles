@@ -16,3 +16,4 @@
 .lvimrc
 a.out
 tags
+tags.*
