@@ -16,3 +16,6 @@
 .lvimrc
 a.out
 tags
+tags.files
+tags.lock
+tags.temp
