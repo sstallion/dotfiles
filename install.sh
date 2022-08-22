@@ -28,9 +28,16 @@ for target_file in files/*; do
 	fi
 done
 
+# Ruby requires GNU make when building extensions; we prefer use of gmake on
+# platforms that support multiple make variants:
+make=make
+if command gmake --version &>/dev/null; then
+	make=gmake
+fi
+
 echo "Updating Command-T..."
 ext_dir="files/vim/bundle/command-t/ruby/command-t/ext/command-t"
-(cd "${ext_dir}" && ruby extconf.rb && make clean all)
+(cd "${ext_dir}" && ruby extconf.rb && "${make}" clean all)
 
 if command lesskey &>/dev/null; then
 	echo "Updating lesskey file..."
