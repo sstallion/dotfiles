@@ -1,6 +1,7 @@
 # ssh - Secure shell configuration
 
-# ...
+# Override the default SSH_AUTH_SOCK if a socket exists in a well known path.
+# This ensures agent forwarding continues to work in long-lived tmux sessions.
 [[ -S ~/.ssh/auth.socket ]] && export SSH_AUTH_SOCK=~/.ssh/auth.socket
 
 # vim: ft=zsh
