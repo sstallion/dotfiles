@@ -3,7 +3,9 @@
 This repository contains various configuration files (aka dotfiles) that are
 shared between multiple systems.
 
-![Emacs](emacs.jpg)
+<div align="center">
+    <img src=".github/images/emacs.jpg"/>
+</div>
 
 ## Installation
 
