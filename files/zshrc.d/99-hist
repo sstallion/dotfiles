@@ -2,9 +2,7 @@
 
 # By default, zsh does not define HISTFILE; this is required in order to save
 # history when the shell exits:
-if [[ -z $HISTFILE ]]; then
-	HISTFILE=~/.zsh_history
-fi
+: ${HISTFILE:=~/.zsh_history}
 
 HISTSIZE=4096
 SAVEHIST=4096

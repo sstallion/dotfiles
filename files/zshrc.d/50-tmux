@@ -1,0 +1,10 @@
+# tmux - zsh tmux configuration
+
+[[ -n $TMUX ]] || return
+
+# Override the default SSH_AUTH_SOCK if a socket exists in a well known path.
+# This ensures agent forwarding continues to work in long-lived tmux sessions.
+TMUX_SOCKET_PATH=$(echo $TMUX | awk -F, '{ print $1 }')
+[[ -S ${TMUX_SOCKET_PATH}.auth ]] && export SSH_AUTH_SOCK="${TMUX_SOCKET_PATH}.auth"
+
+# vim: ft=zsh

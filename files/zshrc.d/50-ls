@@ -1,4 +1,4 @@
-# ls - list directory contents
+# ls - zsh list directory contents configuration
 
 # Override default character collation for globbing and sorting:
 export LC_COLLATE=C

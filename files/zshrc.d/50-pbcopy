@@ -1,8 +1,6 @@
-# pbcopy - pbcopy/pbpaste aliases
+# pbcopy - zsh pbcopy/pbpaste aliases
 
-if whence pbcopy &>/dev/null; then
-	return
-fi
+whence xsel &>/dev/null || return
 
 alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"

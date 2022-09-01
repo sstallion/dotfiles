@@ -1,14 +1,11 @@
 # us88665a435949.yaml - tmux session configuration
 
 session_name: default
-environment:
-  VIM_SERVERNAME: DEFAULT
 windows:
   - window_name: main
     focus: true
     layout: ab7e,334x75,0,0{233x75,0,0,1,100x75,234,0[100x50,234,0,2,100x24,234,51,3]}
     panes:
-      #- shell_command: vim --servername $VIM_SERVERNAME
       - shell_command: vim
         focus: true
       - pane

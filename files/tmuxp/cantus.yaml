@@ -1,14 +1,12 @@
 # cantus.yaml - tmux session configuration
 
 session_name: default
-environment:
-  VIM_SERVERNAME: DEFAULT
 windows:
   - window_name: main
     focus: true
     layout: 8db4,222x61,0,0{121x61,0,0,1,100x61,122,0[100x36,122,0,2,100x24,122,37,3]}
     panes:
-      - shell_command: vim --servername $VIM_SERVERNAME
+      - shell_command: vim
         focus: true
       - pane
       - pane

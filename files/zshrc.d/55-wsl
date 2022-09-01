@@ -1,11 +1,9 @@
-# wsl - Windows Subsystem for Linux configuration
+# wsl - zsh Windows Subsystem for Linux configuration
 
 # There does not appear to be an official means of detecting whether or not
 # the shell is executing in WSL 2. The following checks for the presence of
 # $WSL_INTEROP; see: https://github.com/microsoft/WSL/issues/4555.
-if [[ -z $WSL_INTEROP ]]; then
-	return
-fi
+[[ -n $WSL_INTEROP ]] || return
 
 # Configure SSH and GnuPG agent forwarding;
 # see: https://github.com/BlackReloaded/wsl2-ssh-pageant/blob/main/README.md

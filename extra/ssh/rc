@@ -1,2 +1,38 @@
 #!/bin/sh
-[ -S "$SSH_AUTH_SOCK" ] && ln -fs "$SSH_AUTH_SOCK" ~/.ssh/auth.socket
+# This following attempts to detangle long-term tmux sessions using SSH agent
+# forwarding. In order to properly identify a remote tmux client, sshd must be
+# configured to accept TMUX* environment variables by adding the following to
+# sshd_config(5):
+#
+#   AcceptEnv TMUX*
+#
+# The ssh client should then be configured to pass the TMUX_SESSION_NAME
+# environment variable using the SendEnv/SetEnv directives described in
+# ssh_config(5):
+#
+#   Host host.example.com
+#     ForwardAgent yes
+#     SetEnv TMUX_SESSION_NAME=default
+#
+# Finally, the remote shell startup files should be updated to redefine
+# SSH_AUTH_SOCK to TMUX_AUTH_SOCK for tmux sessions:
+#
+#   TMUX_SOCKET_PATH=`echo $TMUX | awk -F, '{ print $1 }'`
+#   [ -S "${TMUX_SOCKET_PATH}.auth" ] && export SSH_AUTH_SOCK="${TMUX_SOCKET_PATH}.auth"
+#
+# N.B. This approach assumes only one session is active at a given time.
+#      Subsequent attaches to the same session will overwrite the previous
+#      authentication socket, causing earlier sessions to be invalidated.
+
+: ${TMUX_TMPDIR:=/tmp}
+
+if [ -S "${SSH_AUTH_SOCK}" -a -n "${TMUX_SESSION_NAME}" ]; then
+	TMUX_SOCKDIR="${TMUX_TMPDIR}/tmux-`id -u ${USER}`"
+	if [ ! -d "${TMUX_SOCKDIR}" ]; then
+		mkdir -p "${TMUX_SOCKDIR}"
+		chmod 0700 "${TMUX_SOCKDIR}"
+	fi
+
+	TMUX_AUTH_SOCK="${TMUX_SOCKDIR}/${TMUX_SESSION_NAME}.auth"
+	ln -fs "${SSH_AUTH_SOCK}" "${TMUX_AUTH_SOCK}"
+fi

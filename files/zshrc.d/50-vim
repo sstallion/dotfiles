@@ -1,4 +1,4 @@
-# vim - vim configuration
+# vim - zsh vim configuration
 
 # Old habits die hard...
 alias vi=vim

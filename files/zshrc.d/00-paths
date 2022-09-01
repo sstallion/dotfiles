@@ -1,4 +1,4 @@
-# paths - path configuration
+# paths - zsh path configuration
 
 # By default, path_helper(8) does not modify MANPATH unless it is defined in
 # the environment. Darwin helpfully calls path_helper from /etc/zprofile,

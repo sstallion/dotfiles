@@ -1,4 +1,4 @@
-# vimwiki - vimwiki configuration
+# vimwiki - zsh vimwiki configuration
 
 # Global options:
 export VIMWIKI_OPEN_MATCHES=1

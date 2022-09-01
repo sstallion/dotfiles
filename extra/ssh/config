@@ -6,5 +6,9 @@ HashKnownHosts yes
 Host trusted.example.com
 	ForwardAgent yes
 	ForwardX11 yes
-	RemoteForward localhost:5555 localhost:5555 # clipboard sharing
 	RemoteForward "/home/%r/.gnupg/S.gpg-agent" "/run/user/%i/gnupg/S.gpg-agent.extra"
+
+Host tmux.example.com
+	ForwardAgent yes
+	RemoteForward localhost:5555 localhost:5555 # clipboard sharing
+	SetEnv TMUX_SESSION_NAME=default
