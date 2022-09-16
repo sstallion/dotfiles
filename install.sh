@@ -11,10 +11,6 @@ git submodule update --init --recursive
 prefix=$(readlink -f "${PWD}")
 prefix="${prefix#*${HOME}/}"
 
-# Provide a link to the install directory for convenience:
-echo "Installing ${HOME}/.dotfiles..."
-ln -fns "${prefix}" "${HOME}/.dotfiles"
-
 # Link each file to the home directory iff the file does not exist or is
 # already a symbolic link. This will probably annoy someone, eventually.
 for target_file in files/*; do

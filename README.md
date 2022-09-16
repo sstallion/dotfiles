@@ -14,11 +14,8 @@ user's home directory for each file tracked. Existing symbolic links will be
 overwritten; however, if a normal file or directory exists a warning will be
 issued and no action will be taken.
 
-    $ git clone git@github.com:sstallion/dotfiles.git <directory> && cd $_
+    $ git clone git@github.com:sstallion/dotfiles.git .dotfiles && cd $_
     $ ./install.sh
-
-> **Note**: The suggested installation directory for macOS is `$HOME/Library/dotfiles`
-> and `$XDG_CONFIG_HOME/dotfiles` for [everything else][2].
 
 ## Contributing
 
