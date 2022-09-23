@@ -1,6 +1,7 @@
 *.[ao]
 *.bak
 *.bin
+*.core
 *.dylib
 *.elf
 *.gdb_history
