@@ -5,9 +5,9 @@ taskd.server=<host>:<port>
 taskd.credentials=<organization>/<user>/<key>
 
 # Client certificate and key
-taskd.certificate=~/.task/certs/<certificate>
-taskd.key=~/.task/private/<key>
-taskd.ca=~/.task/cacerts.pem
+taskd.certificate=~/.ssl/certs/<certificate>
+taskd.key=~/.ssl/private/<key>
+taskd.ca=~/.task/ca.cert.pem
 
 # Enforce strict server verification
 taskd.trust=strict
