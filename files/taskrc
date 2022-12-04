@@ -38,6 +38,9 @@ context.projects.write=project:Projects
 context.work=project:Work
 context.work.read=project:Work
 context.work.write=project:Work
+context.cabin=project:Cabin
+context.cabin.read=project:Cabin
+context.cabin.write=project:Cabin
 
 # Include local configuration
 include ~/.taskrc.local
