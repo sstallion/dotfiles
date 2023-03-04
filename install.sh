@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # install.sh - install dotfiles to $HOME
 
-set -e
-
 echo "Updating submodules..."
 git submodule update --init --recursive
 
