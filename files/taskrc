@@ -28,7 +28,7 @@ urgency.blocking.coefficient=0.0
 urgency.tags.coefficient=0.0
 
 # Contexts
-context=home
+context=projects
 context.home=project:Home
 context.home.read=project:Home
 context.home.write=project:Home
