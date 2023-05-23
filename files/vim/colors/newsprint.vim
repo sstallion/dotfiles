@@ -8,7 +8,7 @@ highlight clear
 if has('syntax')
   syntax reset
 endif
-let g:colors_name = "newsprint"
+let g:colors_name = 'newsprint'
 
 " Console Colors
 highlight Comment ctermfg=gray

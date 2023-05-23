@@ -2,8 +2,41 @@
 
 set nocompatible
 
-execute pathogen#infect()
-execute pathogen#helptags()
+call plug#begin()
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'embear/vim-localvimrc'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'fidian/hexmode'
+Plug 'itchyny/lightline.vim'
+Plug 'jamessan/vim-gnupg'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim'
+Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'mhinz/vim-grepper'
+Plug 'romainl/vim-qf'
+Plug 'sheerun/vim-polyglot'
+Plug 'sstallion/lightline-wtf'
+Plug 'sstallion/vim-cursorline'
+Plug 'sstallion/vim-whitespace'
+Plug 'sstallion/vim-wildignore'
+Plug 'sstallion/vim-wtf'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-vinegar'
+Plug 'vimwiki/vimwiki'
+Plug 'wincent/command-t'
+Plug 'wincent/terminus'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+call plug#end()
 
 if has('autocmd')
   filetype plugin indent on
@@ -14,19 +47,16 @@ if has('syntax')
 endif
 
 " Default Options
-set nobackup
-set noerrorbells
-set nojoinspaces
-set nolazyredraw
-set noswapfile
-set nowrap
-
 set autoread
 set autowrite
 set autowriteall
 set backspace=indent,eol,start
+set nobackup
+set noerrorbells
 set hidden
+set nojoinspaces
 set laststatus=2
+set nolazyredraw
 set modeline
 set number
 set ruler
@@ -34,6 +64,7 @@ set showmatch
 set showmode
 set splitbelow
 set splitright
+set noswapfile
 set switchbuf=useopen,usetab
 set timeoutlen=2000
 set ttimeoutlen=0
@@ -41,6 +72,7 @@ set ttyfast
 set updatetime=100
 set visualbell t_vb=
 set wildmode=longest:list
+set nowrap
 
 " Feature Options
 " if has('clipboard')

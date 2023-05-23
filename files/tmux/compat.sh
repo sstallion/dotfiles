@@ -65,6 +65,13 @@ Darwin)
 	;;
 esac
 
+# True Color
+if has_version 3.2; then
+	set-option -g terminal-features ",xterm-256color:RGB"
+else
+	set-option -g terminal-overrides ",xterm-256color*:Tc"
+fi
+
 # Key Bindings
 if has_version 2.4; then
 	tmux bind-key -T copy-mode-vi C-j    send-keys -X page-down

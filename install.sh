@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # install.sh - install dotfiles to $HOME
 
-echo "Updating submodules..."
-git submodule update --init --recursive
-
 # Ensure files are installed relative to $HOME if possible; the following
 # makes use of parameter expansion rather than relying on GNU coreutils:
 prefix=$(readlink -f "${PWD}")

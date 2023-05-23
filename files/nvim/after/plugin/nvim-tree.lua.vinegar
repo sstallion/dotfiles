@@ -1,0 +1,158 @@
+-- nvim-tree.lua - plugin configuration
+
+--[[
+  Here be dragons. This is largely a note to myself and anyone else who
+  stumbles across this file. I like nvim-tree (really, I do), however the way
+  it manages buffers is completely broken. The kludges present in this file
+  represent a best effort at papering over some of the more idiotic tendencies
+  of this plugin, which assumes tabs can have only one buffer at a time.
+
+  Do not mix splits and nvim-tree. Ever. I have filed an issue upstream and
+  have provided as much detail/rationale as I can, but at the time of this
+  writing I am unsure if anyone is willing to fix the issues.
+
+  You have been warned. See nvim-tree/nvim-tree.lua #2227 for more details.
+]]--
+
+local api = require("nvim-tree.api")
+local view = require("nvim-tree.view")
+local site = require("site")
+
+-- An alternate hijacking method is needed to support editing directories one
+-- after another. Without this, api.tree.open() will throw an exception
+-- because an alternate buffer is not available.
+local function hijack_directory()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local bufname = vim.api.nvim_buf_get_name(bufnr)
+  if vim.fn.isdirectory(bufname) == 1 and not view.is_visible() then
+    api.tree.open {current_window = true, path = bufname}
+  end
+end
+
+-- duplicated from lua/nvim-tree/view.lua:
+local function is_buf_displayed(bufnr)
+  return vim.api.nvim_buf_is_valid(bufnr) and vim.fn.buflisted(bufnr) == 1
+end
+
+-- Care must be taken to avoid opening the tree from within a floating window
+-- without an alternate buffer as this will lead to an exception.
+local function toggle()
+  if (site.is_floating() and vim.bo.filetype ~= "NvimTree") or
+     (not site.is_floating() and vim.bo.filetype == "NvimTree") then
+    local bufnr = vim.fn.bufnr("#")
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
+    if vim.fn.isdirectory(bufname) ~= 1 and is_buf_displayed(bufnr) then
+      vim.cmd("sbuffer " .. bufnr)
+    else
+      vim.cmd("new") -- provide an alternate buffer
+    end
+  end
+  api.tree.toggle {path = vim.fn.getcwd(), find_file = true}
+end
+
+local function if_float(float_fn, vinegar_fn)
+  return function()
+    if site.is_floating() then
+      if type(float_fn) == "function" then float_fn() end
+    else
+      if type(vinegar_fn) == "function" then vinegar_fn() end
+    end
+  end
+end
+
+local function if_vinegar(vinegar_fn, float_fn)
+  return if_float(float_fn, vinegar_fn)
+end
+
+-- Simulate vinegar behavior; the tree will be opened using the parent
+-- directory of the buffer rather than the current working directory.
+local function vinegar_open()
+  local path = vim.fn.expand("%:p:h")
+  api.tree.open {current_window = true, path = path, find_file = true}
+end
+
+local function vinegar_close()
+  if #vim.api.nvim_list_wins() == 1 then
+    local bufnr = vim.fn.bufnr("#")
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
+    if vim.fn.isdirectory(bufname) == 1 then
+      vim.cmd("new") -- provide an alternate buffer
+    end
+  end
+  api.tree.close()
+end
+
+require("nvim-tree").setup {
+  disable_netrw = true,
+  sort_by = "case_sensitive",
+  hijack_directories = {
+    enable = false -- see: hijack_directory()
+  },
+  on_attach = function(bufnr)
+    local function opts(desc)
+      return {desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true}
+    end
+    vim.keymap.set("n", "<C-S>", api.node.open.horizontal,                    opts("Open: Horizontal Split"))
+    vim.keymap.set("n", "<C-T>", api.node.open.tab,                           opts("Open: New Tab"))
+    vim.keymap.set("n", "<C-V>", api.node.open.vertical,                      opts("Open: Vertical Split"))
+    vim.keymap.set("n", "<BS>",  api.node.navigate.parent_close,              opts("Close Directory"))
+    vim.keymap.set("n", "<CR>",  if_float(api.node.open.edit,
+                                          api.node.open.replace_tree_buffer), opts("Open"))
+    vim.keymap.set("n", "<Esc>", if_float(api.tree.close,
+                                          vinegar_close),                     opts("Close"))
+    vim.keymap.set("n", "-",     api.tree.change_root_to_parent,              opts("Up"))
+    vim.keymap.set("n", "%",     api.fs.create,                               opts("Create"))
+    vim.keymap.set("n", "D",     api.fs.remove,                               opts("Delete"))
+    vim.keymap.set("n", "R",     api.fs.rename,                               opts("Rename"))
+    vim.keymap.set("n", "[d",    api.node.navigate.diagnostics.prev,          opts("Previous Diagnostic"))
+    vim.keymap.set("n", "]d",    api.node.navigate.diagnostics.next,          opts("Next Diagnostic"))
+    vim.keymap.set("n", "g?",    api.tree.toggle_help,                        opts("Help"))
+    vim.keymap.set("n", "gx",    api.node.run.system,                         opts("Run System"))
+    vim.keymap.set("n", "y",     api.fs.copy.filename,                        opts("Copy Name"))
+  end,
+  view = {
+    float = {
+      enable = true,
+      open_win_config = {
+        -- scale width by number of available columns:
+        width = math.floor(vim.opt.columns:get() * 0.35 + 0.5),
+        -- fit between tabline and statusline:
+        height = vim.opt.lines:get() - vim.opt.cmdheight:get() - 4
+      }
+    }
+  },
+  actions = {
+    change_dir = {
+      enable = false,
+      global = true
+    },
+    open_file = {
+      window_picker = {
+        enable = false
+      }
+    }
+  },
+  renderer = {
+    add_trailing = true,
+    icons = {
+      show = {
+        git = false
+      }
+    },
+    special_files = {}
+  },
+  diagnostics = {
+    enable = true,
+    severity = {
+      min = vim.diagnostic.severity.WARN,
+      max = vim.diagnostic.severity.ERROR
+    }
+  }
+}
+
+-- Key Mappings
+vim.keymap.set("n", "<Leader>t", toggle)
+vim.keymap.set("n", "-",         vinegar_open)
+
+-- Autocommands
+vim.api.nvim_create_autocmd({"BufEnter", "BufNewFile"}, {callback = hijack_directory})
