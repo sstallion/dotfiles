@@ -60,7 +60,7 @@ telescope.setup {
     scroll_strategy = "limit",
     prompt_prefix = " 󰍉 ",
     path_display = function(opts, path)
-      -- Unfortunately, path_smart() prefixes paths with '../', which is too
+      -- Unfortunately, path_smart() prefixes paths with "../", which is too
       -- distracting when looking at results. We can do better.
       return site.pathshorten(path)
     end,

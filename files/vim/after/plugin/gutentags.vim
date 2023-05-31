@@ -5,9 +5,7 @@ if !exists('g:gutentags_enabled')
 endif
 
 " Manage all tags under a cache directory, creating it as needed:
-if !exists('g:gutentags_cache_dir')
-  let g:gutentags_cache_dir = $HOME . '/.cache/gutentags'
-endif
+let g:gutentags_cache_dir = $HOME . '/.cache/gutentags'
 
 if !isdirectory(g:gutentags_cache_dir)
   call mkdir(g:gutentags_cache_dir, 'p')

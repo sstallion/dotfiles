@@ -6,7 +6,7 @@ windows:
     focus: true
     layout: ab7e,334x75,0,0{233x75,0,0,1,100x75,234,0[100x50,234,0,2,100x24,234,51,3]}
     panes:
-      - shell_command: vim
+      - shell_command: nvim
         focus: true
       - pane
       - pane

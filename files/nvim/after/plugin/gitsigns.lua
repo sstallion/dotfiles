@@ -28,9 +28,9 @@ gitsigns.setup {
     -- Key Mappings
     local opts = {buffer = bufnr}
     vim.keymap.set("n", "<Leader>hp", gitsigns.preview_hunk, opts)
-    vim.keymap.set("n", "<Leader>hr", gitsigns.reset_hunk, opts)
+    vim.keymap.set("n", "<Leader>hr", gitsigns.reset_hunk,   opts)
     vim.keymap.set("n", "<Leader>hR", gitsigns.reset_buffer, opts)
-    vim.keymap.set("n", "<Leader>hs", gitsigns.stage_hunk, opts)
+    vim.keymap.set("n", "<Leader>hs", gitsigns.stage_hunk,   opts)
     vim.keymap.set("n", "<Leader>hS", gitsigns.stage_buffer, opts)
 
     unless_diff("n", "[c", gitsigns.prev_hunk, opts)

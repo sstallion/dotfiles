@@ -1,0 +1,9 @@
+- include: meta/defaults.yaml
+
+- ifposix:
+  - link:
+      ~/.tmux: files/tmux
+      ~/.tmux.conf: files/tmux.conf
+      ~/.tmuxp:
+        path: files/tmuxp
+        if: 'command -v tmuxp >/dev/null'

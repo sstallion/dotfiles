@@ -1,0 +1,35 @@
+- include: meta/defaults.yaml
+
+- ifposix:
+  - link:
+      ~/.vim: files/vim
+      ~/.vimrc: files/vimrc
+      ~/.gvimrc:
+          path: files/gvimrc
+          if: '[ "$(uname -s)" = Darwin ] || command -v gvim >/dev/null'
+  - create:
+    - ~/.vim/sessions
+    - ~/.vim/spell
+
+- ifwindows:
+  - link:
+      ~/vimfiles: files/vim
+      ~/_vimrc: files/vimrc
+      ~/_gvimrc: files/gvimrc
+  - create:
+    - ~/vimfiles/sessions
+    - ~/vimfiles/spell
+
+- shell:
+  - command: 'vim --noplugin --cmd "let g:plug_install = v:true" -c PlugInstall -c qa'
+    description: Installing vim-plug plugins
+    stdout: false
+    stderr: false
+
+- ifposix:
+  - shell:
+    - command: |
+        [ "$(uname -s)" = FreeBSD ] && MAKE=gmake
+        cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
+        [ -f Makefile ] || ruby extconf.rb && ${MAKE:-make} all
+      description: Compiling Command-T extension

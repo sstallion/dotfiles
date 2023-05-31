@@ -6,14 +6,14 @@ require("possession").setup {
     on_quit = false
   },
   commands = {
-    save    = 'SessionSave',
-    load    = 'SessionLoad',
-    rename  = 'SessionRename',
-    close   = 'SessionClose',
-    delete  = 'SessionDelete',
-    show    = 'SessionShow',
-    list    = 'SessionList',
-    migrate = 'SessionMigrate'
+    save    = "SessionSave",
+    load    = "SessionLoad",
+    rename  = "SessionRename",
+    close   = "SessionClose",
+    delete  = "SessionDelete",
+    show    = "SessionShow",
+    list    = "SessionList",
+    migrate = "SessionMigrate"
   },
   hooks = {
     before_load = function(name, user_data)

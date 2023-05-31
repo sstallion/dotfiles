@@ -1,0 +1,4 @@
+- include: meta/defaults.yaml
+
+- link:
+    ~/.subversion: files/subversion

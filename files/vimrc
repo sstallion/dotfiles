@@ -32,11 +32,16 @@ Plug 'tpope/vim-pathogen'
 Plug 'tpope/vim-scriptease'
 Plug 'tpope/vim-vinegar'
 Plug 'vimwiki/vimwiki'
-Plug 'wincent/command-t'
+Plug 'wincent/command-t', { 'tag': '5.0*' }
 Plug 'wincent/terminus'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 call plug#end()
+
+" Abort initialization if installing plugins:
+if exists('g:plug_install')
+  finish
+endif
 
 if has('autocmd')
   filetype plugin indent on
@@ -172,12 +177,13 @@ inoremap <Esc>oB <Esc>ji
 inoremap <Esc>oC <Esc>li
 inoremap <Esc>oD <Esc>hi
 
+" Disable horizontal scrolling:
+map <ScrollWheelLeft> <Nop>
+map <ScrollWheelRight> <Nop>
+
 " Stop insert mode when leaving a buffer. This avoids accidental
 " insertions when navigating with a mouse.
 autocmd BufLeave * stopinsert
 
 " Color Scheme
 colorscheme wtf
-
-" Source local configuration:
-silent! source ~/.vimrc.local

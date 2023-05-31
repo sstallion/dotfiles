@@ -51,7 +51,7 @@ function! s:try_help(manual, entry)
   setlocal bufhidden=unload
   setlocal buflisted
   setlocal buftype=nofile
-  setlocal filetype=cmake
+  setlocal filetype=cmakehelp
   setlocal syntax=rst
   return 1
 endfunction

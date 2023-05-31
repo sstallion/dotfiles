@@ -1,10 +1,13 @@
 -- lspsession.lua - session management for lspconfig
 
 --[[
-  TODO
+  This module provides functions that can be used to implement session-based
+  LSP configuration. When a session is loaded, the enable() and disable()
+  functions will load a chunk located under stdpath("data")/lspsession/*.lua,
+  which must return a table that contains the following keys:
 
   return {
-    diagnostic = true,
+    diagnostic = true, -- enable diagnostics automatically
     enable = function(name)
       require("lspsession")["lua_ls"].extend {
         settings = {

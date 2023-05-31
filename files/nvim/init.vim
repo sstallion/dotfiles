@@ -1,4 +1,4 @@
-" init.vim - nvim configuration
+" init.vim - Neovim configuration
 
 call plug#begin()
 Plug 'MattesGroeger/vim-bookmarks'
@@ -37,7 +37,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'wincent/terminus'
 call plug#end()
 
-" ...
+" Abort initialization if installing plugins:
 if exists('g:plug_install')
   finish
 endif
@@ -84,11 +84,6 @@ set softtabstop=8
 set tabstop=8
 set textwidth=78
 
-" Remove the "How-to disable mouse" menu item and the separator above it;
-" see: default-mouse.
-aunmenu PopUp.How-to\ disable\ mouse
-aunmenu PopUp.-1-
-
 " Key Mappings
 noremap <C-J> <PageDown>
 noremap <C-K> <PageUp>
@@ -121,6 +116,11 @@ noremap <silent> ]T :tablast<CR>
 " Disable horizontal scrolling:
 map <ScrollWheelLeft> <Nop>
 map <ScrollWheelRight> <Nop>
+
+" Remove the "How-to disable mouse" menu item and the separator above it;
+" see: default-mouse.
+aunmenu PopUp.How-to\ disable\ mouse
+aunmenu PopUp.-1-
 
 " Stop insert mode when leaving a buffer. This avoids accidental
 " insertions when navigating with a mouse.

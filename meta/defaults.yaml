@@ -1,0 +1,11 @@
+- defaults:
+    create:
+      mode: 0755
+    link:
+      create: true
+      relink: true
+      relative: true
+    shell:
+      quiet: true
+      stdout: true
+      stderr: true

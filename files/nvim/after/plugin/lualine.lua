@@ -27,12 +27,12 @@ local function quickfix_get_name()
   if vim.fn.getloclist(0, {winid = 1}).winid ~= 0 then
     title = vim.fn.getloclist(0, {title = 1}).title
     if title == "" or title:match("^:") then
-      return '[Location List]'
+      return "[Location List]"
     end
   else
     title = vim.fn.getqflist({title = 1}).title
     if title == "" or title:match("^:") then
-      return '[Quickfix List]'
+      return "[Quickfix List]"
     end
   end
   return string.format("[%s]", title)
@@ -44,6 +44,7 @@ local function filename()
     ["TelescopePrompt"]  = "[Telescope]",
     ["TelescopeResults"] = "[Telescope]",
     ["Trouble"]          = "[Trouble]",
+    ["cmakehelp"]        = "[CMake Help]",
     ["lspinfo"]          = "[LSP]",
     ["mason"]            = "[Mason]",
     ["qf"]               = quickfix_get_name,

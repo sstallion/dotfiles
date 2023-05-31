@@ -1,0 +1,5 @@
+- include: meta/defaults.yaml
+
+- link:
+    ~/.gitconfig: files/gitconfig
+    ~/.gitignore: files/gitignore

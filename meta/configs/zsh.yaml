@@ -1,0 +1,6 @@
+- include: meta/defaults.yaml
+
+- ifposix:
+  - link:
+      ~/.zshrc.d: files/zshrc.d
+      ~/.zshrc: files/zshrc

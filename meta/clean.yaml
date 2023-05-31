@@ -1,0 +1,15 @@
+- include: meta/defaults.yaml
+
+- clean: ['~']
+
+- ifposix:
+  - clean:
+    - ~/.config
+    - ~/.gnupg
+    - ~/.task
+
+- ifwindows:
+  - clean:
+    - '%APPDATA%'
+    - '%APPDATA%/gnupg'
+    - '%LOCALAPPDATA%'

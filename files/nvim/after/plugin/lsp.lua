@@ -25,17 +25,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Key Mappings
     local opts = {buffer = bufnr, noremap = true, silent = true}
-    vim.keymap.set("n", "<Space>k", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<Space>k", vim.lsp.buf.signature_help,     opts)
     vim.keymap.set("n", "<Space>n", vim.lsp.buf.document_highlight, opts)
-    vim.keymap.set("n", "<Space>r", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "K",        vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gd",       vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gi",       vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "gr",       vim.lsp.buf.references, opts)
-    vim.keymap.set("n", "gt",       vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "gD",       vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gI",       vim.lsp.buf.incoming_calls, opts)
-    vim.keymap.set("n", "gO",       vim.lsp.buf.outgoing_calls, opts)
+    vim.keymap.set("n", "<Space>r", vim.lsp.buf.rename,             opts)
+    vim.keymap.set("n", "gd",       vim.lsp.buf.definition,         opts)
+    vim.keymap.set("n", "gi",       vim.lsp.buf.implementation,     opts)
+    vim.keymap.set("n", "gr",       vim.lsp.buf.references,         opts)
+    vim.keymap.set("n", "gt",       vim.lsp.buf.type_definition,    opts)
+    vim.keymap.set("n", "gD",       vim.lsp.buf.declaration,        opts)
+    vim.keymap.set("n", "gI",       vim.lsp.buf.incoming_calls,     opts)
+    vim.keymap.set("n", "gO",       vim.lsp.buf.outgoing_calls,     opts)
+
+    -- Kludge to avoid lack of documentation in cmake-language-server;
+    -- cmake_help should probably be rewritten as a hoverProvider.
+    if vim.bo[bufnr].filetype ~= "cmake" then
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    end
 
     -- Autocommands
     vim.api.nvim_create_autocmd("CursorMoved", {

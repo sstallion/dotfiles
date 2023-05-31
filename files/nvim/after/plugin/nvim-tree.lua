@@ -57,19 +57,19 @@ require("nvim-tree").setup {
     local function opts(desc)
       return {desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true}
     end
-    vim.keymap.set("n", "<C-S>", api.node.open.horizontal,           opts("Open: Horizontal Split"))
-    vim.keymap.set("n", "<C-T>", api.node.open.tab,                  opts("Open: New Tab"))
-    vim.keymap.set("n", "<C-V>", api.node.open.vertical,             opts("Open: Vertical Split"))
-    vim.keymap.set("n", "<BS>",  api.node.navigate.parent_close,     opts("Close Directory"))
-    vim.keymap.set("n", "<CR>",  api.node.open.edit,                 opts("Open"))
-    vim.keymap.set("n", "<Esc>", api.tree.close,                     opts("Close"))
-    vim.keymap.set("n", "-",     api.tree.change_root_to_parent,     opts("Up"))
-    vim.keymap.set("n", "%",     api.fs.create,                      opts("Create"))
-    vim.keymap.set("n", "D",     api.fs.remove,                      opts("Delete"))
-    vim.keymap.set("n", "R",     api.fs.rename,                      opts("Rename"))
-    vim.keymap.set("n", "g?",    api.tree.toggle_help,               opts("Help"))
-    vim.keymap.set("n", "gx",    api.node.run.system,                opts("Run System"))
-    vim.keymap.set("n", "y",     api.fs.copy.filename,               opts("Copy Name"))
+    vim.keymap.set("n", "<C-S>", api.node.open.horizontal,       opts("Open: Horizontal Split"))
+    vim.keymap.set("n", "<C-T>", api.node.open.tab,              opts("Open: New Tab"))
+    vim.keymap.set("n", "<C-V>", api.node.open.vertical,         opts("Open: Vertical Split"))
+    vim.keymap.set("n", "<BS>",  api.node.navigate.parent_close, opts("Close Directory"))
+    vim.keymap.set("n", "<CR>",  api.node.open.edit,             opts("Open"))
+    vim.keymap.set("n", "<Esc>", api.tree.close,                 opts("Close"))
+    vim.keymap.set("n", "-",     api.tree.change_root_to_parent, opts("Up"))
+    vim.keymap.set("n", "%",     api.fs.create,                  opts("Create"))
+    vim.keymap.set("n", "D",     api.fs.remove,                  opts("Delete"))
+    vim.keymap.set("n", "R",     api.fs.rename,                  opts("Rename"))
+    vim.keymap.set("n", "g?",    api.tree.toggle_help,           opts("Help"))
+    vim.keymap.set("n", "gx",    api.node.run.system,            opts("Run System"))
+    vim.keymap.set("n", "y",     api.fs.copy.filename,           opts("Copy Name"))
   end,
   view = {
     float = {

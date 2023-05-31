@@ -13,6 +13,7 @@
 - [Latexmk](https://personal.psu.edu/~jcc8/software/latexmk/)
 - [less](https://www.gnu.org/software/less/)
 - [Mercurial](https://www.mercurial-scm.org/)
+- [Neovim](https://www.neovim.io/)
 - [Perl](https://perl.org/)
 - [Python](https://www.python.org/)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)

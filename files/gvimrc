@@ -7,11 +7,11 @@ set guitablabel=%N\ %t\ %m
 
 " Fonts
 if has('gui_gtk')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 11
+  set guifont=DroidSansM\ Nerd\ Font\ Mono\ 11
 elseif has('gui_macvim')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
+  set guifont=DroidSansM\ Nerd\ Font\ Mono:h14
 elseif has('gui_win32')
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h10
+  set guifont=DroidSansM\ Nerd\ Font\ Mono:h10
 endif
 
 " Enable pedantic colors when not using macOS:
