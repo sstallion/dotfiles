@@ -85,6 +85,11 @@ local function make_separator(name, sep, val)
   return string.format("%%#%s#%s%%*", name, sep)
 end
 
+local function toggle_signs()
+  -- require("gitsigns").toggle_signs() unusable
+  vim.cmd("Gitsigns toggle_signs")
+end
+
 local function diagnostics_disable()
   vim.diagnostic.disable(0)
   require("lualine").refresh()
@@ -126,7 +131,8 @@ require("lualine").setup {
     lualine_b = {
       {"branch",
         separator = lualine_b_separator,
-        color = {fg = colors.text}
+        color = {fg = colors.text},
+        on_click = toggle_signs
       },
       {"diagnostics",
         separator = lualine_b_separator,
