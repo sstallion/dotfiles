@@ -10,11 +10,11 @@ macOS, and Windows.
 
 ## Installation
 
-Installation is straightforward and requires no dependencies apart from a recent
-version of Python (3.8+). Symbolic links are created in the current user's home
-directory; existing symbolic links will be overwritten. If a normal file or
-directory exists, a warning will be issued and no action will be taken. One or
-more profiles may be specified to install a non-default subset of files.
+Installation requires no dependencies apart from Python 3.8+. Symbolic links are
+created in the current user's home directory; existing symbolic links will be
+overwritten. If a normal file or directory exists, a warning will be issued and
+no action will be taken. One or more profiles may be specified to install a
+non-default subset of files.
 
 To install configuration files, issue:
 
