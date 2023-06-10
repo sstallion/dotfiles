@@ -11,5 +11,4 @@
 - ifwindows:
   - clean:
     - '%APPDATA%'
-    - '%APPDATA%/gnupg'
     - '%LOCALAPPDATA%'
