@@ -74,11 +74,20 @@ require("nvim-tree").setup {
   view = {
     float = {
       enable = true,
-      open_win_config = {
-        width = 38,
-        -- fit between tabline and statusline:
-        height = vim.opt.lines:get() - vim.opt.cmdheight:get() - 4
-      }
+      open_win_config = function()
+        local winid = vim.api.nvim_get_current_win()
+        local _, col = table.unpack(vim.fn.win_screenpos(winid))
+        local width = math.min(site.scalewidth(winid, 1.0), 38) - 4 -- fit between vsplits
+        local height = vim.o.lines - vim.o.cmdheight - 4 -- fit between statusline/tabline
+        return {
+          border = 'rounded',
+          relative = 'editor',
+          row = 1,
+          col = col,
+          width = width,
+          height = height
+        }
+      end
     }
   },
   actions = {
@@ -99,7 +108,8 @@ require("nvim-tree").setup {
         git = false
       }
     },
-    special_files = {}
+    special_files = {},
+    symlink_destination = false
   }
 }
 
