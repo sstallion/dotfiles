@@ -18,12 +18,11 @@ Plug 'nvim-lua/plenary.nvim'
 "Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-ui-select.nvim'
-"Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'sstallion/bufferline.nvim' " see: akinsho/bufferline.nvim #763
 Plug 'sstallion/lualine.nvim'    " see: nvim-lualine/lualine.nvim #1052
-Plug 'sstallion/nvim-tree.lua'   " see: nvim-tree/nvim-tree.lua #2232
 Plug 'sstallion/possession.nvim' " see: jedrzejboczar/possession.nvim #35
 Plug 'sstallion/vim-cursorline'
 Plug 'sstallion/vim-wildignore'
