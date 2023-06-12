@@ -78,7 +78,7 @@ require("nvim-tree").setup {
         -- Open float relative to the current window. This avoids whiplash
         -- working on ultrawide displays.
         local winid = vim.api.nvim_get_current_win()
-        local _, col = table.unpack(vim.fn.win_screenpos(winid))
+        local _, col = unpack(vim.fn.win_screenpos(winid))
         local width = math.min(site.scalewidth(winid, 1.0), 38) - 4 -- fit between separators
         local height = vim.o.lines - vim.o.cmdheight - 4 -- fit between statusline/tabline
         return {

@@ -11,7 +11,7 @@ if has('gui_gtk')
 elseif has('gui_macvim')
   set guifont=DroidSansM\ Nerd\ Font\ Mono:h14
 elseif has('gui_win32')
-  set guifont=DroidSansM\ Nerd\ Font\ Mono:h10
+  set guifont=DroidSansM\ Nerd\ Font\ Mono:h11
 endif
 
 " Enable pedantic colors when not using macOS:
