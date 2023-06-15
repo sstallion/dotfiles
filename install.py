@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (C) 2023 Steven Stallion <sstallion@gmail.com>
+# Copyright (c) 2023 Steven Stallion <sstallion@gmail.com>
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
