@@ -22,7 +22,11 @@ news.version=2.6.0
 # Search
 search.case.sensitive=no
 
+# Priorities
+uda.priority.values=H,M,,L
+
 # Urgency
+urgency.age.coefficient=0.0
 urgency.blocked.coefficient=0.0
 urgency.blocking.coefficient=0.0
 urgency.tags.coefficient=0.0
