@@ -34,7 +34,7 @@ please file an issue on [GitHub][4].
 ## License
 
 Source code in this repository is licensed under a Simplified BSD License. See
-[LICENSE][5] for more details.
+[LICENSE][5] for details.
 
 [1]: https://github.com/anishathalye/dotbot
 [2]: https://github.com/anishathalye/dotbot/wiki/Tips-and-Tricks#more-advanced-setup
