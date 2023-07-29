@@ -26,11 +26,12 @@ search.case.sensitive=no
 uda.priority.values=H,M,,L
 
 # Urgency
-urgency.annotations.coefficient=0.0
-urgency.age.coefficient=0.0
-urgency.blocked.coefficient=0.0
+urgency.uda.priority.L.coefficient=-1.8
 urgency.blocking.coefficient=0.0
+urgency.age.coefficient=0.0
+urgency.annotations.coefficient=0.0
 urgency.tags.coefficient=0.0
+urgency.project.coefficient=0.0
 
 # Contexts
 context=home
