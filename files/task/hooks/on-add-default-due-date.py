@@ -23,6 +23,7 @@
 # SUCH DAMAGE.
 
 import json
+import os
 import sys
 from datetime import datetime, time
 
@@ -49,9 +50,13 @@ def replace_due_date(task, dt):
 
 
 if __name__ == '__main__':
+    if os.path.basename(__file__).startswith('on-modify'):
+        # skip JSON for original task:
+        next(sys.stdin)
+
     task = json.load(sys.stdin)
 
-    if 'due' in task:
+    if 'due' in task and task['status'] != 'completed':
         dt = get_due_date(task)
         if dt.time() == DEFAULT_TIME:
             replace_due_date(task, dt)
