@@ -24,6 +24,14 @@ if exists(':GuiScrollBar')
     GuiScrollBar 1
 endif
 
+" Key Mappings (macOS)
+nnoremap <D-v> a<C-r>+<Esc>
+inoremap <D-v> <C-r>+
+cnoremap <D-v> <C-r>+
+
+noremap  <D-w> <Esc>:qa!<CR>
+noremap! <D-w> <Esc>:qa!<CR>
+
 " Right Click Context Menu (Copy-Cut-Paste)
 nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
 inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
