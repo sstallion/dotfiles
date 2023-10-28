@@ -1,0 +1,48 @@
+# wsl - Windows Subsystem for Linux configuration
+
+# There does not appear to be an official means of detecting whether or not
+# the shell is executing in WSL 2. The following checks for the presence of
+# $WSL_INTEROP; see: https://github.com/microsoft/WSL/issues/4555.
+[[ -n $WSL_INTEROP ]] || return
+
+export LOCALAPPDATA=$(wslpath $(wslvar LOCALAPPDATA))
+
+# wslpath does not escape the colon in the drive specifier, which causes
+# issues passing Windows paths as arguments for interoperability.
+wslpathm() {
+	wslpath -m "$*" | sed 's/:/\\:/g'
+}
+
+# WSL 2 still lacks support for AF_UNIX, which requires additional work to use
+# pipes from Windows. npiperelay is typically used for this, however it lacks
+# official support for the Assuan protocol, which is needed by GnuPG.
+# WSL-Relay is an npiperelay fork with support for Assuan and good stability;
+# see: https://github.com/Lexicality/wsl-relay,
+#      https://github.com/microsoft/WSL/issues/4240.
+export WSL_RELAY="${LOCALAPPDATA}/Programs/wsl-relay.exe"
+
+wslrelay() {
+	local filename="$1"; shift
+	if ! ss --all | grep -q "${filename}"; then
+		(setsid nohup socat UNIX-LISTEN:"${filename},unlink-early,fork" \
+				    EXEC:"${WSL_RELAY} $*,nofork" &>/dev/null &)
+	fi
+}
+
+export WSL_GNUPGSOCKETDIR="${LOCALAPPDATA}/gnupg"
+if [[ -d $WSL_GNUPGSOCKETDIR ]]; then
+	for name in agent-socket agent-extra-socket; do
+		socket=$(gpgconf --list-dirs $name)
+		wslsocket=$(wslpathm ${WSL_GNUPGSOCKETDIR}/$(basename $socket))
+		wslrelay $socket --input-closes --pipe-closes --gpg $wslsocket
+	done
+	unset name socket wslsocket
+fi
+
+# In a perfect world we could use GnuPG's agent-ssh-socket, however the
+# protocol is incompatible with OpenSSH when running from Windows. The native
+# OpenSSH pipe is used instead, which transparently bridges to GnuPG.
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.sock"
+wslrelay $SSH_AUTH_SOCK --input-closes --pipe //./pipe/openssh-ssh-agent
+
+# vim: ft=zsh
