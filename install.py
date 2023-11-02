@@ -68,13 +68,6 @@ def check_call(*args, **kwargs):
         sys.exit(1)
 
 
-def check_path(path):
-    if not path.exists():
-        logger.error(f'Nonexistent path {path}')
-        sys.exit(1)
-    return path
-
-
 def dotbot(*args, **kwargs):
     args = [sys.executable, '-m', 'dotbot', '--base-directory', kwargs['basedir'], *args]
 
@@ -158,10 +151,14 @@ def main():
     else:
         configdir = args.basedir / 'meta' / 'configs'
         profiledir = args.basedir / 'meta' / 'profiles'
-        for path in [check_path(profiledir / profile) for profile in args.profiles]:
-            with path.open() as f:
-                for config in f.read().splitlines():
-                    configure(configdir / f'{config}.yaml')
+        for profile in args.profiles:
+            path = profiledir / profile
+            if path.exists():
+                with path.open() as f:
+                    for config in f.read().splitines():
+                        configure(configdir / f'{config}.yaml')
+            else:
+                configure(configdir / f'{profile}.yaml')
 
     if args.clean:
         configfile = args.basedir / 'meta' / 'clean.yaml'

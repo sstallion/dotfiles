@@ -3,9 +3,11 @@ ctags
 fonts
 gdb
 git
+gnupg
 latexmk
 less
 mercurial
+neovim
 subversion
 task
 tmux
