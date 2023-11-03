@@ -1,0 +1,19 @@
+# US4851C5DE4AC2-laptop.yaml - tmux session configuration
+
+session_name: default
+windows:
+  - window_name: main
+    focus: true
+    layout: 85d1,189x55,0,0{108x55,0,0,1,80x55,109,0[80x30,109,0,2,80x24,109,31,3]}
+    panes:
+      - shell_command: nvim
+        focus: true
+        sleep_before: 1 # wslu eats buffered command input
+      - pane
+      - pane
+  - window_name: aux
+    layout: 85d1,189x55,0,0{108x55,0,0,1,80x55,109,0[80x30,109,0,2,80x24,109,31,3]}
+    panes:
+      - pane
+      - pane
+      - pane
