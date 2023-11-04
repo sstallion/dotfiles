@@ -31,11 +31,16 @@
 
 ## Platform-Specific
 
-### BSD & Linux
+### Linux
 
-- [libinput-gestures](https://github.com/bulletmark/libinput-gestures)
+- [socat](https://www.dest-unreach.org/socat/) (WSL)
+- [wslu](https://github.com/wslutilities/wslu) (WSL)
 - [xsel](http://www.vergenet.net/~conrad/software/xsel/)
 
 ### macOS
 
 - [tmux-MacOSX-pasteboard](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)
+
+### Windows
+
+- [WSL-Relay](https://github.com/Lexicality/wsl-relay)

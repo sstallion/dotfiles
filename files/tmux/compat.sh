@@ -67,9 +67,7 @@ esac
 
 # True Color
 if has_version 3.2; then
-	set-option -g terminal-features ",xterm-256color:RGB"
-else
-	set-option -g terminal-overrides ",xterm-256color*:Tc"
+	set-option -ag terminal-overrides ",xterm-256color:RGB"
 fi
 
 # Key Bindings

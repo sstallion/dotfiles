@@ -5,7 +5,11 @@
 # $WSL_INTEROP; see: https://github.com/microsoft/WSL/issues/4555.
 [[ -n $WSL_INTEROP ]] || return
 
-export LOCALAPPDATA=$(wslpath $(wslvar LOCALAPPDATA))
+# If WSLENV does not contain `LOCALAPPDATA/up`, fall back to calling wslvar,
+# which adds several seconds of delay at login:
+if [[ -z $LOCALAPPDATA ]]; then
+	export LOCALAPPDATA=$(wslpath $(wslvar LOCALAPPDATA))
+fi
 
 # wslpath does not escape the colon in the drive specifier, which causes
 # issues passing Windows paths as arguments for interoperability.

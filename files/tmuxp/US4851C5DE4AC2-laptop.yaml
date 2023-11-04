@@ -4,7 +4,7 @@ session_name: default
 windows:
   - window_name: main
     focus: true
-    layout: 85d1,189x55,0,0{108x55,0,0,1,80x55,109,0[80x30,109,0,2,80x24,109,31,3]}
+    layout: e6bc,191x53,0,0{110x53,0,0,1,80x53,111,0[80x29,111,0,2,80x23,111,30,3]}
     panes:
       - shell_command: nvim
         focus: true
@@ -12,7 +12,7 @@ windows:
       - pane
       - pane
   - window_name: aux
-    layout: 85d1,189x55,0,0{108x55,0,0,1,80x55,109,0[80x30,109,0,2,80x24,109,31,3]}
+    layout: e6bc,191x53,0,0{110x53,0,0,1,80x53,111,0[80x29,111,0,2,80x23,111,30,3]}
     panes:
       - pane
       - pane
