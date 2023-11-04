@@ -1,0 +1,10 @@
+# screenrc - GNU Screen configuration
+
+# Automatically detach upon hangup:
+autodetach on
+
+# Disable the visual bell:
+vbell off
+
+# "The use of the term command is discouraged for non-default purpose":
+term dtterm

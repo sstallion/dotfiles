@@ -1,0 +1,8 @@
+# sunos - SunOS configuration
+
+set path = (/usr/bin /usr/sbin /usr/ccs/bin /usr/sfw/bin)
+
+setenv MANPATH /usr/share/man:/usr/sfw/share/man:/usr/gnu/man:/usr/perl5/man 
+setenv TERM dtterm
+
+# vim: ft=tcsh

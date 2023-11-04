@@ -1,4 +1,4 @@
-# pbcopy - zsh pbcopy/pbpaste aliases
+# pasteboard - pasteboard aliases
 
 whence xsel &>/dev/null || return
 

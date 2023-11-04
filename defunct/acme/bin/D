@@ -1,5 +1,5 @@
 #!/bin/sh
-# D - launch acme(1) using dump file
+# D - launch Acme using dump file
 
 file=default
 if [ $# != 0 ]; then

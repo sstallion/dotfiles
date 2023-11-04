@@ -23,36 +23,49 @@
 
 import os
 import platform
-import re
 
 import dotbot
 from dotbot.dispatcher import Dispatcher
 from dotbot.plugin import Plugin
 
-# Only consider os.name and a subset of platform.system(). Values chosen below
-# reflect a "best guess" of which OSes are being used with dotbot as it is not
-# possible to determine every possible value `uname -s` may emit a priori.
-_names = ['nt', 'posix']
-_systems = [
-    'Darwin',
-    'Dragonfly',
-    'FreeBSD',
-    'Java',
-    'Linux',
-    'MidnightBSD',
-    'NetBSD',
-    'OpenBSD',
-    'SunOS',
-    'Windows'
-]
+
+def _check_os(name):
+    return lambda: os.name == name
+
+
+def _check_platform(name):
+    return lambda: platform.system() == name
+
+
+def _check_linux(path):
+    return lambda: platform.system() == 'Linux' and os.path.exists(path)
 
 
 class IfSystem(dotbot.Plugin):
     """Execute directives if system matches"""
 
+    # Only consider os.name and a subset of platform.system(). Values chosen
+    # reflect a "best guess" of which OSes are being used with dotbot as it is
+    # not possible to determine every possible value `uname -s` may emit.
+    _directives = {
+        'ifposix':     _check_os('posix'),
+        'ifdragonfly': _check_platform('Dragonfly'),
+        'iffreebsd':   _check_platform('FreeBSD'),
+        'ifjava':      _check_platform('Java'),
+        'iflinux':     _check_platform('Linux'),
+        'ifmacos':     _check_platform('Darwin'),
+        'ifmidnight':  _check_platform('MidnightBSD'),
+        'ifnetbsd':    _check_platform('NetBSD'),
+        'ifopenbsd':   _check_platform('OpenBSD'),
+        'ifsunos':     _check_platform('SunOS'),
+        'ifwindows':   _check_platform('Windows'),
+        'ifdebian':    _check_linux('/etc/debian_version'),
+        'ifgentoo':    _check_linux('/etc/gentoo-release'),
+        'ifredhat':    _check_linux('/etc/redhat-release')
+    }
+
     def __init__(self, context):
         super(IfSystem, self).__init__(context)
-        self._directives = [f'if{val.lower()}' for val in _names + _systems]
 
     def can_handle(self, directive):
         return directive in self._directives
@@ -60,17 +73,20 @@ class IfSystem(dotbot.Plugin):
     def handle(self, directive, data):
         if directive not in self._directives:
             raise ValueError(f'IfSystem cannot handle directive {directive}')
-        val = re.sub('^if', '', directive)
-        if val == os.name or val == platform.system().lower():
-            # We monkey patch Dispatcher._setup_context to inject the correct
-            # context into new plugin instances, otherwise defaults are lost.
-            def _setup_context(subself, base_directory, options):
-                subself._context = self._context
-            Dispatcher._setup_context = _setup_context
-            dispatcher = Dispatcher(self._context.base_directory(),
-                                    only=self._context.options().only,
-                                    skip=self._context.options().skip,
-                                    options=self._context.options(),
-                                    plugins=Plugin.__subclasses__())
-            return dispatcher.dispatch(data)
-        return True
+        return self._process_system(self._directives[directive], data)
+
+    def _process_system(self, check_system, data):
+        return not check_system() or self._dispatch(data)
+
+    def _dispatch(self, data):
+        # We monkey patch Dispatcher._setup_context to inject the correct
+        # context into new plugin instances, otherwise defaults are lost.
+        def _setup_context(subself, base_directory, options):
+            subself._context = self._context
+        Dispatcher._setup_context = _setup_context
+        dispatcher = Dispatcher(self._context.base_directory(),
+                                only=self._context.options().only,
+                                skip=self._context.options().skip,
+                                options=self._context.options(),
+                                plugins=Plugin.__subclasses__())
+        return dispatcher.dispatch(data)

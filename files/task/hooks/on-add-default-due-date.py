@@ -55,7 +55,6 @@ if __name__ == '__main__':
         next(sys.stdin)
 
     task = json.load(sys.stdin)
-
     if 'due' in task and task['status'] != 'completed':
         dt = get_due_date(task)
         if dt.time() == DEFAULT_TIME:

@@ -1,35 +1,41 @@
-# vim - zsh vim configuration
+# vim - Vim configuration
+
+whence -m "*vim" &> /dev/null || return
+
+export EDITOR=vim
 
 # Old habits die hard...
 alias vi=vim
 
 # Client-Server
-function _vimquote {
-	for arg; do shift
-		printf '"%s"' $arg
-		[[ $# == 0 ]] && printf '\n' || printf ' '
-	done
-}
-
-function _vimremote {
-	vim --servername ${VIM_SERVERNAME:-VIM} $@
+function vimremote {
+	vim --servername ${VIM_SERVERNAME:-VIM} "$@"
 }
 
 # Change current directory, optionally opening the directory in the current
 # window for browsing with netrw.
 function vimcd {
-	local edit=1
-	while getopts 'n' arg; do
-		case "$arg" in
+	local arg
+	local edit=0
+	while getopts "e" arg; do
+		case $arg in
 		n)
-			edit=0
+			edit=1
 			;;
 		esac
 	done
 	shift $((OPTIND-1))
 
-	cd $1 && _vimremote --remote-expr "execute('cd ${(q)$(pwd)}')" &&
-	[[ $edit != 0 ]] && _vimremote --remote .
+	cd $1 && vimremote --remote-expr "execute('cd ${(q)$(pwd)}')" &&
+	[[ $edit != 0 ]] && vimremote --remote .
+}
+
+function vimquote {
+	local arg
+	for arg; do shift
+		printf '"%s"' $arg
+		[[ $# == 0 ]] && printf '\n' || printf ' '
+	done
 }
 
 # Search for patterns on the command line using vim-grepper. This requires
@@ -37,17 +43,14 @@ function vimcd {
 # after the search completes. Vim quoting rules must be obvserved when
 # specifying the search pattern; see eval.txt.
 function vimgrep {
-	local winnr=$(_vimremote --remote-expr 'winnr()')
-	local oldpwd=$(_vimremote --remote-expr "chdir('${(q)$(pwd)}')")
-	_vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query $(_vimquote $@)')"
-	_vimremote --remote-expr "execute('${winnr}wincmd w')"
-	_vimremote --remote-expr "chdir('${(q)oldpwd}')" &>/dev/null
+	local winnr=$(vimremote --remote-expr 'winnr()')
+	local oldpwd=$(vimremote --remote-expr "chdir('${(q)$(pwd)}')")
+	vimremote --remote-expr "execute('Grepper -noprompt -dir cwd -query $(vimquote $@)')"
+	vimremote --remote-expr "execute('${winnr}wincmd w')"
+	vimremote --remote-expr "chdir('${(q)oldpwd}')" &>/dev/null
 }
 
-alias vimopen='_vimremote --remote'
-alias vimopenw='_vimremote --remote-wait'
-
-alias vimtab='_vimremote --remote-tab'
-alias vimtabw='_vimremote --remote-tab-wait'
+alias vimopen="vimremote --remote"
+alias vimtab="vimremote --remote-tab"
 
 # vim: ft=zsh

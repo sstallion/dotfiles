@@ -1,35 +1,56 @@
 - include: meta/defaults.yaml
 
-- ifposix:
-  - link:
-      ~/.vim: files/vim
-      ~/.vimrc: files/vimrc
-      ~/.gvimrc:
-          path: files/gvimrc
-          if: '[ "$(uname -s)" = Darwin ] || command -v gvim >/dev/null'
-  - create:
-    - ~/.vim/sessions
-    - ~/.vim/spell
+- install:
+  - iffreebsd:
+    - shell:
+      - command: |
+          make -C /usr/ports/editors/vim \
+            WITH="CTAGS_UNIVERSAL RUBY" WITHOUT="CTAGS_BASE" \
+            install-missing-packages install clean &&
+          pkg lock -y editors/vim
+  - ifdebian:
+    - shell:
+      - apt-get -y install python3-dev ruby-dev vim-nox
+  - ifgentoo:
+    - shell:
+      - command: |
+          echo app-editors/vim cscope python ruby >/etc/portage/package.use/vim
+          emerge -nq app-editors/vim
+  - ifmacos:
+    - shell:
+      - port install vim +cscope +python311 +ruby30
+  - ifwindows:
+    - shell:
+      - winget install vim.vim
 
-- ifwindows:
-  - link:
-      ~/vimfiles: files/vim
-      ~/_vimrc: files/vimrc
-      ~/_gvimrc: files/gvimrc
-  - create:
-    - ~/vimfiles/sessions
-    - ~/vimfiles/spell
-
-- shell:
-  - command: 'vim --noplugin --cmd "let g:plug_install = v:true" -c PlugInstall -c qa'
-    description: Installing vim-plug plugins
-    stdout: false
-    stderr: false
-
-- ifposix:
+- config:
+  - ifposix:
+    - link:
+        ~/.vim: files/vim
+        ~/.vimrc: files/vimrc
+        ~/.gvimrc:
+            path: files/gvimrc
+            if: '[ "$(uname -s)" = Darwin ] || command -v gvim >/dev/null'
+    - create:
+      - ~/.vim/sessions
+      - ~/.vim/spell
+  - ifwindows:
+    - link:
+        ~/vimfiles: files/vim
+        ~/_vimrc: files/vimrc
+        ~/_gvimrc: files/gvimrc
+    - create:
+      - ~/vimfiles/sessions
+      - ~/vimfiles/spell
   - shell:
-    - command: |
-        [ "$(uname -s)" = FreeBSD ] && MAKE=gmake
-        cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
-        [ -f Makefile ] || ruby extconf.rb && ${MAKE:-make} all
-      description: Compiling Command-T extension
+    - command: 'vim --noplugin --cmd "let g:plug_install = v:true" -c PlugInstall -c qa'
+      description: Installing vim-plug plugins
+      stdout: false
+      stderr: false
+  - ifposix:
+    - shell:
+      - command: |
+          [ "$(uname -s)" = FreeBSD ] && MAKE=gmake
+          cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t
+          [ -f Makefile ] || ruby extconf.rb && ${MAKE:-make} all
+        description: Compiling Command-T extension

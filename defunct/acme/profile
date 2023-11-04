@@ -1,4 +1,4 @@
-# profile - plan9port rc(1) profile for acme(1)
+# profile - plan9port rc profile for Acme
 
 GIT_EDITOR=E
 font=/mnt/font/Droid\ Sans\ Mono/12a/font

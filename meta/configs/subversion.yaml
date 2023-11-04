@@ -1,4 +1,22 @@
 - include: meta/defaults.yaml
 
-- link:
-    ~/.subversion: files/subversion
+- install:
+  - iffreebsd:
+    - shell:
+      - pkg install -y devel/subversion
+  - ifdebian:
+    - shell:
+      - apt-get -y install subversion
+  - ifgentoo:
+    - shell:
+      - emerge -nq dev-vcs/subversion
+  - ifmacos:
+    - shell:
+      - port install subversion
+  - ifwindows:
+    - shell:
+      - winget install TortoiseSVN.TortoiseSVN
+
+- config:
+  - link:
+      ~/.subversion: files/subversion

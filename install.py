@@ -23,6 +23,7 @@
 # SUCH DAMAGE.
 
 import argparse
+import ctypes
 import importlib.util
 import inspect
 import logging
@@ -59,6 +60,11 @@ class ColorFilter(logging.Filter):
         return True
 
 
+def is_superuser():
+    return os.name == 'posix' and os.getuid() == 0 or \
+           os.name == 'nt' and ctypes.windll.shell32.IsUserAnAdmin() != 0
+
+
 def check_call(*args, **kwargs):
     logger.debug(f'Calling {args}')
     try:
@@ -70,6 +76,10 @@ def check_call(*args, **kwargs):
 
 def dotbot(*args, **kwargs):
     args = [sys.executable, '-m', 'dotbot', '--base-directory', kwargs['basedir'], *args]
+    if kwargs['superuser']:
+        # Wrap call with sudo (gsudo on Windows) to elevate permissions; the
+        # install plugin will perform installation and skip configuration:
+        args.insert(0, 'sudo')
 
     plugindir = kwargs['basedir'] / 'meta' / 'plugins'
     for dir in filter(lambda path: path.is_dir(), plugindir.iterdir()):
@@ -99,6 +109,9 @@ def main():
                         type=pathlib.Path,
                         help='run commands given in CONFIGFILE')
 
+    parser.add_argument('--packages', action='store_true', default=False, dest='superuser',
+                        help='install packages as superuser (EXPERIMENTAL)')
+
     parser.add_argument('--force-color', action='store_true', default=None, dest='color',
                         help='force color output')
 
@@ -116,16 +129,15 @@ def main():
 
     args = parser.parse_args()
 
-    # It is 2023 and Windows still does not support high intensity ANSI colors
-    # reliably. This is why we cannot have nice things.
-    if platform.system() == 'Windows':
-        args.color = False
-
     logging.basicConfig(format='%(color)s%(message)s%(reset)s',
                         level=logging.INFO, stream=sys.stdout)
     logger.addFilter(ColorFilter(args.color))
     if args.verbose:
         logger.setLevel(logging.DEBUG)
+
+    if is_superuser():
+        logger.error(f'Running {parser.prog} as the superuser will result in broken permissions.')
+        sys.exit(1)
 
     # Update submodules prior to calling dotbot:
     if (args.basedir / '.gitmodules').exists():
@@ -142,7 +154,8 @@ def main():
     # or more config files, one per line.
     def configure(configfile, message=None):
         if message is None:
-            message = f'Configuring {configfile.stem}'
+            message = f'Installing {configfile.stem}' if args.superuser else \
+                      f'Configuring {configfile.stem}'
         logger.info(f'\n{message}')
         dotbot('--config-file', configfile, **vars(args))
 
@@ -155,12 +168,13 @@ def main():
             path = profiledir / profile
             if path.exists():
                 with path.open() as f:
-                    for config in f.read().splitines():
+                    for config in f.read().splitlines():
                         configure(configdir / f'{config}.yaml')
             else:
-                configure(configdir / f'{profile}.yaml')
+                config = profile # fall back to config
+                configure(configdir / f'{config}.yaml')
 
-    if args.clean:
+    if args.clean and not args.superuser:
         configfile = args.basedir / 'meta' / 'clean.yaml'
         configure(configfile, 'Cleaning broken symbolic links')
 

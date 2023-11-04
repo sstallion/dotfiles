@@ -1,5 +1,5 @@
 #!/bin/sh
-# acme - launch acme(1)
+# acme - launch Acme
 
 PLAN9=${PLAN9:-/usr/local/plan9}
 ACME=${ACME:-$HOME/.acme}

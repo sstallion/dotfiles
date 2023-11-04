@@ -1,5 +1,6 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.gdbinit: files/gdbinit
+  - config:
+    - link:
+        ~/.gdbinit: files/gdbinit

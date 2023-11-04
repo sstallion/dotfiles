@@ -1,0 +1,8 @@
+# java - Java configuration
+
+setenv JAVA_HOME /usr/java
+
+setenv MANPATH $JAVA_HOME/man:$MANPATH
+setenv PATH $JAVA_HOME/bin:$PATH
+
+# vim: ft=tcsh

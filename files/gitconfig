@@ -1,4 +1,4 @@
-# gitconfig - git configuration
+# gitconfig - Git configuration
 
 [alias]
 	# Show changes for a given commit:
@@ -33,7 +33,7 @@
 	ui = auto
 
 [core]
-	editor = vim
+	autocrlf = false
 
 	# Look for exclude patterns under $HOME rather than the default.
 	# This avoids having to track $HOME/.config.
@@ -46,6 +46,10 @@
 	prompt = false
 	trustExitCode = true
 
+[difftool "vimdiff"]
+	# Invoke vimdiff using GIT_EDITOR to permit substitution:
+	cmd = ${GIT_EDITOR:-${EDITOR:-vim}} -d $LOCAL $REMOTE
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -54,14 +58,18 @@
 
 [merge]
 	tool = vimdiff
-	conflictstyle = diff3
 
 [mergetool]
 	prompt = false
 	trustExitCode = true
 
+[mergetool "vimdiff"]
+	# Invoke vimdiff using GIT_EDITOR to permit substitution:
+	cmd = ${GIT_EDITOR:-${EDITOR:-vim}} -d $LOCAL $REMOTE $MERGED -c "wincmd J | wincmd ="
+
 [pull]
 	ff = only
+	rebase = merges
 
 [push]
 	default = current

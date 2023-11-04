@@ -1,4 +1,4 @@
-# tcshrc - tcsh configuration
+# tcshrc - TCSH configuration
 
 alias ls "ls-F -h"
 
@@ -23,10 +23,9 @@ set prompt = "%n@%m:%~%# "
 setenv EDITOR vim
 setenv PAGER less
 
-# Rather than clutter tcshrc, we source configuration from tcshrc.d
-# to further customize the shell:
-foreach name (~/.tcshrc.d/*)
-	source $name
-end
+# The following allows login hosts to alter the default environment:
+if (-r ~/.tcshrc.d/host/$HOST) then
+	source ~/.tcshrc.d/host/$HOST
+endif
 
 # vim: ft=tcsh

@@ -1,4 +1,4 @@
-# latexmkrc - latexmk configuration
+# latexmkrc - Latexmk configuration
 
 use File::Which;
 

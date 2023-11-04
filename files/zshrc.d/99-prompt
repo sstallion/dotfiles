@@ -1,4 +1,4 @@
-# prompt - zsh prompt configuration
+# prompt - Zsh prompt configuration
 
 autoload -U promptinit
 promptinit

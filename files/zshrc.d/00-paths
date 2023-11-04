@@ -1,4 +1,4 @@
-# paths - zsh path configuration
+# paths - path configuration
 
 # By default, path_helper(8) does not modify MANPATH unless it is defined in
 # the environment. Darwin helpfully calls path_helper from /etc/zprofile,
@@ -10,7 +10,6 @@ fi
 
 function collect_paths {
 	local arg
-
 	for arg; do
 		if [[ -r $arg ]]; then
 			while read line; do

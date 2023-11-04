@@ -5,7 +5,9 @@
 # $WSL_INTEROP; see: https://github.com/microsoft/WSL/issues/4555.
 [[ -n $WSL_INTEROP ]] || return
 
-# If WSLENV does not contain `LOCALAPPDATA/up`, fall back to calling wslvar,
+export BROWSER=wslview
+
+# If WSLENV does not contain `LOCALAPPDATA/up', fall back to calling wslvar,
 # which adds several seconds of delay at login:
 if [[ -z $LOCALAPPDATA ]]; then
 	export LOCALAPPDATA=$(wslpath $(wslvar LOCALAPPDATA))
@@ -13,7 +15,7 @@ fi
 
 # wslpath does not escape the colon in the drive specifier, which causes
 # issues passing Windows paths as arguments for interoperability.
-wslpathm() {
+function wslpathm {
 	wslpath -m "$*" | sed 's/:/\\:/g'
 }
 
@@ -25,7 +27,7 @@ wslpathm() {
 #      https://github.com/microsoft/WSL/issues/4240.
 export WSL_RELAY="${LOCALAPPDATA}/Programs/wsl-relay.exe"
 
-wslrelay() {
+function wslrelay {
 	local filename="$1"; shift
 	if ! ss --all | grep -q "${filename}"; then
 		(setsid nohup socat UNIX-LISTEN:"${filename},unlink-early,fork" \
@@ -33,20 +35,32 @@ wslrelay() {
 	fi
 }
 
-export WSL_GNUPGSOCKETDIR="${LOCALAPPDATA}/gnupg"
-if [[ -d $WSL_GNUPGSOCKETDIR ]]; then
-	for name in agent-socket agent-extra-socket; do
-		socket=$(gpgconf --list-dirs $name)
-		wslsocket=$(wslpathm ${WSL_GNUPGSOCKETDIR}/$(basename $socket))
-		wslrelay $socket --input-closes --pipe-closes --gpg $wslsocket
-	done
-	unset name socket wslsocket
-fi
+function wslsetup {
+	export WSL_GNUPGSOCKETDIR="${LOCALAPPDATA}/gnupg"
+	if [[ -d $WSL_GNUPGSOCKETDIR ]]; then
+		for name in agent-socket agent-extra-socket; do
+			socket=$(gpgconf --list-dirs $name)
+			wslsocket=$(wslpathm ${WSL_GNUPGSOCKETDIR}/$(basename $socket))
+			wslrelay $socket --input-closes --pipe-closes --gpg $wslsocket
+		done
+		unset name socket wslsocket
+	fi
 
-# In a perfect world we could use GnuPG's agent-ssh-socket, however the
-# protocol is incompatible with OpenSSH when running from Windows. The native
-# OpenSSH pipe is used instead, which transparently bridges to GnuPG.
-export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.sock"
-wslrelay $SSH_AUTH_SOCK --input-closes --pipe //./pipe/openssh-ssh-agent
+	# In a perfect world we could use GnuPG's agent-ssh-socket, however
+	# the protocol is incompatible with OpenSSH when running from Windows.
+	# The native OpenSSH pipe is used instead, which bridges to GnuPG.
+	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.sock"
+	wslrelay $SSH_AUTH_SOCK --input-closes --pipe //./pipe/openssh-ssh-agent
+}
+
+# Occasionally, GnuPG sockets stop responding due to issues in Windows which
+# result in failed operations in WSL. The following function can be used to
+# recreate local sockets once the issue is resolved.
+function wslrefresh {
+	pkill -KILL -f "${WSL_RELAY}"
+	wslsetup
+}
+
+wslsetup
 
 # vim: ft=zsh

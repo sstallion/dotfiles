@@ -1,0 +1,6 @@
+# pkgbuild - pkgbuild configuration
+
+setenv MANPATH /opt/pkgbuild/share/man:$MANPATH
+setenv PATH /opt/pkgbuild/bin:$PATH
+
+# vim: ft=tcsh

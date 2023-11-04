@@ -1,0 +1,6 @@
+# zathurarc - Zathura configuration
+
+# Set auto adjustment mode to width:
+set adjust-open "width"
+
+# vim: ft=config

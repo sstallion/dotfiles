@@ -1,0 +1,19 @@
+- include: meta/defaults.yaml
+
+- ifposix:
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y graphics/zathura graphics/zathura-pdf-mupdf
+    - ifdebian:
+      - shell:
+        - apt-get -y install zathura zathura-pdf-poppler
+    - ifgentoo:
+      - shell:
+        - emerge -nq app-text/zathura app-text/zathura-pdf-mupdf
+    - ifmacos:
+      - shell:
+        - port install zathura zathura-plugin-pdf-mupdf
+  - config:
+    - link:
+        ~/.config/zathura/zathurarc: files/zathurarc

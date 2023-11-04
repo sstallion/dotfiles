@@ -1,5 +1,23 @@
 - include: meta/defaults.yaml
 
-- link:
-    ~/.hgrc: files/hgrc
-    ~/.hgignore: files/hgignore
+- install:
+  - iffreebsd:
+    - shell:
+      - pkg install -y devel/mercurial
+  - ifdebian:
+    - shell:
+      - apt-get -y install mercurial
+  - ifgentoo:
+    - shell:
+      - emerge -nq dev-vcs/mercurial
+  - ifmacos:
+    - shell:
+      - port install mercurial
+  - ifwindows:
+    - shell:
+      - winget install Mercurial.Mercurial
+
+- config:
+  - link:
+      ~/.hgrc: files/hgrc
+      ~/.hgignore: files/hgignore

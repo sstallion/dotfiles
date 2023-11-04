@@ -1,16 +1,33 @@
 - include: meta/defaults.yaml
 
-- ifposix:
-  - create:
-      ~/.gnupg:
-        mode: 0700
-  - link:
-      ~/.gnupg/gpg.conf: files/gnupg/gpg.conf
-      ~/.gnupg/gpg-agent.conf: files/gnupg/gpg-agent.conf
-      ~/.gnupg/scdaemon.conf: files/gnupg/scdaemon.conf
+- install:
+  - iffreebsd:
+    - shell:
+      - pkg install -y security/gnupg
+  - ifdebian:
+    - shell:
+      - apt-get -y install gnupg2
+  - ifgentoo:
+    - shell:
+      - emerge -nq app-crypt/gnupg
+  - ifmacos:
+    - shell:
+      - port install gnupg2
+  - ifwindows:
+    - shell:
+      - winget install GnuPG.GnuPG
 
-- ifwindows:
-  - link:
-      '%APPDATA%/gnupg/gpg.conf': files/gnupg/gpg.conf
-      '%APPDATA%/gnupg/gpg-agent.conf': files/gnupg/gpg-agent.conf
-      '%APPDATA%/gnupg/scdaemon.conf': files/gnupg/scdaemon.conf
+- config:
+  - ifposix:
+    - create:
+        ~/.gnupg:
+          mode: 0700
+    - link:
+        ~/.gnupg/gpg.conf: files/gnupg/gpg.conf
+        ~/.gnupg/gpg-agent.conf: files/gnupg/gpg-agent.conf
+        ~/.gnupg/scdaemon.conf: files/gnupg/scdaemon.conf
+  - ifwindows:
+    - link:
+        '%APPDATA%/gnupg/gpg.conf': files/gnupg/gpg.conf
+        '%APPDATA%/gnupg/gpg-agent.conf': files/gnupg/gpg-agent.conf
+        '%APPDATA%/gnupg/scdaemon.conf': files/gnupg/scdaemon.conf

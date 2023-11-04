@@ -1,0 +1,5 @@
+# dbxrc - dbx configuration
+
+dbxenv suppress_startup_message 7.6
+dbxenv suppress_startup_message 7.7
+dbxenv suppress_startup_message 7.8

@@ -1,5 +1,19 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.ctags: files/ctags
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y devel/universal-ctags
+    - ifdebian:
+      - shell:
+        - apt-get -y install universal-ctags
+    - ifgentoo:
+      - shell:
+        - emerge -nq dev-util/ctags
+    - ifmacos:
+      - shell:
+        - port install universal-ctags +link_to_ctags
+  - config:
+    - link:
+        ~/.ctags: files/ctags

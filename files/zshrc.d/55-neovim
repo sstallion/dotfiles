@@ -1,0 +1,19 @@
+# neovim - Neovim configuration
+
+whence nvim &>/dev/null || return
+
+export EDITOR=nvim
+
+alias nvimdiff="nvim -d"
+
+# Newer habits die harder...
+alias vim=nvim
+alias vimdiff=nvimdiff
+alias vimpager=nvimpager
+
+# Client-Server (cf. vim)
+function vimremote {
+	nvr --servername ${NVIM_LISTEN_ADDRESS:-/tmp/nvimsocket} --nostart "$@"
+}
+
+# vim: ft=zsh

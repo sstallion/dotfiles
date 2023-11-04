@@ -1,4 +1,4 @@
-" gvimrc - GUI-specific vim configuration
+" gvimrc - GUI-specific Vim configuration
 
 " Default Options
 set guicursor=a:block-blinkon0

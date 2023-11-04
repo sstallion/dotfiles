@@ -1,5 +1,6 @@
 git
+gnupg
 less
+neovim
 top
-vim
 zsh

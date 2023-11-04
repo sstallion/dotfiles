@@ -1,5 +1,19 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.bvirc: files/bvirc
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y editors/bvi
+    - ifdebian:
+      - shell:
+        - apt-get -y install bvi
+    - ifgentoo:
+      - shell:
+        - emerge -nq app-editors/bvi
+    - ifmacos:
+      - shell:
+        - port install bvi
+  - config:
+    - link:
+        ~/.bvirc: files/bvirc

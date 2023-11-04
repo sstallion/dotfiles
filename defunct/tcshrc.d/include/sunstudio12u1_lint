@@ -1,0 +1,8 @@
+# sunstudio12u1 - Sun Studio configuration
+
+setenv i386_LINT /opt/sunstudio12.1/bin/lint
+setenv amd64_LINT /opt/sunstudio12.1/bin/lint
+setenv sparc_LINT /opt/sunstudio12.1/bin/lint
+setenv sparcv9_LINT /opt/sunstudio12.1/bin/lint
+
+# vim: ft=tcsh

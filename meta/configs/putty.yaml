@@ -1,0 +1,7 @@
+- include: meta/defaults.yaml
+
+- ifwindows:
+  - install:
+    - shell:
+      - winget install PuTTY.PuTTY
+      - reg import extra/Windows/PuTTY.reg

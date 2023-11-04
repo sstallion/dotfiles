@@ -1,8 +1,6 @@
-# brew - homebrew configuration
+# brew - Homebrew configuration
 
-if ! whence brew &>/dev/null; then
-	return
-fi
+whence brew &>/dev/null || return
 
 export HOMEBREW_HOME=${HOMEBREW_HOME:-/usr/local}
 export HOMEBREW_NO_EMOJI=1

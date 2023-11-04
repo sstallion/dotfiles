@@ -1,0 +1,24 @@
+- include: meta/defaults.yaml
+
+- ifposix:
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y deskutils/taskwarrior
+    - ifdebian:
+      - shell:
+        - apt-get -y install taskwarrior
+    - ifgentoo:
+      - shell:
+        - emerge -nq app-misc/task
+    - ifmacos:
+      - shell:
+        - port install task
+  - config:
+    - create:
+        ~/.task:
+          mode: 0700
+    - link:
+        ~/.task/hooks: files/task/hooks
+        ~/.task/rc: files/task/rc
+        ~/.taskrc: files/taskrc

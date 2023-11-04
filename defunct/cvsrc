@@ -1,4 +1,4 @@
-# cvsrc - cvs configuration
+# cvsrc - CVS configuration
 
 cvs -z9
 checkout -P

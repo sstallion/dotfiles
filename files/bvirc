@@ -1,4 +1,4 @@
-" bvirc - bvi configuration
+" bvirc - Bvi configuration
 
 set columns=16
 set unixstyle

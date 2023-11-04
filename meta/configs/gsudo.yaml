@@ -1,0 +1,10 @@
+- include: meta/defaults.yaml
+
+- ifwindows:
+  - install:
+    - shell:
+      - winget install gerardog.gsudo
+  - config:
+    - shell:
+      # Enable credentials cache (fewer UAC popups):
+      - gsudo config CacheMode Auto

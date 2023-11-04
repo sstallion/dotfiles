@@ -1,9 +1,23 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.tmux: files/tmux
-      ~/.tmux.conf: files/tmux.conf
-      ~/.tmuxp:
-        path: files/tmuxp
-        if: 'command -v tmuxp >/dev/null'
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y sysutils/py-tmuxp sysutils/tmux
+    - ifdebian:
+      - shell:
+        - apt-get -y install tmux tmuxp
+    - ifgentoo:
+      - shell:
+        - emerge -nq app-misc/tmux app-misc/tmuxp
+    - ifmacos:
+      - shell:
+        - port install py-tmuxp tmux
+  - config:
+    - link:
+        ~/.tmux: files/tmux
+        ~/.tmux.conf: files/tmux.conf
+        ~/.tmuxp:
+          path: files/tmuxp
+          if: 'command -v tmuxp >/dev/null'

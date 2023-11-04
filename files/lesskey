@@ -1,4 +1,4 @@
-# lesskey - key bindings for less
+# lesskey - key bindings for Less
 
 #command
 ^J	forw-screen

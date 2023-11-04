@@ -1,5 +1,19 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.latexmkrc: files/latexmkrc
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y print/latexmk
+    - ifdebian:
+      - shell:
+        - apt-get -y install latexmk
+    - ifgentoo:
+      - shell:
+        - emerge -nq dev-tex/latexmk
+    - ifmacos:
+      - shell:
+        - port install latex-mk
+  - config:
+    - link:
+        ~/.latexmkrc: files/latexmkrc

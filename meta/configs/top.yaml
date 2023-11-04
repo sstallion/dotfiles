@@ -1,5 +1,6 @@
 - include: meta/defaults.yaml
 
 - iflinux:
-  - link:
-      ~/.toprc: files/toprc
+  - config:
+    - link:
+        ~/.toprc: files/toprc

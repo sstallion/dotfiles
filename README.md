@@ -18,28 +18,26 @@ non-default subset of files.
 
 To install configuration files, issue:
 
-    $ git clone git@github.com:sstallion/dotfiles.git && cd dotfiles
+    $ git clone https://github.com/sstallion/dotfiles.git && cd dotfiles
     $ python install.py [profiles ...]
 
 See [More advanced setup][2] for details.
 
-> **NOTE**: Installation must be performed in an administrative shell or
-> Developer Mode must be enabled on Windows. See [Create symbolic links][3] and
-> [Enable your device for development][4] for details.
+> **NOTE**: Developer Mode must be enabled before installation on Windows. See
+> [Enable your device for development][3] for details.
 
 ## Contributing
 
 Pull requests are welcome! If a problem is encountered using this repository,
-please file an issue on [GitHub][5].
+please file an issue on [GitHub][4].
 
 ## License
 
 Source code in this repository is licensed under a Simplified BSD License. See
-[LICENSE][6] for details.
+[LICENSE][5] for details.
 
 [1]: https://github.com/anishathalye/dotbot
 [2]: https://github.com/anishathalye/dotbot/wiki/Tips-and-Tricks#more-advanced-setup
-[3]: https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/create-symbolic-links
-[4]: https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
-[5]: https://github.com/sstallion/dotfiles/issues
-[6]: https://github.com/sstallion/dotfiles/blob/master/LICENSE
+[3]: https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+[4]: https://github.com/sstallion/dotfiles/issues
+[5]: https://github.com/sstallion/dotfiles/blob/master/LICENSE

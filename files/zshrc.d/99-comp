@@ -1,4 +1,4 @@
-# comp - zsh completion configuration
+# comp - Zsh completion configuration
 
 autoload -U compinit
 compinit

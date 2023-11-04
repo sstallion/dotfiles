@@ -1,4 +1,4 @@
-# catppuccin-mocha.tmux - tmux colours based on Catppuccin Mocha
+# catppuccin.tmux - tmux colours based on Catppuccin Mocha
 
 set-option -g message-command-style bg="#cba6f7",fg="#181825"
 set-option -g message-style bg="#cba6f7",fg="#181825"

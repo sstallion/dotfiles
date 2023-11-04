@@ -9,15 +9,15 @@
 # systems running different versions without issue.
 
 has_version() {
-	[ -z "$version" ] && version=`tmux -V | cut -c 6-`
-	return `echo $@ | awk "{print (($version >= \$1) == 0)}"`
+	[ -z "$version" ] && version=$(tmux -V | cut -c 6-)
+	return $(echo $@ | awk "{print (($version >= \$1) == 0)}")
 }
 
 is_remote() {
 	test -n "$SSH_CONNECTION"
 }
 
-case `uname -s` in
+case $(uname -s) in
 Darwin)
 	# Reattach to the per-user namespace to access the pasteboard.
 	# For macOS Sierra, specify `--with-wrap-pbcopy-and-pbpaste`
@@ -67,7 +67,9 @@ esac
 
 # True Color
 if has_version 3.2; then
-	set-option -ag terminal-overrides ",xterm-256color:RGB"
+	tmux set-option -ag terminal-overrides ",*-256color:RGB"
+else
+	tmux set-option -ag terminal-overrides ",*-256color:Tc"
 fi
 
 # Key Bindings
@@ -78,11 +80,11 @@ if has_version 2.4; then
 	tmux bind-key -T copy-mode-vi Escape send-keys -X cancel
 	tmux bind-key -T copy-mode-vi v      send-keys -X begin-selection
 else
-	bind-key -t vi-copy C-j    page-down
-	bind-key -t vi-copy C-k    page-up
+	tmux bind-key -t vi-copy      C-j    page-down
+	tmux bind-key -t vi-copy      C-k    page-up
 
-	bind-key -t vi-copy Escape cancel
-	bind-key -t vi-copy v      begin-selection
+	tmux bind-key -t vi-copy      Escape cancel
+	tmux bind-key -t vi-copy      v      begin-selection
 fi
 
 # Focus Support

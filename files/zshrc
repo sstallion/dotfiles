@@ -1,4 +1,4 @@
-# zshrc - zsh configuration
+# zshrc - Zsh configuration
 
 bindkey -v
 bindkey "^?" backward-delete-char
@@ -28,19 +28,14 @@ setopt MAGIC_EQUAL_SUBST
 setopt PUSHD_IGNORE_DUPS
 setopt RM_STAR_SILENT
 
-export EDITOR=vim
+export EDITOR=vi
 export PAGER=less
 
 # Rather than clutter zshrc, we source configuration from zshrc.d to
 # further customize the shell:
-for file in ~/.zshrc.d/*; do
-	source $file
+for file in ~/.zshrc.d/* ~/.zshrc.local; do
+	[[ -r $file ]] && source $file
 done
 unset file
-
-# Source local configuration if available:
-if [[ -f ~/.zshrc.local ]]; then
-    source ~/.zshrc.local
-fi
 
 # vim: ft=zsh

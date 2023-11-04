@@ -34,7 +34,7 @@ urgency.tags.coefficient=0.0
 urgency.project.coefficient=0.0
 
 # Contexts
-context=home
+context=work
 context.home=project:Home
 context.home.read=project:Home
 context.home.write=project:Home

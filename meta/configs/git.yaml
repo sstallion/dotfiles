@@ -1,5 +1,23 @@
 - include: meta/defaults.yaml
 
-- link:
-    ~/.gitconfig: files/gitconfig
-    ~/.gitignore: files/gitignore
+- install:
+  - iffreebsd:
+    - shell:
+      - pkg install -y devel/git
+  - ifdebian:
+    - shell:
+      - apt-get -y install git
+  - ifgentoo:
+    - shell:
+      - emerge -nq dev-vcs/git
+  - ifmacos:
+    - shell:
+      - port install git
+  - ifwindows:
+    - shell:
+      - winget install Git.Git
+
+- config:
+  - link:
+      ~/.gitconfig: files/gitconfig
+      ~/.gitignore: files/gitignore

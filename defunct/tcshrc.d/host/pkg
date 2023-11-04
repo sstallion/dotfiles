@@ -1,0 +1,20 @@
+# pkg - host configuration
+
+set include = ~/.tcshrc.d/include
+
+# Include support for SunOS:
+source $include/sunos
+
+# Include support for Sun Studio:
+source $include/sunstudio
+
+# Include support for pkgbuild:
+source $include/pkgbuild
+
+#
+# Local knobs
+#
+setenv DMAKE_MODE parallel
+setenv DMAKE_MAX_JOBS 2
+
+# vim: ft=tcsh

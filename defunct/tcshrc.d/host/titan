@@ -1,0 +1,21 @@
+# titan - host configuration
+
+set include = ~/.tcshrc.d/include
+
+# Include support for SunOS:
+source $include/sunos
+
+# Include support for Sun Studio:
+source $include/sunstudio
+source $include/sunstudio12u1_lint
+
+# Include support for ONBLD:
+source $include/onbld
+
+#
+# Local knobs
+#
+setenv DMAKE_MODE parallel
+setenv DMAKE_MAX_JOBS 4
+
+# vim: ft=tcsh

@@ -1,0 +1,6 @@
+# onbld - ONBLD configuration
+
+setenv MANPATH /opt/onbld/man:$MANPATH
+setenv PATH /opt/onbld/bin:/opt/onbld/bin/`uname -p`:$PATH
+
+# vim: ft=tcsh

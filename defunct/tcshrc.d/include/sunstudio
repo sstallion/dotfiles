@@ -1,0 +1,6 @@
+# sunstudio - Sun Studio configuration
+
+setenv MANPATH /opt/SUNWspro/man:$MANPATH
+setenv PATH /usr/ccs/bin:/opt/SUNWspro/bin:$PATH
+
+# vim: ft=tcsh

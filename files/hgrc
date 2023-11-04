@@ -1,4 +1,4 @@
-# hgrc - mercurial configuration
+# hgrc - Mercurial configuration
 
 [extensions]
 color =

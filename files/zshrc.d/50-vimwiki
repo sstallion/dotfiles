@@ -1,4 +1,6 @@
-# vimwiki - zsh vimwiki configuration
+# vimwiki - Vimwiki configuration
+
+whence vimwiki &>/dev/null || return
 
 # Global options:
 export VIMWIKI_OPEN_MATCHES=1

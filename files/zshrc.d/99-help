@@ -1,4 +1,4 @@
-# help - zsh help configuration
+# help - Zsh help configuration
 
 unalias run-help &>/dev/null
 

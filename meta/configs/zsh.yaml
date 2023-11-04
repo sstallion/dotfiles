@@ -1,6 +1,20 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.zshrc.d: files/zshrc.d
-      ~/.zshrc: files/zshrc
+  - install:
+    - iffreebsd:
+      - shell:
+        - pkg install -y shells/zsh
+    - ifdebian:
+      - shell:
+        - apt-get -y install zsh
+    - ifgentoo:
+      - shell:
+        - emerge -nq app-shells/zsh
+    - ifmacos:
+      - shell:
+        - port install zsh
+  - config:
+    - link:
+        ~/.zshrc.d: files/zshrc.d
+        ~/.zshrc: files/zshrc

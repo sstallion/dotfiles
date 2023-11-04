@@ -1,4 +1,4 @@
-# hist - zsh history configuration
+# hist - Zsh history configuration
 
 # By default, zsh does not define HISTFILE; this is required in order to save
 # history when the shell exits:

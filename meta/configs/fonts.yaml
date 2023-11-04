@@ -1,5 +1,6 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.fonts: files/fonts
+  - config:
+    - link:
+        ~/.fonts: files/fonts

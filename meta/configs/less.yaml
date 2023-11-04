@@ -1,12 +1,13 @@
 - include: meta/defaults.yaml
 
 - ifposix:
-  - link:
-      ~/.lesskey: files/lesskey
-  - shell:
-    - command: |
-        if command -v lesskey >/dev/null; then
-          VERSION=$(lesskey -V | cut -f 3 -w)
-          [ "${VERSION}" -ge 582 ] || lesskey
-        fi
-      description: Compiling lesskey (deprecated)
+  - config:
+    - link:
+        ~/.lesskey: files/lesskey
+    - shell:
+      - command: |
+          if command -v lesskey >/dev/null; then
+            VERSION=$(lesskey -V | grep -Eo '[0-9]+$')
+            [ "${VERSION}" -ge 582 ] || lesskey
+          fi
+        description: Compiling lesskey (deprecated)
