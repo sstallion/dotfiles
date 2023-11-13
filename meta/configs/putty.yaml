@@ -3,5 +3,5 @@
 - ifwindows:
   - install:
     - shell:
-      - winget install PuTTY.PuTTY
+      - winget install -i PuTTY.PuTTY
       - reg import extra/Windows/PuTTY.reg

@@ -15,7 +15,7 @@
       - port install gnupg2
   - ifwindows:
     - shell:
-      - winget install GnuPG.GnuPG
+      - winget install -i GnuPG.Gpg4win
 
 - config:
   - ifposix:

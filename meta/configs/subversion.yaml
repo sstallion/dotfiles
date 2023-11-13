@@ -15,7 +15,7 @@
       - port install subversion
   - ifwindows:
     - shell:
-      - winget install TortoiseSVN.TortoiseSVN
+      - winget install -i TortoiseSVN.TortoiseSVN
 
 - config:
   - link:

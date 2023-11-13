@@ -3,7 +3,7 @@
 - ifwindows:
   - install:
     - shell:
-      - winget install gerardog.gsudo
+      - winget install -i gerardog.gsudo
   - config:
     - shell:
       # Enable credentials cache (fewer UAC popups):

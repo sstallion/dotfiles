@@ -15,7 +15,7 @@
       - port install neovim
   - ifwindows:
     - shell:
-      - winget install Neovim.Neovim
+      - winget install -i Neovim.Neovim
       - reg import extra/Windows/Neovim.reg
 
 - config:

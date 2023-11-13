@@ -15,7 +15,7 @@
       - port install git
   - ifwindows:
     - shell:
-      - winget install Git.Git
+      - winget install -i Git.Git
 
 - config:
   - link:

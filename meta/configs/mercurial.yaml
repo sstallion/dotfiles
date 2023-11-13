@@ -15,7 +15,7 @@
       - port install mercurial
   - ifwindows:
     - shell:
-      - winget install Mercurial.Mercurial
+      - winget install -i Mercurial.Mercurial
 
 - config:
   - link:

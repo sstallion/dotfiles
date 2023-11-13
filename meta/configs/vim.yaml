@@ -21,7 +21,7 @@
       - port install vim +cscope +python311 +ruby30
   - ifwindows:
     - shell:
-      - winget install vim.vim
+      - winget install -i vim.vim
 
 - config:
   - ifposix:
