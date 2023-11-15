@@ -43,7 +43,7 @@
 #      * Go to the Actions tab. Add a run script action and then:
 #
 #          Program/script: powershell.exe
-#          Arguments: -NoProfile -File "c:\where\you\stored\wsl-resolv-handler.ps1"
+#          Arguments: -NoProfile -File "%LOCALAPPDATA%\dotfiles\extra\Windows\Programs\wsl-resolv-handler.ps1"
 #      
 #      * Optionally add -WindowStyle Hidden to above Arguments.
 

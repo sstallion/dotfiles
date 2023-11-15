@@ -25,7 +25,7 @@ function wslpathm {
 # WSL-Relay is an npiperelay fork with support for Assuan and good stability;
 # see: https://github.com/Lexicality/wsl-relay,
 #      https://github.com/microsoft/WSL/issues/4240.
-export WSL_RELAY="${LOCALAPPDATA}/Programs/wsl-relay.exe"
+export WSL_RELAY="${LOCALAPPDATA}/dotfiles/extra/Windows/Programs/wsl-relay.exe"
 
 function wslrelay {
 	local filename="$1"; shift
@@ -53,7 +53,7 @@ function wslsetup {
 	wslrelay $SSH_AUTH_SOCK --input-closes --pipe //./pipe/openssh-ssh-agent
 }
 
-# Occasionally, GnuPG sockets stop responding due to issues in Windows which
+# Occasionally, GnuPG sockets stop responding due to issues in Windows that
 # result in failed operations in WSL. The following function can be used to
 # recreate local sockets once the issue is resolved.
 function wslrefresh {

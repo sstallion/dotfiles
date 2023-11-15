@@ -1,8 +1,2 @@
-*	text eol=lf
-*.bat	text eol=crlf
 *.exe	filter=lfs diff=lfs merge=lfs -text
 *.jpg	filter=lfs diff=lfs merge=lfs -text
-*.otf	-text
-*.ps1	text eol=crlf
-*.reg	text eol=crlf
-*.ttf	-text

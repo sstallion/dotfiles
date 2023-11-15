@@ -82,6 +82,11 @@ telescope.setup {
     },
     preview = false
   },
+  pickers = {
+    find_files = {
+      hidden = true
+    }
+  },
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown()

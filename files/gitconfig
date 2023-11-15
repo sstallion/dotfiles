@@ -33,8 +33,6 @@
 	ui = auto
 
 [core]
-	autocrlf = false
-
 	# Look for exclude patterns under $HOME rather than the default.
 	# This avoids having to track $HOME/.config.
 	excludesFile = ~/.gitignore

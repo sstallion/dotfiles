@@ -1,0 +1,3 @@
+@ECHO OFF
+ECHO Stopping GnuPG Agent...
+"%ProgramFiles(x86)%\gnupg\bin\gpg-connect-agent.exe" killagent /bye
