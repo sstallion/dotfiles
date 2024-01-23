@@ -44,7 +44,7 @@ Darwin)
 	# Experimental support for (unidirectional) clipboard sharing;
 	# requires a forwarded TCP port on the remote machine:
 	if is_remote; then
-		copy_command="nc -N localhost 5555"
+		copy_command="socat - TCP:127.0.0.1:5494"
 		paste_command=
 	else
 		copy_command="xsel -i -b"

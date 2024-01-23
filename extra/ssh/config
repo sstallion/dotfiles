@@ -10,5 +10,5 @@ Host trusted.example.com
 
 Host tmux.example.com
 	ForwardAgent yes
-	RemoteForward localhost:5555 localhost:5555 # clipboard sharing
+	RemoteForward 127.0.0.1:5494 127.0.0.1:5494 # cf. ClipSock
 	SetEnv TMUX_SESSION_NAME=default

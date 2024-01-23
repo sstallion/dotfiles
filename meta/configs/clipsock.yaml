@@ -1,0 +1,6 @@
+- include: meta/defaults.yaml
+
+- ifwindows:
+  - install:
+    - shell:
+      - winget install -i ClipSock.ClipSock

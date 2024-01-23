@@ -16,7 +16,7 @@
 - [Perl](https://perl.org/)
 - [Python](https://www.python.org/)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
-- [socat](http://www.dest-unreach.org/socat/)
+- [Socat](http://www.dest-unreach.org/socat/)
 - [Taskwarrior](http://taskwarrior.org/)
 - [tmux](https://tmux.github.io/)
 - [tmuxp](https://github.com/tony/tmuxp)
@@ -38,6 +38,7 @@
 
 ### Windows
 
+- [ClipSock](https://github.com/sstallion/ClipSock)
 - [gsudo](https://github.com/gerardog/gsudo)
 - [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 - [WinGet](https://github.com/microsoft/winget-cli)
@@ -45,7 +46,6 @@
 
 ## Deprecated
 
-- [GNU Netcat](http://netcat.sourceforge.net/)
 - [Mercurial](https://www.mercurial-scm.org/)
 - [Ruby](https://www.ruby-lang.org/)
 - [Subversion](https://subversion.apache.org/)
@@ -57,6 +57,7 @@
 
 - [Acme](https://9fans.github.io/plan9port/)
 - [CVS](https://cvs.nongnu.org/)
+- [GNU Netcat](http://netcat.sourceforge.net/)
 - [GNU Screen](https://www.gnu.org/software/screen/)
 - [Homebrew](https://brew.sh/)
 - [TCSH](https://www.tcsh.org/)
