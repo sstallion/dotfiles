@@ -23,7 +23,7 @@
 
 	# Amend commit changes (keeping previous message);
         # see: https://twitter.com/wardellbagby/status/1467837430107545601
-	recommit = "!git commit --all --no-edit --amend"
+	recommit = "!git commit --all --date \"$(date)\" --no-edit --amend"
 
 	# Reset the previous commit (safe for use with branches);
 	# see: http://megakemp.com/2016/08/25/git-undo/.
