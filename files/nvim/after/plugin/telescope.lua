@@ -57,6 +57,11 @@ end
 
 telescope.setup {
   defaults = {
+    file_ignore_patterns = {
+      "^%.git/",
+      "^%.hg/",
+      "^%.svn/"
+    },
     scroll_strategy = "limit",
     prompt_prefix = " 󰍉 ",
     path_display = function(opts, path)
@@ -85,6 +90,11 @@ telescope.setup {
   pickers = {
     find_files = {
       hidden = true
+    },
+    live_grep = {
+      additional_args = {
+        "--hidden",
+      }
     }
   },
   extensions = {
