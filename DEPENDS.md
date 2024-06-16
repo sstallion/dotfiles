@@ -7,6 +7,7 @@
 - [colordiff](http://www.colordiff.org/)
 - [Cscope](https://cscope.sourceforge.net/)
 - [Git](https://git-scm.com/)
+- [Git Large File Storage](https://git-lfs.com/)
 - [GnuPG](https://www.gnupg.org/)
 - [Latexmk](https://personal.psu.edu/~jcc8/software/latexmk/)
 - [Less](https://www.gnu.org/software/less/)
