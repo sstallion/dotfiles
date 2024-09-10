@@ -21,6 +21,9 @@ local function new_zettel()
 end
 
 local function note_frontmatter(note)
+  if next(note.tags) == nil then
+    return {}
+  end
   local out = { tags = note.tags }
   if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
     for k, v in pairs(note.metadata) do
