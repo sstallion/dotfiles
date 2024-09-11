@@ -16,7 +16,7 @@ include ~/.task/rc/dark-gray-256.theme
 confirmation=off
 verbose=no
 
-# Quiesce new release nag
+# Quiesce release nag
 news.version=2.6.0
 
 # Search
@@ -26,12 +26,16 @@ search.case.sensitive=no
 uda.priority.values=H,M,,L
 
 # Urgency
-urgency.uda.priority.L.coefficient=-1.8
 urgency.blocking.coefficient=0.0
-urgency.age.coefficient=0.0
-urgency.annotations.coefficient=0.0
-urgency.tags.coefficient=0.0
+urgency.blocked.coefficient=-1.0
 urgency.project.coefficient=0.0
+urgency.tags.coefficient=0.0
+urgency.annotations.coefficient=0.0
+urgency.age.coefficient=0.0
+urgency.user.tag.defer.coefficient=-8.0
+urgency.uda.priority..coefficient=1.8
+urgency.uda.priority.L.coefficient=0
+urgency.inherit=1
 
 # Contexts
 context.home=project:Home
