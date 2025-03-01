@@ -1,12 +1,12 @@
-# USC43D1AE7F766-laptop.yaml - tmux session configuration
+# USC43D1AE7F766-desktop.yaml - tmux session configuration
 
-session_name: laptop
+session_name: desktop
 environment:
   NVIM_LISTEN_ADDRESS: ${XDG_RUNTIME_DIR}/nvim-default.sock
 windows:
   - window_name: main
     focus: true
-    layout: ec5e,209x65,0,0{108x65,0,0,1,100x65,109,0[100x40,109,0,2,100x24,109,41,3]}
+    layout: 937f,316x75,0,0{215x75,0,0,1,100x75,216,0[100x50,216,0,3,100x24,216,51,4]}
     panes:
       - shell_command: nvim --listen $NVIM_LISTEN_ADDRESS
         focus: true
