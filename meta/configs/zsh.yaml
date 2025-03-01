@@ -16,5 +16,6 @@
         - port install zsh
   - config:
     - link:
-        ~/.zshrc.d: files/zshrc.d
+        ~/.zshenv: files/zshenv
         ~/.zshrc: files/zshrc
+        ~/.zshrc.d: files/zshrc.d

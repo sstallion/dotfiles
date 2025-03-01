@@ -1,4 +1,4 @@
-# paths - path configuration
+# zshenv - Zsh configuration
 
 # By default, path_helper(8) does not modify MANPATH unless it is defined in
 # the environment. Darwin helpfully calls path_helper from /etc/zprofile,
@@ -24,5 +24,7 @@ function collect_paths {
 path=($(collect_paths ~/.paths ~/.paths.d/*(N)) $path)
 fpath=($(collect_paths ~/.fpaths ~/.fpaths.d/*(N)) $fpath)
 manpath=($(collect_paths ~/.manpaths ~/.manpaths.d/*(N)) $manpath)
+
+unset -f collect_paths
 
 # vim: ft=zsh
