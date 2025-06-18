@@ -33,8 +33,8 @@ Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
-Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'mason-org/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'mason-org/mason-lspconfig.nvim'
 Plug 'wincent/terminus'
 call plug#end()
 
