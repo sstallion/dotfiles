@@ -31,6 +31,7 @@ import os
 import pathlib
 import platform
 import shlex
+import shutil
 import subprocess
 import sys
 
@@ -75,7 +76,7 @@ def check_call(*args, **kwargs):
 
 
 def dotbot(*args, **kwargs):
-    args = [sys.executable, '-m', 'dotbot', '--base-directory', kwargs['basedir'], *args]
+    args = ['dotbot', '--base-directory', kwargs['basedir'], *args]
     if kwargs['superuser']:
         # Wrap call with sudo (gsudo on Windows) to elevate permissions; the
         # install plugin will perform installation and skip configuration:
@@ -144,10 +145,13 @@ def main():
         logger.info('Updating submodules')
         check_call('git', '-C', args.basedir, 'submodule', 'update', '--init', '--recursive')
 
-    # Install dotbot to user install directory if module cannot be found:
-    if importlib.util.find_spec('dotbot') is None:
+    # Install dotbot if executable cannot be found:
+    if shutil.which('dotbot') is None:
         logger.info('Installing dotbot')
-        check_call(sys.executable, '-m', 'pip', 'install', '--user', 'dotbot')
+        if importlib.util.find_spec('pipx'):
+            check_call(sys.executable, '-m', 'pipx', 'install', 'dotbot')
+        else:
+            check_call(sys.executable, '-m', 'pip', 'install', '--user', 'dotbot')
 
     # Config files may be specified directly using the --config-file argument
     # or indirectly by specifying profiles. Profiles specify the stem of one
