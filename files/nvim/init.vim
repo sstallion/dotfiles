@@ -127,5 +127,8 @@ aunmenu PopUp.-1-
 " insertions when navigating with a mouse.
 autocmd BufLeave * stopinsert
 
+" Disable deprecation notifications:
+lua vim.deprecate = function() end
+
 " Color Scheme
 colorscheme catppuccin
