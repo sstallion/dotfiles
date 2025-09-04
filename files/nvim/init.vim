@@ -46,16 +46,12 @@ endif
 " Default Options
 set autowrite
 set autowriteall
-set nobackup
-set clipboard=unnamed
+set clipboard=unnamedplus
 set cursorline
 set diffopt=filler,context:3
-set noerrorbells
 set nofoldenable
 set nohlsearch
 set noincsearch
-set nolazyredraw
-set modeline
 set mouse=a
 set number
 set pumheight=15
@@ -71,17 +67,14 @@ set splitright
 set noswapfile
 set switchbuf=useopen,usetab
 set termguicolors
-set timeoutlen=2000
-set ttimeoutlen=0
-set updatetime=100
 set wildmode=longest:list
 set winminheight=0
 set nowrap
 
 " Default Indentation
+set expandtab
 set shiftround
-set shiftwidth=8
-set softtabstop=8
+set shiftwidth=4
 set tabstop=8
 set textwidth=78
 

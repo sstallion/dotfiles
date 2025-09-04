@@ -2,13 +2,13 @@
 
 session_name: laptop
 environment:
-  NVIM_LISTEN_ADDRESS: ${XDG_RUNTIME_DIR}/nvim-default.sock
+  NVIM_SERVER_ADDR: ${XDG_RUNTIME_DIR}/nvim-laptop.sock
 windows:
   - window_name: main
     focus: true
     layout: ec5e,209x65,0,0{108x65,0,0,1,100x65,109,0[100x40,109,0,2,100x24,109,41,3]}
     panes:
-      - shell_command: nvim --listen $NVIM_LISTEN_ADDRESS
+      - shell_command: nvim --listen $NVIM_SERVER_ADDR
         focus: true
       - pane
       - pane

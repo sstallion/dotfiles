@@ -38,4 +38,9 @@ for file in ~/.zshrc.d/* ~/.zshrc.local; do
 done
 unset file
 
+# ...
+if [[ -n $ENV ]]; then
+    source $ENV
+fi
+
 # vim: ft=zsh

@@ -13,7 +13,7 @@ alias vimpager=nvimpager
 
 # Client-Server (cf. vim)
 function vimremote {
-	nvr --servername ${NVIM_LISTEN_ADDRESS:-/tmp/nvimsocket} --nostart "$@"
+	nvim --server ${NVIM_SERVER_ADDR:-/tmp/nvimsocket} --remote "$@"
 }
 
 # vim: ft=zsh
