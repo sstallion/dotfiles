@@ -1,27 +1,45 @@
-" ginit.vim - Neovim Qt configuration
+" ginit.vim - Neovide/Neovim Qt configuration
 
 " Set Editor Font
+if has('win32')
+  set guifont=DroidSansM\ Nerd\ Font\ Mono:h10
+else
+  set guifont=DroidSansM\ Nerd\ Font\ Mono:h14
+endif
+
 if exists(':GuiFont')
-  if has('win32')
-    GuiFont DroidSansM\ Nerd\ Font\ Mono:h10
-  else
-    GuiFont DroidSansM\ Nerd\ Font\ Mono:h14
-  endif
+  GuiFont &guifont
+endif
+
+" Disable Animations
+if exists('g:neovide')
+  let g:neovide_cursor_animation_length = 0
+  let g:neovide_cursor_short_animation_length = 0
+  let g:neovide_position_animation_length = 0
+  let g:neovide_scroll_animation_length = 0
 endif
 
 " Disable GUI Tabline
 if exists(':GuiTabline')
-    GuiTabline 0
+  GuiTabline 0
 endif
 
 " Disable GUI Popupmenu
 if exists(':GuiPopupmenu')
-    GuiPopupmenu 0
+  GuiPopupmenu 0
 endif
 
 " Enable GUI ScrollBar
 if exists(':GuiScrollBar')
-    GuiScrollBar 1
+  GuiScrollBar 1
+endif
+
+" Right Click Context Menu (Copy-Cut-Paste)
+if exists(':GuiShowContextMenu')
+  nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
+  inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
+  xnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
+  snoremap <silent><RightMouse> <C-G>:call GuiShowContextMenu()<CR>gv
 endif
 
 " Key Mappings
@@ -39,9 +57,3 @@ noremap  <D-w> <Esc>:qa!<CR>
 
 noremap! <C-S-w> <Esc>:qa!<CR>
 noremap! <D-w> <Esc>:qa!<CR>
-
-" Right Click Context Menu (Copy-Cut-Paste)
-nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
-inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
-xnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
-snoremap <silent><RightMouse> <C-G>:call GuiShowContextMenu()<CR>gv
