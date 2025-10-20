@@ -14,6 +14,6 @@ set python print-stack full
 
 # Disable using shell with exec on macOS 10.12+ due to SIP;
 # see: https://stackoverflow.com/a/40437725.
-set startup-with-shell off
+#set startup-with-shell off
 
 # vim: ft=gdb
