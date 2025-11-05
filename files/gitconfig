@@ -15,11 +15,11 @@
 	# Generate historical diffs in chronological order:
 	history = "log --reverse --patch"
 
-	# Delete local branches that have been merged to master:
-	purge = "!git branch --merged master | grep -v ' master$' | xargs -n 1 git branch -d"
+	# Delete local branches that have been merged to main:
+	purge = "!git branch --merged main | grep -v ' main$' | xargs -n 1 git branch -d"
 
 	# Delete all local branches:
-	purgeall = "!git branch | grep -v ' master$' | xargs -n 1 git branch -D"
+	purgeall = "!git branch | grep -v ' main$' | xargs -n 1 git branch -D"
 
 	# Amend commit changes (keeping previous message);
         # see: https://twitter.com/wardellbagby/status/1467837430107545601
