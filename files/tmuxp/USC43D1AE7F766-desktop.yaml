@@ -1,8 +1,8 @@
 # USC43D1AE7F766-desktop.yaml - tmux session configuration
 
-session_name: desktop
+session_name: default
 environment:
-  NVIM_SERVER_ADDR: ${XDG_RUNTIME_DIR}/nvim-desktop.sock
+  NVIM_SERVER_ADDR: ${XDG_RUNTIME_DIR}/nvim-default.sock
 windows:
   - window_name: main
     focus: true
