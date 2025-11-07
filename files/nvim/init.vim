@@ -13,7 +13,9 @@ Plug 'gbprod/yanky.nvim'
 "Plug 'jedrzejboczar/possession.nvim'
 Plug 'junegunn/vim-plug'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
+Plug 'mason-org/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'mason-org/mason-lspconfig.nvim'
 Plug 'mhinz/vim-grepper'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/plenary.nvim'
@@ -33,8 +35,6 @@ Plug 'tom-anders/telescope-vim-bookmarks.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
-Plug 'mason-org/mason.nvim', { 'do': ':MasonUpdate' }
-Plug 'mason-org/mason-lspconfig.nvim'
 Plug 'wincent/terminus'
 call plug#end()
 

@@ -21,7 +21,7 @@ bufferline.setup {
     end,
     show_duplicate_prefix = false,
     separator_style = "slant",
-    highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
+    highlights = require("catppuccin.special.bufferline").get_theme(),
     show_modified = function(context)
       return not context.tab:current() -- inactive tabs only
     end
