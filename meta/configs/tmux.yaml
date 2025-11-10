@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install tmux tmuxp
-    - ifgentoo:
-      - shell:
-        - emerge -nq app-misc/tmux app-misc/tmuxp
     - ifmacos:
       - shell:
         - port install py-tmuxp tmux

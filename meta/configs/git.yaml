@@ -7,9 +7,6 @@
   - ifdebian:
     - shell:
       - apt-get -y install git
-  - ifgentoo:
-    - shell:
-      - emerge -nq dev-vcs/git
   - ifmacos:
     - shell:
       - port install git

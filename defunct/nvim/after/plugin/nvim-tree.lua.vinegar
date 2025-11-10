@@ -86,7 +86,7 @@ require("nvim-tree").setup {
   disable_netrw = true,
   sort_by = "case_sensitive",
   hijack_directories = {
-    enable = false -- see: hijack_directory()
+    enable = false -- see hijack_directory()
   },
   on_attach = function(bufnr)
     local function opts(desc)

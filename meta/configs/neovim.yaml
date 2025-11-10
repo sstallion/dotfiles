@@ -7,9 +7,6 @@
   - ifdebian:
     - shell:
       - apt-get -y install neovim
-  - ifgentoo:
-    - shell:
-      - emerge -nq app-editors/neovim
   - ifmacos:
     - shell:
       - port install neovim
@@ -25,8 +22,3 @@
   - ifwindows:
     - link:
         '%LOCALAPPDATA%/nvim': files/nvim
-  - shell:
-    - command: 'nvim --noplugin --cmd "let g:plug_install = v:true" -c PlugInstall -c qa'
-      description: Installing vim-plug plugins
-      stdout: false
-      stderr: false

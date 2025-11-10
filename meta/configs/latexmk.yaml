@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install latexmk
-    - ifgentoo:
-      - shell:
-        - emerge -nq dev-tex/latexmk
     - ifmacos:
       - shell:
         - port install latex-mk

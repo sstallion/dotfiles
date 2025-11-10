@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install bvi
-    - ifgentoo:
-      - shell:
-        - emerge -nq app-editors/bvi
     - ifmacos:
       - shell:
         - port install bvi

@@ -47,7 +47,7 @@
 #      
 #      * Optionally add -WindowStyle Hidden to above Arguments.
 
-$WslDistroName = "Gentoo"
+$WslDistroName = "Ubuntu"
 $ResolvConfFile = [string]::Format("\\wsl$\{0}\etc\resolv.conf", $WslDistroName)
 
 function Convert-To-UnixLineEndings($path) {

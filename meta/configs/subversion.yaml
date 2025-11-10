@@ -7,9 +7,6 @@
   - ifdebian:
     - shell:
       - apt-get -y install subversion
-  - ifgentoo:
-    - shell:
-      - emerge -nq dev-vcs/subversion
   - ifmacos:
     - shell:
       - port install subversion

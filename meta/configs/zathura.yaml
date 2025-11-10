@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install zathura zathura-pdf-poppler
-    - ifgentoo:
-      - shell:
-        - emerge -nq app-text/zathura app-text/zathura-pdf-mupdf
     - ifmacos:
       - shell:
         - port install zathura zathura-plugin-pdf-mupdf

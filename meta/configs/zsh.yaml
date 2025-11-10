@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install zsh
-    - ifgentoo:
-      - shell:
-        - emerge -nq app-shells/zsh
     - ifmacos:
       - shell:
         - port install zsh

@@ -7,9 +7,6 @@
   - ifdebian:
     - shell:
       - apt-get -y install gnupg2
-  - ifgentoo:
-    - shell:
-      - emerge -nq app-crypt/gnupg
   - ifmacos:
     - shell:
       - port install gnupg2

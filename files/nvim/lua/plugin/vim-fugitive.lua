@@ -1,0 +1,32 @@
+-- vim-fugitive.lua - plugin configuration
+
+return {
+  'tpope/vim-fugitive',
+  cmd = {
+    "G",
+    "Git",
+    "Ggrep",
+    "Glgrep",
+    "Gclog",
+    "Gllog",
+    "Gcd",
+    "Glcd",
+    "Gedit",
+    "Gsplit",
+    "Gvsplit",
+    "Gtabedit",
+    "Gpedit",
+    "Gread",
+    "Gwrite",
+    "Gwq",
+    "Gdiffsplit",
+    "Gvdiffsplit",
+    "Ghdiffsplit",
+    "GMove",
+    "GRename",
+    "GDelete",
+    "GRemove",
+    "GUnlink",
+    "GBrowse",
+  },
+}

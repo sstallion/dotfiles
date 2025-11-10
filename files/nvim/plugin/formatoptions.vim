@@ -1,10 +1,15 @@
 " formatoptions.vim - automatic formatting
 
-" Default 'formatoptions' for all file types;
-" see: http://stackoverflow.com/a/16033050.
-autocmd FileType * setlocal formatoptions-=l formatoptions-=o formatoptions-=r formatoptions-=t
+" Default 'formatoptions' for all file types:
+autocmd FileType * setlocal formatoptions=cqbj
 
 " 'formatoptions' are usually applied to related file types. Rather than
 " add duplicate ftplugin entries, we apply them here instead:
-autocmd FileType c,cpp,header               setlocal formatoptions+=o formatoptions+=r
-autocmd FileType help,markdown,text,vimwiki setlocal formatoptions+=t
+autocmd FileType c,cpp,header,lua,verilog,vhdl
+      \ setlocal formatoptions+=ro/
+
+autocmd FileType help,markdown,obsidian
+      \ setlocal formatoptions+=tan
+
+autocmd FileType markdown,obsidian
+      \ setlocal formatoptions+=w

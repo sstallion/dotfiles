@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install universal-ctags
-    - ifgentoo:
-      - shell:
-        - emerge -nq dev-util/ctags
     - ifmacos:
       - shell:
         - port install universal-ctags +link_to_ctags

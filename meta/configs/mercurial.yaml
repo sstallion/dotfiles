@@ -7,9 +7,6 @@
   - ifdebian:
     - shell:
       - apt-get -y install mercurial
-  - ifgentoo:
-    - shell:
-      - emerge -nq dev-vcs/mercurial
   - ifmacos:
     - shell:
       - port install mercurial

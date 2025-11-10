@@ -8,9 +8,6 @@
     - ifdebian:
       - shell:
         - apt-get -y install taskwarrior
-    - ifgentoo:
-      - shell:
-        - emerge -nq app-misc/task
     - ifmacos:
       - shell:
         - port install task

@@ -4,7 +4,7 @@
 set completeopt=menu,noinsert,noselect
 
 " Unify completion behavior under a single key mapping;
-" see: complete_CTRL-Y.
+" see complete_CTRL-Y.
 function! s:Complete()
   if !pumvisible()
     return &spell ? "\<C-X>s" : "\<C-X>\<C-O>"
@@ -22,7 +22,7 @@ inoremap <expr> <C-J> pumvisible() ? '<C-N>' : '<C-J>'
 inoremap <expr> <C-K> pumvisible() ? '<C-P>' : '<C-K>'
 
 " Enable syntax code completion if 'omnifunc' is unset for filetype;
-" see: ft-syntax-omni.
+" see ft-syntax-omni.
 autocmd Filetype *
       \ if &omnifunc == '' |
       \   setlocal omnifunc=syntaxcomplete#Complete |
