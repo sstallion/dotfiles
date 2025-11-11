@@ -18,93 +18,91 @@ return {
     -- as most actions close the prompt buffer before returning.
     local function select_and_open_qf(target)
       return function(prompt_bufnr)
-	local action = ' ' -- create new list (see setqflist-action)
-	local picker = action_state.get_current_picker(prompt_bufnr)
-	local manager = picker.manager
+        local action = ' ' -- create new list (see setqflist-action)
+        local picker = action_state.get_current_picker(prompt_bufnr)
+        local manager = picker.manager
 
-	local function entry_to_qf(entry)
-	  return {
-	    bufnr = entry.bufnr,
-	    filename = from_entry.path(entry, false, false),
-	    lnum = vim.F.if_nil(entry.lnum, 1),
-	    col = vim.F.if_nil(entry.col, 1),
-	    text = entry.text,
-	  }
-	end
+        local function entry_to_qf(entry)
+          return {
+            bufnr = entry.bufnr,
+            filename = from_entry.path(entry, false, false),
+            lnum = vim.F.if_nil(entry.lnum, 1),
+            col = vim.F.if_nil(entry.col, 1),
+            text = entry.text,
+          }
+        end
 
-	local qf_entries = {}
-	for entry in manager:iter() do
-	  table.insert(qf_entries, entry_to_qf(entry))
-	end
+        local qf_entries = {}
+        for entry in manager:iter() do
+          table.insert(qf_entries, entry_to_qf(entry))
+        end
 
-	local prompt = picker:_get_prompt()
-	local title = string.format([[%s (%s)]], picker.prompt_title, prompt)
+        local prompt = picker:_get_prompt()
+        local title = string.format([[%s (%s)]], picker.prompt_title, prompt)
 
-	if target == 'loclist' then
-	  vim.fn.setloclist(picker.original_win_id, qf_entries, action)
-	  vim.fn.setloclist(picker.original_win_id, {}, 'a', { title = title })
-	else
-	  vim.fn.setqflist(qf_entries, action)
-	  vim.fn.setqflist({}, 'a', { title = title })
-	end
+        if target == 'loclist' then
+          vim.fn.setloclist(picker.original_win_id, qf_entries, action)
+          vim.fn.setloclist(picker.original_win_id, {}, 'a', { title = title })
+        else
+          vim.fn.setqflist(qf_entries, action)
+          vim.fn.setqflist({}, 'a', { title = title })
+        end
 
-	actions.select_default(prompt_bufnr)
+        actions.select_default(prompt_bufnr)
 
-	-- open window and jump to first result:
-	if target == 'loclist' then
-	  actions.open_loclist(prompt_bufnr)
-	  vim.cmd('lfirst')
-	else
-	  actions.open_qflist(prompt_bufnr)
-	  vim.cmd('cfirst')
-	end
+        -- open window and jump to first result:
+        if target == 'loclist' then
+          actions.open_loclist(prompt_bufnr)
+          vim.cmd('lfirst')
+        else
+          actions.open_qflist(prompt_bufnr)
+          vim.cmd('cfirst')
+        end
       end
     end
 
     telescope.setup({
       defaults = {
-	file_ignore_patterns = {
-	  '^%.git/',
-	  '^%.hg/',
-	  '^%.svn/',
-	},
-	scroll_strategy = 'limit',
-	prompt_prefix = ' 󰍉 ',
-	path_display = function(opts, path)
-	  -- Unfortunately, path_smart() prefixes paths with '../', which is too
-	  -- distracting when looking at results. We can do better.
-	  return pathshorten(path)
-	end,
-	mappings = {
-	  i = {
-	    ['<c-j>'] = 'move_selection_next',
-	    ['<c-k>'] = 'move_selection_previous',
-	    ['<c-l>'] = select_and_open_qf('loclist'),
-	    ['<c-q>'] = select_and_open_qf('qflist'),
-	    ['<c-s>'] = 'file_split',
-	  },
-	  n = {
-	    ['<c-j>'] = 'move_selection_next',
-	    ['<c-k>'] = 'move_selection_previous',
-	    ['<c-l>'] = select_and_open_qf('loclist'),
-	    ['<c-q>'] = select_and_open_qf('qflist'),
-	    ['<c-s>'] = 'file_split',
-	  },
-	},
-	preview = false,
+        file_ignore_patterns = {
+          '^%.git/',
+          '^%.hg/',
+          '^%.svn/',
+        },
+        scroll_strategy = 'limit',
+        prompt_prefix = ' 󰍉 ',
+        path_display = function(opts, path)
+          -- Unfortunately, path_smart() prefixes paths with '../', which is too
+          -- distracting when looking at results. We can do better.
+          return pathshorten(path)
+        end,
+        mappings = {
+          i = {
+            ['<c-j>'] = 'move_selection_next',
+            ['<c-k>'] = 'move_selection_previous',
+            ['<c-l>'] = select_and_open_qf('loclist'),
+            ['<c-q>'] = select_and_open_qf('qflist'),
+            ['<c-s>'] = 'file_split',
+          },
+          n = {
+            ['<c-j>'] = 'move_selection_next',
+            ['<c-k>'] = 'move_selection_previous',
+            ['<c-l>'] = select_and_open_qf('loclist'),
+            ['<c-q>'] = select_and_open_qf('qflist'),
+            ['<c-s>'] = 'file_split',
+          },
+        },
+        preview = false,
       },
       pickers = {
-	find_files = {
-	  hidden = true,
-	},
-	live_grep = {
-	  additional_args = {
-	    '--hidden',
-	  },
-	},
+        find_files = { hidden = true },
+        live_grep = {
+          additional_args = {
+            '--hidden',
+          },
+        },
       },
       extensions = {
-	['ui-select'] = { require('telescope.themes').get_dropdown() },
+        ['ui-select'] = { require('telescope.themes').get_dropdown() },
       },
     })
 
@@ -116,5 +114,6 @@ return {
     { '<Leader>ff', '<Cmd>Telescope find_files theme=dropdown<CR>' },
     { '<Leader>fg', '<Cmd>Telescope live_grep theme=dropdown<CR>' },
     { '<Leader>fh', '<Cmd>Telescope help_tags theme=dropdown<CR>' },
+    { '<Leader>fr', '<Cmd>Telescope resume<CR>' },
   },
 }

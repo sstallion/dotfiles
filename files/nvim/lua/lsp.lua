@@ -2,57 +2,42 @@
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
-    vim.diagnostic.enable(true)
-
-    local bufnr = args.buf
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client.server_capabilities.completionProvider then
-      vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-    end
-    if client.server_capabilities.definitionProvider then
-      vim.bo[bufnr].tagfunc = 'v:lua.vim.lsp.tagfunc'
-    end
-
-    -- Key Mappings
-    local opts = { buffer = bufnr, noremap = true, silent = true }
-    vim.keymap.set('n', '<Space>k', vim.lsp.buf.signature_help,     opts)
-    vim.keymap.set('n', '<Space>n', vim.lsp.buf.document_highlight, opts)
-    vim.keymap.set('n', '<Space>r', vim.lsp.buf.rename,             opts)
-    vim.keymap.set('n', 'gd',       vim.lsp.buf.definition,         opts)
-    vim.keymap.set('n', 'gi',       vim.lsp.buf.implementation,     opts)
-    vim.keymap.set('n', 'gr',       vim.lsp.buf.references,         opts)
-    vim.keymap.set('n', 'gt',       vim.lsp.buf.type_definition,    opts)
-    vim.keymap.set('n', 'gD',       vim.lsp.buf.declaration,        opts)
-    vim.keymap.set('n', 'gI',       vim.lsp.buf.incoming_calls,     opts)
-    vim.keymap.set('n', 'gO',       vim.lsp.buf.outgoing_calls,     opts)
+    local opts = { buffer = args.buf, noremap = true, silent = true }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition,      opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,  opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references,      opts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,     opts)
+    vim.keymap.set('n', 'gI', vim.lsp.buf.incoming_calls,  opts)
+    vim.keymap.set('n', 'gO', vim.lsp.buf.outgoing_calls,  opts)
 
     -- Kludge to avoid lack of documentation in cmake-language-server;
     -- cmake_help should probably be rewritten as a hoverProvider.
-    if vim.bo[bufnr].filetype ~= 'cmake' then
+    if vim.bo[args.buf].filetype ~= 'cmake' then
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     end
 
+    --[[
     vim.api.nvim_create_autocmd('CursorHold', {
-      buffer = bufnr,
+      buffer = args.buf,
       callback = vim.lsp.buf.document_highlight,
     })
 
     vim.api.nvim_create_autocmd('CursorHoldI', {
-      buffer = bufnr,
+      buffer = args.buf,
       callback = vim.lsp.buf.document_highlight,
     })
 
     vim.api.nvim_create_autocmd('CursorMoved', {
-      buffer = bufnr,
+      buffer = args.buf,
       callback = vim.lsp.buf.clear_references,
     })
+    --]]
   end,
 })
 
 vim.api.nvim_create_autocmd('LspDetach', {
   callback = function(args)
-    vim.diagnostic.enable(false)
-
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     vim.cmd('setlocal tagfunc< omnifunc<')
   end,

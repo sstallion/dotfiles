@@ -6,6 +6,7 @@ lua require('init')
 set autowrite
 set autowriteall
 set clipboard=unnamedplus
+set completeopt=menu,noinsert
 set cursorline
 set diffopt=filler,context:3
 set nofoldenable
@@ -40,11 +41,6 @@ set textwidth=78
 noremap <C-J> <PageDown>
 noremap <C-K> <PageUp>
 
-noremap!        <C-H> <Left>
-noremap! <expr> <C-J> wildmenumode() ? '<C-N>' : '<Down>'
-noremap! <expr> <C-K> wildmenumode() ? '<C-P>' : '<Up>'
-noremap!        <C-L> <Right>
-
 noremap <silent> <Leader>n <Cmd>set hlsearch!<CR>
 noremap <silent> <Leader>p <Cmd>set paste!<CR>
 noremap <silent> <Leader>r <Cmd>set relativenumber!<CR>
@@ -70,9 +66,20 @@ noremap <silent> ]t <Cmd>tabnext<CR>
 noremap <silent> [T <Cmd>tabfirst<CR>
 noremap <silent> ]T <Cmd>tablast<CR>
 
+noremap! <expr> <Esc> v:lua.is_popup() ? '<C-E>' : '<C-C>'
+noremap! <expr> <CR>  v:lua.is_popup() ? '<C-Y>' : '<CR>'
+noremap! <expr> <C-H> v:lua.is_popup() ? '<Nop>' : '<Left>'
+noremap! <expr> <C-J> v:lua.is_popup() ? '<C-N>' : '<Down>'
+noremap! <expr> <C-K> v:lua.is_popup() ? '<C-P>' : '<Up>'
+noremap! <expr> <C-L> v:lua.is_popup() ? '<Nop>' : '<Right>'
+
 " Disable horizontal scrolling:
 map <ScrollWheelLeft> <Nop>
 map <ScrollWheelRight> <Nop>
+
+" CTRL-Space aliases:
+map! <C-@>     <C-Space>
+map! <A-Space> <C-Space>
 
 " Remove the "How-to disable mouse" menu item and the separator above it;
 " see default-mouse.

@@ -6,7 +6,7 @@ autocmd FileType * setlocal formatoptions=cqbj
 " 'formatoptions' are usually applied to related file types. Rather than
 " add duplicate ftplugin entries, we apply them here instead:
 autocmd FileType c,cpp,header,lua,verilog,vhdl
-      \ setlocal formatoptions+=ro/
+      \ setlocal formatoptions+=r
 
 autocmd FileType help,markdown,obsidian
       \ setlocal formatoptions+=tan

@@ -15,13 +15,13 @@ return {
   init = function()
     vim.filetype.add({
       extension = {
-	md = function(path, bufnr)
-	  prefix = vim.fn.expand(vim.g.obsidian_vault_dir)
-	  if path:find(prefix) == 1 then
-	    return 'obsidian'
-	  end
-	  return 'markdown'
-	end
+        md = function(path, bufnr)
+          prefix = vim.fn.expand(vim.g.obsidian_vault_dir)
+          if path:find(prefix) == 1 then
+            return 'obsidian'
+          end
+          return 'markdown'
+        end
       }
     })
 
@@ -30,45 +30,39 @@ return {
   config = function()
     local function note_frontmatter(note)
       if next(note.tags) == nil then
-	return {}
+        return {}
       end
       local out = { tags = note.tags }
       if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-	for k, v in pairs(note.metadata) do
-	  out[k] = v
-	end
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
       end
       return out
     end
 
     require('obsidian').setup({
       workspaces = {
-	{
-	  name = vim.g.obsidian_workspace,
-	  path = vim.g.obsidian_vault_dir,
-	  overrides = {
-	    notes_subdir = 'Zettel',
-	    note_id_func = function(title)
-	      return os.date('%Y%m%d%H%M')
-	    end,
-	  },
-	},
+        {
+          name = vim.g.obsidian_workspace,
+          path = vim.g.obsidian_vault_dir,
+          overrides = {
+            notes_subdir = 'Zettel',
+            note_id_func = function(title)
+              return os.date('%Y%m%d%H%M')
+            end,
+          },
+        },
       },
       preferred_link_style = 'markdown',
       note_frontmatter_func = note_frontmatter,
-      templates = {
-	folder = 'Templates',
-      },
+      templates = { folder = 'Templates' },
       use_advanced_uri = true,
       open_app_foreground = true,
       sort_by = 'path',
       sort_reversed = false,
-      ui = {
-	enable = false,
-      },
-      attachments = {
-	img_folder = 'Attachments',
-      },
+      ui = { enable = false },
+      attachments = { img_folder = 'Attachments' },
     })
 
     vim.api.nvim_create_user_command('ZettelNew', function()

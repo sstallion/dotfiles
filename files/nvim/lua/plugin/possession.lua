@@ -6,9 +6,7 @@ return {
   config = function()
     require('lspsession').setup({
       {
-        flags = {
-          debounce_text_changes = 250,
-        },
+        flags = { debounce_text_changes = 250 },
       },
       ['lua_ls'] = {
         settings = {
@@ -24,27 +22,27 @@ return {
 
     require('possession').setup({
       autosave = {
-	on_load = false,
-	on_quit = false,
+        on_load = false,
+        on_quit = false,
       },
       commands = {
-	save    = 'SessionSave',
-	load    = 'SessionLoad',
-	rename  = 'SessionRename',
-	close   = 'SessionClose',
-	delete  = 'SessionDelete',
-	show    = 'SessionShow',
-	list    = 'SessionList',
-	migrate = 'SessionMigrate',
+        save    = 'SessionSave',
+        load    = 'SessionLoad',
+        rename  = 'SessionRename',
+        close   = 'SessionClose',
+        delete  = 'SessionDelete',
+        show    = 'SessionShow',
+        list    = 'SessionList',
+        migrate = 'SessionMigrate',
       },
       hooks = {
-	before_load = function(name, user_data)
-	  require('lspsession').enable(name)
-	  return true
-	end,
-	after_close = function(name)
-	  require('lspsession').disable(name)
-	end,
+        before_load = function(name, user_data)
+          require('lspsession').enable(name)
+          return true
+        end,
+        after_close = function(name)
+          require('lspsession').disable(name)
+        end,
       },
     })
 

@@ -1,16 +1,13 @@
 -- qf.lua - plugin configuration
 
 return {
-  'ten3roberts/qf.nvim',
-  config = function()
-    require('qf').setup({
-      close_other = true,
-      silent = true,
-    })
-
+  'sstallion/qf.nvim', -- see ten3roberts/qf.nvim #16
+  init = function()
     -- Link QuickFixLine highlight to CursorLine:
     vim.api.nvim_set_hl(0, 'QuickFixLine', { link = 'CursorLine' })
   end,
+  opts = {},
+  lazy = false,
   keys = {
     { '<Leader>l', [[<Cmd>lua require('qf').toggle('l', true)<CR>]] },
     { '<Leader>L', [[<Cmd>lua require('qf').clear('l')<CR>]] },

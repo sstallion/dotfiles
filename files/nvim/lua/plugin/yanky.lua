@@ -5,31 +5,29 @@ return {
   config = function()
     local mapping = require('yanky.telescope.mapping')
     require('yanky').setup({
-      ring = {
-	history_length = 25,
-      },
+      ring = { history_length = 25 },
       highlight = {
-	on_put = false,
-	on_yank = false,
+        on_put = false,
+        on_yank = false,
       },
       picker = {
-	telescope = {
-	  mappings = {
-	    default = mapping.put('p'),
-	    i = {
-	      ['<c-j>'] = 'move_selection_next',
-	      ['<c-k>'] = 'move_selection_previous',
-	      ['<c-p>'] = mapping.put('P'),
-	      ['<c-x>'] = mapping.delete(),
-	    },
-	    n = {
-	      ['<c-j>'] = 'move_selection_next',
-	      ['<c-k>'] = 'move_selection_previous',
-	      ['<c-p>'] = mapping.put('P'),
-	      ['<c-x>'] = mapping.delete(),
-	    },
-	  },
-	},
+        telescope = {
+          mappings = {
+            default = mapping.put('p'),
+            i = {
+              ['<c-j>'] = 'move_selection_next',
+              ['<c-k>'] = 'move_selection_previous',
+              ['<c-p>'] = mapping.put('P'),
+              ['<c-x>'] = mapping.delete(),
+            },
+            n = {
+              ['<c-j>'] = 'move_selection_next',
+              ['<c-k>'] = 'move_selection_previous',
+              ['<c-p>'] = mapping.put('P'),
+              ['<c-x>'] = mapping.delete(),
+            },
+          },
+        },
       },
     })
 

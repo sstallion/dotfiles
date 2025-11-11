@@ -9,12 +9,12 @@ return {
 
     local function fileformat()
       local ff = {
-	['dos']  = 'win32',
-	['mac']  = 'mac',
-	['unix'] = 'unix',
+        ['dos']  = 'win32',
+        ['mac']  = 'mac',
+        ['unix'] = 'unix',
       }
       if not vim.fn.has(ff[vim.o.fileformat]) then
-	return string.format('[%s]', vim.o.fileformat)
+        return string.format('[%s]', vim.o.fileformat)
       end
       return ''
     end
@@ -28,43 +28,43 @@ return {
       local title
       -- see https://vi.stackexchange.com/a/18090/27198
       if vim.fn.getloclist(0, {winid = 1}).winid ~= 0 then
-	title = vim.fn.getloclist(0, {title = 1}).title
-	if title == '' or title:match('^:') then
-	  return '[Location List]'
-	end
+        title = vim.fn.getloclist(0, {title = 1}).title
+        if title == '' or title:match('^:') then
+          return '[Location List]'
+        end
       else
-	title = vim.fn.getqflist({title = 1}).title
-	if title == '' or title:match('^:') then
-	  return '[Quickfix List]'
-	end
+        title = vim.fn.getqflist({title = 1}).title
+        if title == '' or title:match('^:') then
+          return '[Quickfix List]'
+        end
       end
       return string.format('[%s]', title)
     end
 
     local function filename()
       local ft = { -- special filetypes
-	['NvimTree']         = nvim_tree_get_cwd,
-	['TelescopePrompt']  = '[Telescope]',
-	['TelescopeResults'] = '[Telescope]',
-	['Trouble']          = '[Trouble]',
-	['cmakehelp']        = '[CMake Help]',
+        ['NvimTree']         = nvim_tree_get_cwd,
+        ['TelescopePrompt']  = '[Telescope]',
+        ['TelescopeResults'] = '[Telescope]',
+        ['Trouble']          = '[Trouble]',
+        ['cmakehelp']        = '[CMake Help]',
         ['lazy']             = '[Lazy]',
-	['lspinfo']          = '[LSP]',
-	['mason']            = '[Mason]',
-	['qf']               = quickfix_get_name,
-	['']                 = '[No Name]',
+        ['lspinfo']          = '[LSP]',
+        ['mason']            = '[Mason]',
+        ['qf']               = quickfix_get_name,
+        ['']                 = '[No Name]',
       }
       local handler = ft[vim.o.filetype]
       if type(handler) == 'string' then
-	return handler
+        return handler
       elseif type(handler) == 'function' then
-	return handler()
+        return handler()
       end
 
       local t = { pathshorten(vim.fn.expand('%:.:~')) }
       -- match bufferline.nvim highlighting/symbols:
       if not vim.bo.modifiable or vim.bo.readonly then
-	table.insert(t, '%#BufferLineWarning#%*')
+        table.insert(t, '%#BufferLineWarning#%*')
       elseif vim.bo.modified then
         table.insert(t, '%#BufferLineModified#●%*')
       end
@@ -73,13 +73,13 @@ return {
 
     local function make_option(option, text)
       return {
-	function()
-	  return vim.o[option] and text or ''
-	end,
-	on_click = function()
-	  vim.cmd(string.format('set %s!', option))
-	  require('lualine').refresh()
-	end,
+        function()
+          return vim.o[option] and text or ''
+        end,
+        on_click = function()
+          vim.cmd(string.format('set %s!', option))
+          require('lualine').refresh()
+        end,
       }
     end
 
@@ -99,17 +99,17 @@ return {
 
     local function session_close()
       if package.loaded['possession'] then
-	require('possession.session').close()
+        require('possession.session').close()
       end
     end
 
     local function session_list()
       if package.loaded['possession'] then
-	local opts = require('telescope.themes').get_dropdown({
-	  previewer = false,
-	  sort = 'name'
-	})
-	require('telescope').extensions.possession.list(opts)
+        local opts = require('telescope.themes').get_dropdown({
+          previewer = false,
+          sort = 'name'
+        })
+        require('telescope').extensions.possession.list(opts)
       end
     end
 
@@ -124,58 +124,58 @@ return {
 
     require('lualine').setup({
       options = {
-	theme = 'catppuccin',
-	globalstatus = true,
+        theme = 'catppuccin',
+        globalstatus = true,
       },
       sections = {
-	lualine_a = {
-	  { 'mode', --[[icon = { vim_icon, color = { fg = vim_color } }]] },
-	  make_option('paste', 'PASTE'),
-	  make_option('hlsearch', 'SEARCH'),
-	  make_option('spell', 'SPELL'),
-	},
-	lualine_b = {
-	  {
-	    'branch',
-	    separator = lualine_b_separator,
-	    color = {fg = colors.text},
-	    on_click = toggle_signs,
-	  },
-	  {
-	    'diagnostics',
-	    separator = lualine_b_separator,
-	    color = { fg = colors.text },
-	    sources = { 'nvim_workspace_diagnostic' },
-	    sections = { 'error', 'warn' },
-	    on_click = diagnostics_disable,
-	  },
-	  {
-	    session_name,
-	    separator = lualine_b_separator,
-	    color = { fg = colors.text, gui = 'italic' },
-	    on_click = session_close, -- or session_list
-	  }
-	},
-	lualine_c = { filename },
-	lualine_x = { fileformat },
-	lualine_y = {
-	  { 'progress', color = { fg = colors.text } },
-	},
-	lualine_z = {
-	  { 'location', --[[icon = '',]] color = { fg = colors.mantle, bg = colors.text } },
-	},
+        lualine_a = {
+          { 'mode', --[[icon = { vim_icon, color = { fg = vim_color } }]] },
+          make_option('paste', 'PASTE'),
+          make_option('hlsearch', 'SEARCH'),
+          make_option('spell', 'SPELL'),
+        },
+        lualine_b = {
+          {
+            'branch',
+            separator = lualine_b_separator,
+            color = {fg = colors.text},
+            on_click = toggle_signs,
+          },
+          {
+            'diagnostics',
+            separator = lualine_b_separator,
+            color = { fg = colors.text },
+            sources = { 'nvim_workspace_diagnostic' },
+            sections = { 'error', 'warn' },
+            on_click = diagnostics_disable,
+          },
+          {
+            session_name,
+            separator = lualine_b_separator,
+            color = { fg = colors.text, gui = 'italic' },
+            on_click = session_close, -- or session_list
+          }
+        },
+        lualine_c = { filename },
+        lualine_x = { fileformat },
+        lualine_y = {
+          { 'progress', color = { fg = colors.text } },
+        },
+        lualine_z = {
+          { 'location', --[[icon = '',]] color = { fg = colors.mantle, bg = colors.text } },
+        },
       },
       inactive_sections = {
-	lualine_a = {},
-	lualine_b = {},
-	lualine_c = { filename },
-	lualine_x = { fileformat },
-	lualine_y = {
-	  { 'progress', color = { fg = colors.overlay0 } },
-	},
-	lualine_z = {
-	  { 'location', --[[icon = '',]] color = { fg = colors.overlay0 } },
-	},
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { filename },
+        lualine_x = { fileformat },
+        lualine_y = {
+          { 'progress', color = { fg = colors.overlay0 } },
+        },
+        lualine_z = {
+          { 'location', --[[icon = '',]] color = { fg = colors.overlay0 } },
+        },
       },
     })
   end,

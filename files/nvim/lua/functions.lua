@@ -13,6 +13,12 @@ function is_floating(winid)
   return vim.api.nvim_win_get_config(winid).relative ~= ''
 end
 
+-- Convenience function to determine if a popup menu is active.
+function is_popup()
+  return vim.fn.pumvisible() == 1 or
+         vim.fn.wildmenumode() == 1
+end
+
 -- A more usable version of vim.fn.pathshorten().
 function pathshorten(path)
   path = vim.fn.fnamemodify(path, ':.')

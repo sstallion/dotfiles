@@ -50,7 +50,12 @@ function vimgrep {
 	vimremote --remote-expr "chdir('${(q)oldpwd}')" &>/dev/null
 }
 
-alias vimopen="vimremote --remote"
-alias vimtab="vimremote --remote-tab"
+function vimopen {
+    vimremote --remote "${@:A}"
+}
+
+function vimtab {
+    vimremote --remote-tab "${@:A}"
+}
 
 # vim: ft=zsh
