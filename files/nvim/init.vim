@@ -66,12 +66,14 @@ noremap <silent> ]t <Cmd>tabnext<CR>
 noremap <silent> [T <Cmd>tabfirst<CR>
 noremap <silent> ]T <Cmd>tablast<CR>
 
-noremap! <expr> <Esc> v:lua.is_popup() ? '<C-E>' : '<C-C>'
+inoremap <expr> <Esc> v:lua.is_popup() ? '<C-E>' : '<Esc>'
+cnoremap <expr> <Esc> v:lua.is_popup() ? '<C-E>' : '<C-C>'
 noremap! <expr> <CR>  v:lua.is_popup() ? '<C-Y>' : '<CR>'
 noremap! <expr> <C-H> v:lua.is_popup() ? '<Nop>' : '<Left>'
 noremap! <expr> <C-J> v:lua.is_popup() ? '<C-N>' : '<Down>'
 noremap! <expr> <C-K> v:lua.is_popup() ? '<C-P>' : '<Up>'
 noremap! <expr> <C-L> v:lua.is_popup() ? '<Nop>' : '<Right>'
+inoremap <expr> <C-O> v:lua.is_popup() ? '<Nop>' : '<Esc>o'
 
 " Disable horizontal scrolling:
 map <ScrollWheelLeft> <Nop>
