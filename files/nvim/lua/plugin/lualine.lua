@@ -92,8 +92,8 @@ return {
       require('gitsigns').toggle_signs(nil)
     end
 
-    local function diagnostics_disable()
-      vim.diagnostic.enable(false)
+    local function toggle_diagnostics()
+      vim.diagnostic.enable(not vim.diagnostic.is_enabled())
       require('lualine').refresh()
     end
 
@@ -147,7 +147,7 @@ return {
             color = { fg = colors.text },
             sources = { 'nvim_workspace_diagnostic' },
             sections = { 'error', 'warn' },
-            on_click = diagnostics_disable,
+            on_click = toggle_diagnostics,
           },
           {
             session_name,
