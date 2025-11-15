@@ -1,8 +1,6 @@
 -- init.lua - Neovim configuration
 
 require('functions')
-require('diagnostic')
-require('lsp')
 
 -- Disable deprecation messages:
 vim.deprecate = function() end
@@ -25,21 +23,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  defaults = {
-    version = '*',
-  },
+  defaults = { version = '*' },
   spec = {
     { import = 'plugin' },
   },
-  rocks = {
-    enabled = false,
-  },
+  rocks = { enabled = false },
   install = {
     colorscheme = { 'catppuccin' },
   },
-  change_detection = {
-    notify = false,
-  },
+  change_detection = { notify = false },
 })
 
 -- Key Mappings

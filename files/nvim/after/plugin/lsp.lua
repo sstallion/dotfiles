@@ -2,6 +2,9 @@
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
+    -- Prefer builtin formatting when using gq et al.:
+    vim.bo[args.buf].formatexpr = nil
+
     local opts = { buffer = args.buf, noremap = true, silent = true }
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition,      opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,  opts)
@@ -15,6 +18,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- cmake_help should probably be rewritten as a hoverProvider.
     if vim.bo[args.buf].filetype ~= 'cmake' then
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    end
+
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client:supports_method('textDocument/formatting') then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+        end,
+      })
     end
 
     --[[

@@ -1,5 +1,5 @@
 {
-  "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
+  "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
   "bufferline.nvim": { "branch": "main", "commit": "4da9ec32976582c179ba92951c751f2436a14395" },
   "catppuccin": { "branch": "main", "commit": "cb5665990a797b102715188e73c44c3931b3b42e" },
   "git-conflict.nvim": { "branch": "main", "commit": "4bbfdd92d547d2862a75b4e80afaf30e73f7bbb4" },
@@ -16,7 +16,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "5b9067899ee6a2538891573500e8fd6ff008440f" },
   "obsidian.nvim": { "branch": "main", "commit": "ae1f76a75c7ce36866e1d9342a8f6f5b9c2caf9b" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
-  "possession.nvim": { "branch": "master", "commit": "3d5b760bd4efbd489d95720b47f6a235bd6f6f24" },
+  "possession.nvim": { "branch": "master", "commit": "fbea95b16c284727bc8deff2c3780a73efcdaca6" },
   "qf.nvim": { "branch": "main", "commit": "eaa7883b35b9ff18a5c754880db7e39620ff3b3a" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope-vim-bookmarks.nvim": { "branch": "main", "commit": "09a61043496bd9c4240955f7532ff2ae8fe3a905" },
