@@ -4,6 +4,13 @@ return {
   'saghen/blink.cmp',
   config = function()
     local auto_show = false; -- disable by default
+
+    -- Bypass prebuilt binaries on FreeBSD:
+    local fuzzy_implementation = 'prefer_rust'
+    if vim.fn.has('bsd') then
+      fuzzy_implementation = 'lua'
+    end
+
     local cmp = require('blink.cmp')
     cmp.setup({
       keymap = {
@@ -20,6 +27,7 @@ return {
         menu = { auto_show = function() return auto_show end },
       },
       signature = { enabled = true },
+      fuzzy = { implementation = fuzzy_implementation },
       cmdline = { enabled = false },
       term = { enabled = false },
     })
