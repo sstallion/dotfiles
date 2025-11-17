@@ -1,7 +1,7 @@
 " formatoptions.vim - automatic formatting
 
 " Default 'formatoptions' for all file types:
-autocmd FileType * setlocal formatoptions=cqbj
+autocmd FileType * setlocal formatoptions=cqanlj
 
 " 'formatoptions' are usually applied to related file types. Rather than
 " add duplicate ftplugin entries, we apply them here instead:
@@ -9,7 +9,5 @@ autocmd FileType c,cpp,gn,header,lua,tcl,verilog,vhdl
       \ setlocal formatoptions+=r
 
 autocmd FileType help,markdown,obsidian
-      \ setlocal formatoptions+=tan
-
-autocmd FileType markdown,obsidian
-      \ setlocal formatoptions+=w
+      \ setlocal formatoptions-=c |
+      \ setlocal formatoptions+=t
