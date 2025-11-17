@@ -9,5 +9,5 @@ autocmd FileType c,cpp,gn,header,lua,tcl,verilog,vhdl
       \ setlocal formatoptions+=r
 
 autocmd FileType help,markdown,obsidian
-      \ setlocal formatoptions-=c |
+      \ setlocal formatoptions-=a |
       \ setlocal formatoptions+=t
