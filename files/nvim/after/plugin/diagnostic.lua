@@ -12,7 +12,6 @@ vim.diagnostic.config({
     source = false,
   },
   signs = false,
-  update_in_insert = false,
   severity_sort = true,
 })
 

@@ -145,7 +145,7 @@ return {
             'diagnostics',
             separator = lualine_b_separator,
             color = { fg = colors.text },
-            sources = { 'nvim_workspace_diagnostic' },
+            sources = { 'nvim_diagnostic' },
             sections = { 'error', 'warn' },
             on_click = toggle_diagnostics,
           },
