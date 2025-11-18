@@ -35,7 +35,6 @@
 ### macOS
 
 - [MacPorts](https://www.macports.org/)
-- [tmux-MacOSX-pasteboard](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)
 
 ### Windows
 
@@ -53,6 +52,7 @@
 - [Vim](http://www.vim.org/)
 - [Vimpager](https://github.com/rkitover/vimpager)
 - [Vimwiki](https://github.com/sstallion/vimwiki-cli)
+- [tmux-MacOSX-pasteboard](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)
 
 ## Defunct
 

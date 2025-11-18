@@ -26,7 +26,9 @@ Darwin)
 	# when installing reattach-to-user-namespace via brew(1);
 	# see: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard,
 	#      http://superuser.com/a/413233.
-	tmux set-option -g default-command "reattach-to-user-namespace -l ${SHELL}"
+        if ! has_version 2.6; then
+            tmux set-option -g default-command "reattach-to-user-namespace -l ${SHELL}"
+        fi
 
 	# Key Bindings
 	tmux bind-key -T copy-mode-vi Enter             send-keys -X copy-pipe-and-cancel "pbcopy"
