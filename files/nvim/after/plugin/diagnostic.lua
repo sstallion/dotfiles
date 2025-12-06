@@ -21,3 +21,8 @@ hl_undercurl('DiagnosticUnderlineWarn')
 hl_undercurl('DiagnosticUnderlineInfo')
 hl_undercurl('DiagnosticUnderlineHint')
 hl_undercurl('DiagnosticUnderlineOk')
+
+-- Key Mappings
+vim.keymap.set('n', '<Leader>d', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end)
