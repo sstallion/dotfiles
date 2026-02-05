@@ -3,7 +3,8 @@ ctags
 fonts
 gdb
 git
-gnupg
+gpg
+gpg-agent
 latexmk
 less
 mercurial

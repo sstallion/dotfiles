@@ -1,0 +1,28 @@
+- include: meta/defaults.yaml
+
+- install:
+  - iffreebsd:
+    - shell:
+      - pkg install -y security/gnupg
+  - ifdebian:
+    - shell:
+      - apt-get -y install gnupg2
+  - ifmacos:
+    - shell:
+      - port install gnupg2
+  - ifwindows:
+    - shell:
+      - winget install -i GnuPG.Gpg4win
+
+- config:
+  - ifposix:
+    - create:
+        ~/.gnupg:
+          mode: 0700
+    - link:
+        ~/.gnupg/gpg-agent.conf: files/gnupg/gpg-agent.conf
+        ~/.gnupg/scdaemon.conf: files/gnupg/scdaemon.conf
+  - ifwindows:
+    - link:
+        '%APPDATA%/gnupg/gpg-agent.conf': files/gnupg/gpg-agent.conf
+        '%APPDATA%/gnupg/scdaemon.conf': files/gnupg/scdaemon.conf
