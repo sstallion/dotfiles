@@ -16,4 +16,13 @@ set python print-stack full
 # see: https://stackoverflow.com/a/40437725.
 #set startup-with-shell off
 
+# Helper commands:
+define offsetof
+  p/x (unsigned char *)&(((struct $arg0 *)0)->$arg1)
+end
+
+document offsetof
+Print value of offsetof for type and member.
+end
+
 # vim: ft=gdb
