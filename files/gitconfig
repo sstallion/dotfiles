@@ -54,6 +54,17 @@
 	process = git-lfs filter-process
 	required = true
 
+[github]
+	user = sstallion
+
+[include]
+	# Include a third user-specific configuration file to overwrite
+	# variables defined in the global configuration:
+	path = ~/.gitconfig.local
+
+[init]
+	defaultBranch = main
+
 [merge]
 	tool = vimdiff
 
@@ -75,13 +86,5 @@
 [user]
 	name = Steven Stallion
 	email = sstallion@gmail.com
-
-[github]
-	user = sstallion
-
-[include]
-	# Include a third user-specific configuration file to overwrite
-	# variables defined in the global configuration:
-	path = ~/.gitconfig.local
 
 # vim: ft=gitconfig
