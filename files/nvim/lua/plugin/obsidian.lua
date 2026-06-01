@@ -26,6 +26,11 @@ return {
     })
 
     vim.treesitter.language.register('markdown', 'obsidian')
+
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'obsidian',
+      callback = function() vim.treesitter.start() end,
+    })
   end,
   config = function()
     local function note_frontmatter(note)
