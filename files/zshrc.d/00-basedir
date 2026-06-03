@@ -1,0 +1,23 @@
+# basedir - Base directory configuration
+#   https://specifications.freedesktop.org/basedir/latest/
+
+# FreeDesktop.org should really define these:
+export XDG_BIN_HOME="$HOME/.local/bin"
+export XDG_LIB_HOME="$HOME/.local/lib"
+path=($XDG_BIN_HOME $path)
+
+# XDG base directories are namespaced to support multiple hosts when using
+# non-local home directories (e.g. NFS/CIFS):
+if ! df -l "$HOME" &>/dev/null; then
+	host=$(hostname -s)
+	export XDG_DATA_HOME="$HOME/.host/$host/share"
+	export XDG_STATE_HOME="$HOME/.host/$host/state"
+	export XDG_CACHE_HOME="$HOME/.host/$host/cache"
+
+	export XDG_BIN_HOME="$HOME/.host/$host/bin"
+	export XDG_LIB_HOME="$HOME/.host/$host/lib"
+	path=($XDG_BIN_HOME $path)
+fi
+unset host
+
+# vim: ft=zsh
