@@ -57,11 +57,6 @@
 [github]
 	user = sstallion
 
-[include]
-	# Include a third user-specific configuration file to overwrite
-	# variables defined in the global configuration:
-	path = ~/.gitconfig.local
-
 [init]
 	defaultBranch = main
 
@@ -86,5 +81,10 @@
 [user]
 	name = Steven Stallion
 	email = sstallion@gmail.com
+
+[include]
+	# Include a third user-specific configuration file to overwrite
+	# variables defined in the global configuration:
+	path = ~/.gitconfig.local
 
 # vim: ft=gitconfig
