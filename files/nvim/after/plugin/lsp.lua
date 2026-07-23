@@ -21,7 +21,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client:supports_method('textDocument/formatting') then
+
+    -- Disable clangd's builtin formatting until it can learn to play nicely
+    -- with others. See https://github.com/llvm/llvm-project/issues/158538.
+    if client.name == 'clangd' then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        buffer = args.buf,
+        command = 'FormatCode clang-format',
+      })
+    elseif client:supports_method('textDocument/formatting') then
       vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = args.buf,
         callback = function()
