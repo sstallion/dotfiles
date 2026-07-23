@@ -1,0 +1,11 @@
+# ports - FreeBSD ports configuration
+
+[[ $OSTYPE == freebsd* ]] || return
+
+# Use sudo(8) for privilege escalation if installed:
+if sudo=$(whence -p sudo); then
+	export SU_CMD="$sudo -E sh -c"
+fi
+unset sudo
+
+# vim: ft=zsh
