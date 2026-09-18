@@ -16,6 +16,7 @@
 .DS_Store
 .lvimrc
 a.out
+core.*
 tags
 tags.files
 tags.lock
