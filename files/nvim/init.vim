@@ -91,3 +91,8 @@ aunmenu PopUp.-1-
 " Stop insert mode when leaving a buffer. This avoids accidental
 " insertions when navigating with a mouse.
 autocmd BufLeave * stopinsert
+
+" Work around slow clipboard providers; see g:clipboard.
+"let g:clipboard = {
+"  \   'cache_enabled': 1,
+"  \ }
